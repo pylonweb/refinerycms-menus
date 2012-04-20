@@ -1,0 +1,32 @@
+da:
+  refinery:
+    plugins:
+      refinery_page_menus:
+        title: Side Menu
+        description: Vedligehold indhold
+    admin:
+      pages:
+        actions:
+          pages:
+            title: Sider
+            create_new: Tilføj en ny side
+            manage: Håndter sider
+          menus:
+            title: Menuer
+            main: Hovedmenu
+            create_new: Tilføj en ny menu
+            manage: Håndter menuer
+            edit: Redigér menuen
+      page_menus:
+        form:
+          menu_pages: Sider i menuen
+          pages_help: Dette er en liste over alle de sider der indgår i menuen. Vælg en side og tryk '<' for at fjerne den.
+          all_pages: Alle sider
+          all_pages_help: Dette er en liste over alle tilgængelige sider. Vælg hvilke sider der skal indgå i menuen, og tryk '>'.
+  activerecord:
+    models:
+      refinery/page_menu: Menu
+    attributes:
+      refinery/page_menu:
+        title: Titel
+        pages: Sider

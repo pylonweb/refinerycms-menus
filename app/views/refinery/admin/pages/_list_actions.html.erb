@@ -1,0 +1,28 @@
+<ul>
+  <li>
+    <%= render '/refinery/admin/search', :url => refinery.admin_pages_path %>
+  </li>
+  <li>
+    <%= link_to t('create_new_page', :scope => "refinery.admin.pages.actions"), refinery.new_admin_page_path,
+                :class => "add_icon" %>
+  </li>
+
+	<ul class='collapsible_menu'>
+		<li class='not_a_link'>
+	  	<%= link_to t('menus.title', :scope => "refinery.admin.pages.actions"), "#",
+	                 :class => "folder_icon" %>
+	  </li>
+	
+	  <li>
+	    <%= link_to t('menus.main', :scope => "refinery.admin.pages.actions"), refinery.admin_pages_main_menu_path,
+	                 :class => "folder_icon" %>
+	  </li>
+
+	<% @page_menus.each do |menu| %>
+	  <li>
+	    <%= link_to menu.title, refinery.admin_page_menu_page_positions_path(menu),
+	                 :class => "folder_icon" %>
+	  </li>
+	<% end %>
+	</ul>
+</ul>

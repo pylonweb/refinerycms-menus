@@ -1,0 +1,8 @@
+<section id='records'>
+  <% cache_if(Refinery::Pages.cache_pages_backend, [Refinery::Core.base_cache_key, "pages_backend", Globalize.locale].join('_')) do %>
+    <%= render 'list_records' %>
+  <% end %>
+</section>
+<section id='actions'>
+  <%= render 'list_actions' %>
+</section>
