@@ -6,6 +6,10 @@ da:
         description: Vedligehold indhold
     admin:
       pages:
+        form_advanced_options: 
+          show_in_menu_title: Vis i hovedmenuen
+          show_in_menu_description: Vis siden i hovedmenuen på sitet
+          show_in_menu_help: Afkryds ikke, hvis du vil fjerne siden fra hovedmenuen på sitet. Dette kan benyttes, hvis du vil have en side, du kan linke til direkte, eller bruge i en anden menu, men som ikke skal vises i hovedmenuen.
         actions:
           pages:
             title: Sider
@@ -20,9 +24,9 @@ da:
       page_menus:
         form:
           menu_pages: Sider i menuen
-          pages_help: Dette er en liste over alle de sider der indgår i menuen. Vælg en side og tryk '<' for at fjerne den.
-          all_pages: Alle sider
-          all_pages_help: Dette er en liste over alle tilgængelige sider. Vælg hvilke sider der skal indgå i menuen, og tryk '>'.
+          pages_help: Dette er en liste over alle de sider der indgår i menuen. Vælg sider og tryk '<' for at fjerne dem.
+          all_pages: Sider ikke i menuen
+          all_pages_help: Dette er en liste over alle tilgængelige sider der ikke indgår i menuen. Vælg hvilke sider der skal indgå i menuen, og tryk '>'.
   activerecord:
     models:
       refinery/page_menu: Menu
