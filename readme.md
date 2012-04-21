@@ -26,6 +26,12 @@ Add this line to your applications `Gemfile`
 gem 'refinerycms-page-menus', '~> 2.0.0'
 ```
 
+or for edge version
+
+```ruby
+gem 'refinerycms-page-menus', git: 'git@github.com:pylonweb/refinerycms-page-menus.git'
+```
+
 Next run
 
 ```bash
