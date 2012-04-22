@@ -2,8 +2,9 @@
 
 ## IMPORTANT: IN DEVELOPMENT!
 
-This extension is still in development! There is no tests yet.
-You would have to override the refinery menu and menu_branch yourself for the extension to work. You can use refinery_page_menu("custom_menu") which returns a PageMenu model object with the permatitle "custom_menu". 
+This extension is still in development! There is no tests yet. You would have to override the 
+refinery menu and menu_branch yourself for the extension to work. You can use 
+refinery_page_menu("custom_menu") which returns a PageMenu model object with the permatitle "custom_menu". 
 Also you can't create new menus in the admin interface, you have to create them yourself.
 
 A stable complete version will soon be released.
