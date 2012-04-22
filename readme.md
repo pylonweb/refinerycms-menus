@@ -2,8 +2,7 @@
 
 ## IMPORTANT: IN DEVELOPMENT!
 
-This extension is still in development! There is no tests yet. You would have to override the 
-refinery menu and menu_branch yourself for the extension to work. You can use 
+This extension is still in development! There is no tests yet. You can use 
 refinery_page_menu("custom_menu") which returns a PageMenu model object with the permatitle "custom_menu". 
 Also you can't create new menus in the admin interface, you have to create them yourself.
 
@@ -55,7 +54,7 @@ rake refinery:override view=refinery/header
 
 ```erb
 == render :partial => "/refinery/menu", :locals => { 
-				:menu => refinery_page_menu("custom_menu")
+				:roots => refinery_page_menu("custom_menu").roots
 	          }	          	          
 ```
 
