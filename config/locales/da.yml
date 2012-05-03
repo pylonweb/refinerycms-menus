@@ -3,7 +3,7 @@ da:
     plugins:
       refinery_page_menus:
         title: Side Menu
-        description: Vedligehold indhold
+        description: Opret og håndter brugerdefinerede menuer for din side
     admin:
       pages:
         form_advanced_options: 
