@@ -28,7 +28,7 @@ gem 'refinerycms-page-menus', '~> 2.0.0'
 or for edge version
 
 ```ruby
-gem 'refinerycms-page-menus', git: 'git@github.com:pylonweb/refinerycms-page-menus.git'
+gem 'refinerycms-page-menus', git: 'git://github.com/pylonweb/refinerycms-page-menus.git'
 ```
 
 Next run
@@ -43,12 +43,12 @@ Now when you start up your Refinery application, go to the pages in your admin i
 
 ## Usage
 
-`app/views/refinery/pages/header.html.erb`
+`app/views/refinery/pages/_header.html.erb`
 
 If you don't have this file then Refinery will be using its default. You can override this with
 
 ```bash
-rake refinery:override view=refinery/header
+rake refinery:override view=refinery/_header
 ```
 
 ```erb
