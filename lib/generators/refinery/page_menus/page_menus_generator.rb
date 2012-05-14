@@ -15,7 +15,7 @@ module Refinery
       append_file 'db/seeds.rb', :verbose => true do
               <<-EOH
       # Added by Refinery CMS Page Menus extension
-      Refinery::PageMenu::Engine.load_seed
+      Refinery::PageMenus::Engine.load_seed
               EOH
       end
     end

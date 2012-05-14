@@ -16,6 +16,7 @@ module Refinery
         Refinery::Plugin.register do |plugin|
           plugin.pathname = root
           plugin.name = 'refinery_page_menus'
+          plugin.menu_match = /refinery\/(page_menus|main_menu|page_positions)/ #Match controller path
           plugin.hide_from_menu = true
         end
       end
