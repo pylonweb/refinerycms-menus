@@ -7,7 +7,7 @@
 Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.name              = %q{refinerycms-page-menus}
-  s.version           = '2.0.3.dev'
+  s.version           = '2.0.6.dev'
   s.summary           = %q{Pages Menus extension for Refinery CMS}
   s.description       = %q{Add custom menus to pages}
   s.date              = Date.today.strftime("%Y-%m-%d")
@@ -21,5 +21,5 @@ Gem::Specification.new do |s|
   s.test_files        = `git ls-files -- spec/*`.split("\n")
 
   s.add_dependency    'awesome_nested_set', '~> 2.1.0'
-  s.add_dependency    'refinerycms-pages',  '~> 2.0.3'
+  s.add_dependency    'refinerycms',  '~> 2.0.6'
 end

@@ -15,14 +15,14 @@ Page menus allows you to create and edit several custom menus for your Refinery 
 
 ## Requirements
 
-* refinerycms >= 2.0.0
+* refinerycms >= 2.0.6
 
 ## Install
 
 Add this line to your applications `Gemfile`
 
 ```ruby
-gem 'refinerycms-page-menus', '~> 2.0.0'
+gem 'refinerycms-page-menus', '~> 2.0.6'
 ```
 
 or for edge version
