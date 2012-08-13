@@ -14,7 +14,7 @@ module Refinery
     validates :menu, :presence => true
     
     def title
-      page.title
+      page_title_with_translations page.title
     end
         
     def url
