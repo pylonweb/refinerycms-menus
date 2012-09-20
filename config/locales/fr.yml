@@ -1,0 +1,37 @@
+fr:
+  refinery:
+    plugins:
+      refinery_page_menus:
+        title: Menu de pages
+        description: Cr&eacute;er et g&eacute;rer des menus personnalis&eacute;s pour votre site
+    admin:
+      pages:
+        form_advanced_options: 
+          show_in_menu_title: Afficher dans le menu principal (mainmenu)
+          show_in_menu_description: Afficher la page dans le menu principal (mainmenu) du site
+          show_in_menu_help: D&eacute;cochez cette case si vous souhaitez supprimer une page de votre menu principal (mainmenu). Cela peut  &ecirc;tre pratique si vous avez une page que vous souhaitez lier directement ou utiliser dans un autre menu.
+             This can be handy if you have a page you want to link people to directly or use in another menu but don&apos;t want to show the page in the menu.
+        actions:
+          pages:
+            title: Pages
+            create_new: Cr&eacute;er une nouvelle page
+            manage: G&eacute;rer les pages
+          menus:
+            title: Menus
+            main: Menu principal (mainmenu)
+            create_new: Cr&eacute;er un nouveau menu
+            manage: G&eacute;rer les menus
+            edit: Modifier ce menu
+      page_menus:
+        form:
+          menu_pages: Pages dans le menu
+          pages_help: Ceci est la liste de toutes les pages ins&eacute;r&eacute;es dans le menu. S&eacute;lectionnez les pages et cliquez sur le bouton &apos;<&apos; pour les enlever de ce menu.
+          all_pages: Pages hors du menu
+          all_pages_help: Ceci est la liste de toutes les pages qui ne sont pas encore ins&eacute;r&eacute;es dans le menu. S&eacute;lectionnez les pages que vous souhaitez avoir dans le menu et cliquez sur le bouton &apos;>&apos; pour les ajouter.
+  activerecord:
+    models:
+      refinery/page_menu: Menu
+    attributes:
+      refinery/page_menu:
+        title: Titre
+        pages: Pages

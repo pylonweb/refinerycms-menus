@@ -8,7 +8,8 @@
     <% end %>
 
     <span class='title <%= 'toggle' if page.children.present? %>'>
-      <%= page.title_with_meta.html_safe %>
+      <%= page_title_with_translations page %>
+      <%= page_meta_information page %>
       <% if Refinery.i18n_enabled? and Refinery::I18n.frontend_locales.many? %>
         <span class='preview'>
           <% page.translations.each do |translation| %>
@@ -39,7 +40,7 @@
                   refinery.admin_page_path(page.uncached_nested_url),
                   :class => "cancel confirm-delete",
                   :title => t('delete', :scope => 'refinery.admin.pages'),
-                  :confirm => t('message', :scope => 'refinery.admin.delete', :title => page.title_with_meta.gsub(/\ ?<em>.*<\/em>/, "")),
+                  :confirm => t('message', :scope => 'refinery.admin.delete', :title => page_title_with_translations(page).gsub(/\ ?<em>.*<\/em>/, "")),
                   :method => :delete if page.deletable? %>
     </span>
   </div>
