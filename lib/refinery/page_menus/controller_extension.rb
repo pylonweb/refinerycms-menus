@@ -17,14 +17,18 @@ module Refinery
 
             render_partial_response?
           end
-
+          
           def index
             unless searching?
-              @pages = Refinery::Page.where(:show_in_menu => true).includes(:translations, :children).order("lft ASC")
+              if Refinery::PageMenus.show_hidden_pages_in_main_menu
+                find_all_pages
+              else
+                @pages = Refinery::Page.where(:show_in_menu => true).includes(:translations, :children).order("lft ASC")
+              end
             else
               search_all_pages
             end
-
+          
             render_partial_response?
           end
 
