@@ -8,6 +8,8 @@ module Refinery
     validates :permatitle, :presence => true, :uniqueness => true
     validates_associated :positions
     
+    attr_accessible :title, :permatitle, :pages
+    
     def pages=(new_ids)
       old_ids = positions.map(&:refinery_page_id)
       (new_ids - old_ids).each do |id|

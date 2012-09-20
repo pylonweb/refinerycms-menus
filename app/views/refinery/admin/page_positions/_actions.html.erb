@@ -18,17 +18,23 @@
                 :style => "display: none;",
                 :class => "reorder_icon" %>
   </li>
-
+  
+  <% if Refinery::PageMenus.pages_overview %>
 	<li>
 		<%= link_to t('pages.manage', :scope => 'refinery.admin.pages.actions'), refinery.admin_pages_path,
 	               :class => "folder_icon" %>
 	</li>
-
+	<% end %>
+	
+  <% if Refinery::PageMenus.collapsible_menu %>
 	<ul class='collapsible_menu'>
 		<li class='not_a_link'>
 	  	<%= link_to t('menus.title', :scope => 'refinery.admin.pages.actions'), "#",
 	                 :class => "folder_icon" %>
 	  </li>
+  <% else %>
+  <ul>
+  <% end %>
 	
 	  <li>
 	    <%= link_to t('menus.main', :scope => 'refinery.admin.pages.actions'), refinery.admin_pages_main_menu_path,
