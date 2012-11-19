@@ -27,13 +27,13 @@
 	<% end %>
 	
   <% if Refinery::PageMenus.collapsible_menu %>
-	<ul class='collapsible_menu'>
-		<li class='not_a_link'>
-	  	<%= link_to t('menus.title', :scope => 'refinery.admin.pages.actions'), "#",
-	                 :class => "folder_icon" %>
-	  </li>
+    <ul class='collapsible_menu'>
+      <li class='not_a_link'>
+        <%= link_to t('menus.title', :scope => 'refinery.admin.pages.actions'), "#",
+                     :class => "folder_icon" %>
+      </li>
   <% else %>
-  <ul>
+    <ul>
   <% end %>
 	
 	  <li>
@@ -41,7 +41,7 @@
 	                 :class => "folder_icon" %>
 	  </li>
 	
-	<% (@page_menus - [@page_menu]).each do |menu| %>
+	<% @page_menus.each do |menu| %>
 	  <li>
 	    <%= link_to menu.title, refinery.admin_page_menu_page_positions_path(menu),
 	                 :class => "folder_icon" %>

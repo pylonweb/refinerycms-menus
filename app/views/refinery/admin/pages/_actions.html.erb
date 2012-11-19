@@ -33,13 +33,13 @@
 	<% end %>
   
   <% if Refinery::PageMenus.collapsible_menu %>
-	<ul class='collapsible_menu'>
-		<li class='not_a_link'>
-	  	<%= link_to t('.menus.title'), "#",
-	                 :class => "folder_icon" %>
-	  </li>
+    <ul class='collapsible_menu'>
+      <li class='not_a_link'>
+        <%= link_to t('.menus.title'), "#",
+                     :class => "folder_icon" %>
+      </li>
 	<% else %>
-	<ul>
+	  <ul>
   <% end %>
 	<% @page_menus.each do |menu| %>
 	  <li>
