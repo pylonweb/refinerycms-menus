@@ -19,6 +19,10 @@ module Refinery
       refinery_blog_post: {
         klass: 'Refinery::Blog::Post',
         admin_partial: '/refinery/blog/admin/posts/post'
+      },
+      refinery_resource: {
+        klass: 'Refinery::Resource',
+        admin_partial: '/refinery/admin/resources/resource'
       }
     }
    
