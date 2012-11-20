@@ -6,6 +6,9 @@ module Refinery
               :order => "lft ASC",
               :include => [:children],
               :paging => false
+
+      helper :'refinery/page_positions'
+      helper :'refinery/admin/pages'
               
       before_filter :find_all_menus, :find_menu, :only => [:index, :update_positions]
 

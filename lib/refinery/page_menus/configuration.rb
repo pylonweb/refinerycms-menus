@@ -13,10 +13,12 @@ module Refinery
 
     self.menu_resources = {
       refinery_page: {
-        klass: 'Refinery::Page'
+        klass: 'Refinery::Page',
+        admin_partial: '/refinery/admin/page_positions/page_position'
       },
       refinery_blog_post: {
-        klass: 'Refinery::Blog::Post'
+        klass: 'Refinery::Blog::Post',
+        admin_partial: '/refinery/blog/admin/posts/post'
       }
     }
    

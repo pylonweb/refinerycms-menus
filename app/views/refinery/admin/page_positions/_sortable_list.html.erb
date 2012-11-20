@@ -1,4 +1,4 @@
 <ul id='sortable_list'>
-  <%= render :partial => 'page_position', :collection => @page_positions.select{|p| p.parent_id.nil?}  %>
+  <%= render_menu_list(@page_positions.select{|p| p.parent_id.nil?}) %>
 </ul>
 <%= render '/refinery/admin/sortable_list', :continue_reordering => !!local_assigns[:continue_reordering] %>

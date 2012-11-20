@@ -20,11 +20,12 @@ module Refinery
     end
 
     def resource_klass
-      resource_klass = resource_config[:klass].constantize
+      resource_config[:klass].constantize
     end
 
     def resource_config
-      Refinery::PageMenus.menu_resources[refinery_resource_type.to_sym]
+      type = refinery_resource_type || 'refinery_page'
+      Refinery::PageMenus.menu_resources[type.to_sym]
     end
 
     def resource_url
