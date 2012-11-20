@@ -22,4 +22,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency    'awesome_nested_set', '~> 2.1.0'
   s.add_dependency    'refinerycms',  '~> 2.0.6'
+  s.add_dependency    'nokogiri', '~> 1.5.5'
 end
