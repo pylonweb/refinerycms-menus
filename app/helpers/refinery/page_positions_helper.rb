@@ -15,7 +15,15 @@ module Refinery
     end
 
     def render_custom_menu_link(page_position)
-      render(partial: "custom_page_position", locals: {page_position: page_position})
+      list_partial = render(partial: "custom_page_position", locals: {page_position: page_position})
+
+      dom = Nokogiri::HTML.fragment(list_partial)
+      li = dom.css('li').first
+
+      # append nested ul to end of this li
+      li << nested_ul(page_position)
+
+      dom.to_s.html_safe
     end
 
     def render_resource_menu_link(page_position)
@@ -40,17 +48,18 @@ module Refinery
         title_div.content = "#{page_position.label} | #{title_div.content}"
       end
 
-      # recursively create nested list of children
-      nested_ul = content_tag :ul, class: 'nested' do
-        render_menu_list(page_position.children)
-      end
-
       # append nested ul to end of this li
-      li << nested_ul
+      li << nested_ul(page_position)
 
       dom.to_s.html_safe
     end
 
+    def nested_ul(page_position)
+      # recursively create nested list of children
+      content_tag :ul, class: 'nested' do
+        render_menu_list(page_position.children)
+      end
+    end
 
 
   end
