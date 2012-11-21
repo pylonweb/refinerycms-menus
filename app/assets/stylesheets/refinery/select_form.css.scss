@@ -1,8 +1,3 @@
-.select{
-  height: 397px;
-  width: 100%;
-}
-
 .select_from{
   display:block;
   float:left;
@@ -21,4 +16,32 @@
   text-align:right;
   padding-top: 180px;
   width: 36px;
+}
+
+
+.pp-add-box {
+  background: #aaa;
+  margin-top: 20px;
+  width: 200px;
+  padding: 15px;
+
+  h3 {
+    margin-top: 0;
+  }
+
+  .button {
+    margin-top: 15px;
+    display: block;
+  }
+
+  input[type='text'] {
+    width: 190px;
+  }
+
+  .pp-selection-box {
+    background: white;
+    max-height: 140px;
+    padding: 10px;
+    overflow-y: scroll;
+  }
 }

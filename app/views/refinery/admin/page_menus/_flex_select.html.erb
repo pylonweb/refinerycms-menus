@@ -1,0 +1,37 @@
+<div class='select clearfix'>
+
+  <div id="custom_url_box" class="pp-add-box">
+    <h3>Custom Link</h3>
+    <div class='field'>
+      <%= label_tag(:url) %>
+      <%= text_field_tag(:url) %>
+    </div>
+    <div class='field'>
+      <%= label_tag(:label) %>
+      <%= text_field_tag(:label) %>
+    </div>
+    <%= submit_tag('Add', class: 'wymupdate button') %>
+  </div>
+
+  <div class="pp-add-box" data-type="refinery_page">
+    <h3>Pages</h3>
+    <div class='pp-selection-box'>
+      <ul class='checkboxes'>
+        <% @pages.each do |object| %>
+          <li>
+            <%= check_box_tag(dom_id(object)) %>
+            <%= label_tag(dom_id(object), object.title, class: 'stripped') %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <%= submit_tag('Add', class: 'wymupdate button') %>
+  </div>
+
+  <div class="hemisquare right_side">
+    
+  </div>
+
+</div>
+
+<% content_for :stylesheets, stylesheet_link_tag('refinery/select_form') %>

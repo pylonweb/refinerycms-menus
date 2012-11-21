@@ -1,0 +1,17 @@
+<%= form_for [refinery, :admin, @page_menu], :html => {:onsubmit => "selectAll('.select_to')"} do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+             :object => @page_menu,
+             :include_object_name => true %>
+
+  <div class='field'>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "larger widest" %>
+  </div>
+
+  <%= render 'flex_select' %>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.travels.admin.travels.category'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete') %>
+<% end %>
