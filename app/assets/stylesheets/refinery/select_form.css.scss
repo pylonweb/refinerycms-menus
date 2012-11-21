@@ -60,13 +60,14 @@
 
 .pp-link {
   position: relative;
-  cursor: pointer;
+  margin-bottom: 10px;
 
   .header {
     height: 20px;
     line-height: 20px;
     padding: 8px;
     background: #c3e1ff;
+    cursor: pointer;
 
     &:hover {
       background: #add6ff;

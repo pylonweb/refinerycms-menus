@@ -9,7 +9,7 @@ class NewLinkEditor
 
   constructor: (el) ->
     @$container = el
-    @$container.find('a.add_link').click(@new_link)
+    @$container.find('a.add_link').click(@add_to_menu)
 
 class NewCustomLinkEditor extends NewLinkEditor
 
@@ -18,7 +18,7 @@ class NewCustomLinkEditor extends NewLinkEditor
     @$url_field = @$container.find('input[name=url]')
     @$label_field = @$container.find('input[name=label]')
 
-  new_link: =>
+  add_to_menu: =>
     url = @$url_field.val()
     label = @$label_field.val()
     if url && label
@@ -28,16 +28,24 @@ class NewCustomLinkEditor extends NewLinkEditor
 
 class NewResourceLinkEditor extends NewLinkEditor
 
-  constructor: (el) ->
-    super
+  constructor: (el, type) ->
+    super(el)
+    @type = type
 
-  new_link: =>
+  add_to_menu: =>
     $checked_inputs = @$container.find('input:checked')
     ids = []
     $checked_inputs.each ->
       ids.push $(this).val()
-    console.log ids
+    for id in ids
+      @add_link(id)
     return false
+
+  add_link: (id) =>
+    label = @$container.find("input[value=#{id}]").siblings('label').first().text()
+    console.log label
+    link_view = new ResourceMenuLink(id, @type, label)
+    menuLinkIndex.append(link_view)
 
 
 ##############
@@ -58,7 +66,7 @@ $('document').ready ->
   new NewCustomLinkEditor($('#custom_url_box'))
   $('.resource-pp-add-box').each ->
     resource_type = $(this).data('type')
-    new NewResourceLinkEditor($(this))
+    new NewResourceLinkEditor($(this), resource_type)
 
   window.menuLinkIndex = new MenuLinkIndex
 
