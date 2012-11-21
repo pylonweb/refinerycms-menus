@@ -13,6 +13,31 @@ module Refinery
     
     validates :menu, :presence => true
 
+    def self.find_all_of_type(type)
+      # find all resources of the given type, determined by the configuration
+      resource_klass(type).all
+    end
+
+    def self.resource_klass(type)
+      resource_config(type)[:klass].constantize
+    end
+
+    def self.resource_config(type)
+      Refinery::PageMenus.menu_resources[type.to_sym]
+    end
+
+    def resource_klass
+      Refinery::PagePosition.resource_klass(resource_type)
+    end
+
+    def resource_config
+      Refinery::PagePosition.resource_config(resource_type)
+    end
+
+    def resource_type
+      refinery_resource_type || 'refinery_page'
+    end
+
     def custom_link?
       refinery_resource_id.nil? || refinery_resource_type.nil?
     end
@@ -25,15 +50,6 @@ module Refinery
       return page if refinery_page_id # for now, until we phase out 'refinery_page_id'
       return nil if custom_link?
       resource_klass.find(refinery_resource_id)
-    end
-
-    def resource_klass
-      resource_config[:klass].constantize
-    end
-
-    def resource_config
-      type = refinery_resource_type || 'refinery_page'
-      Refinery::PageMenus.menu_resources[type.to_sym]
     end
 
     def resource_url

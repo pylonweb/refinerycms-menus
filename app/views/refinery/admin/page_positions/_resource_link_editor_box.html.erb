@@ -1,0 +1,15 @@
+<%= content_tag :div, class: "pp-add-box resource-pp-add-box", data: {type: resource_type} do %>
+  <h3><%= resource_type.to_s.titleize %></h3>
+  <div class='pp-selection-box'>
+    <ul class='checkboxes'>
+      <% resources = Refinery::PagePosition.find_all_of_type(resource_type) %>
+      <% resources.each do |object| %>
+        <li>
+          <%= check_box_tag(dom_id(object), object.id) %>
+          <%= label_tag(dom_id(object), object.title, class: 'stripped') %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <a href="#" class="button add_link">Add</a>
+<% end %>

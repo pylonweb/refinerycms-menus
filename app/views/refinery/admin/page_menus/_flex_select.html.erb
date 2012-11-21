@@ -14,20 +14,9 @@
       <a href="#" class="button add_link">Add</a>
     </div>
 
-    <div class="pp-add-box resource-pp-add-box" data-type="refinery_page">
-      <h3>Pages</h3>
-      <div class='pp-selection-box'>
-        <ul class='checkboxes'>
-          <% @pages.each do |object| %>
-            <li>
-              <%= check_box_tag(dom_id(object), object.id) %>
-              <%= label_tag(dom_id(object), object.title, class: 'stripped') %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-      <a href="#" class="button add_link">Add</a>
-    </div>
+    <% Refinery::PageMenus.menu_resources.each do |resource_type, config| %>
+      <%= render partial: "refinery/admin/page_positions/resource_link_editor_box", locals: {resource_type: resource_type, config: config} %>
+    <% end %>
 
   </div>
 
