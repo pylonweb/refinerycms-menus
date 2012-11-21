@@ -22,22 +22,68 @@ class MenuLinkIndex
 
   append: (link_view) =>
     @$container.find('.placeholder-text').remove()
-    @$container.append(link_view.render())
+    @$container.append(link_view.el)
 
 
 class CustomMenuLink
 
-  constructor: (url, label, title="") ->
+  constructor: (url, label, title_attribute) ->
     @url = url
     @label = label
-    @title = title
+    @title_attribute = title_attribute || ""
+    console.log @title_attribute
+    @el = $(@render())
+    @el.find('.header').click =>
+      @el.find('.body').slideToggle()
+
+  type_name: =>
+    "Custom Link"
 
   render: =>
     "<div class='pp-link'>" +
-      "<div class='name'>#{@label}</div>" +
+      "<div class='header'>" +
+        "<div class='name'>#{@label}</div>" +
+        "<div class='type'>#{@type_name()}</div>" +
+        "<span class='arrow'>&nbsp;</span>" +
+      "</div>" +
+      "<div class='body'>" +
+        ViewHelpers.input_tag('url', @url) +
+        ViewHelpers.input_tag('label', @label) +
+        ViewHelpers.input_tag('title_attribute', @title_attribute) +
+      "</div>" +
     "</div>"
 
 
 $('document').ready ->
   new NewCustomLinkEditor
   window.menuLinkIndex = new MenuLinkIndex
+
+
+# View Helpers
+
+class ViewHelpers
+
+  input_tag: (name, value="") ->
+    "<div class='field'>" +
+    "<label>#{name.titleize()}</label>" +
+    "<input type='text' value='#{value.escapeQuotes()}' />" +
+    "</div>"
+
+ViewHelpers = new ViewHelpers
+
+
+# Random things
+#   think we could get underscore in here?
+
+String.prototype.titleize = ->
+  words = this.split('_')
+  for word, i in words
+    words[i] = word.capitalize()
+  words.join(' ')
+
+String.prototype.capitalize = ->
+  this.charAt(0).toUpperCase() + this.substring(1).toLowerCase();
+
+String.prototype.escapeQuotes = ->
+  str = this.replace(/'/g, "&#39;")
+  str.replace(/"/g, "&quot;")

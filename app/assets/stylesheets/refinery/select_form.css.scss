@@ -52,8 +52,60 @@
 #links_container {
   float: left;
   margin: 20px 0 0 20px;
-  padding: 15px;
+  padding: 20px;
   background: #eee;
-  width: 660px;
+  width: 650px;
   min-height: 400px;
+}
+
+.pp-link {
+  position: relative;
+  cursor: pointer;
+
+  .header {
+    height: 20px;
+    line-height: 20px;
+    padding: 8px;
+    background: #c3e1ff;
+
+    &:hover {
+      background: #add6ff;
+    }
+
+    .type {
+      position: absolute;
+      top: 8px;
+      right: 30px;
+    }
+
+    .arrow {
+      background-repeat: no-repeat;
+      background-image: url(/assets/refinery/icons/down.gif);
+      position: absolute;
+      right: 10px;
+      top: 16px;
+      width: 11px;
+      height: 7px;
+      cursor: pointer;
+    }
+  }
+
+  .body {
+    display: none;
+    background: #dbedff;
+    padding: 15px;
+    height: 100px;
+
+    label {
+      display: inline-block;
+      margin-right: 10px;
+      margin-top: 0;
+      width: 100px;
+      text-align: right;
+    }
+
+    input {
+      width: 250px;
+    }
+  }
 }
