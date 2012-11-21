@@ -5,11 +5,16 @@
 # EDITORS #
 ###########
 
-class NewCustomLinkEditor
+class NewLinkEditor
 
-  constructor: ->
-    @$container = $('#custom_url_box')
+  constructor: (el) ->
+    @$container = el
     @$container.find('a.add_link').click(@new_link)
+
+class NewCustomLinkEditor extends NewLinkEditor
+
+  constructor: (el) ->
+    super
     @$url_field = @$container.find('input[name=url]')
     @$label_field = @$container.find('input[name=label]')
 
@@ -19,6 +24,19 @@ class NewCustomLinkEditor
     if url && label
       link_view = new CustomMenuLink(url, label)
       menuLinkIndex.append(link_view)
+    return false
+
+class NewResourceLinkEditor extends NewLinkEditor
+
+  constructor: (el) ->
+    super
+
+  new_link: =>
+    $checked_inputs = @$container.find('input:checked')
+    ids = []
+    $checked_inputs.each ->
+      ids.push $(this).val()
+    console.log ids
     return false
 
 
@@ -37,7 +55,11 @@ class MenuLinkIndex
 
 
 $('document').ready ->
-  new NewCustomLinkEditor
+  new NewCustomLinkEditor($('#custom_url_box'))
+  $('.resource-pp-add-box').each ->
+    resource_type = $(this).data('type')
+    new NewResourceLinkEditor($(this))
+
   window.menuLinkIndex = new MenuLinkIndex
 
 
