@@ -17,6 +17,7 @@ class NewCustomLinkEditor extends NewLinkEditor
     super
     @$url_field = @$container.find('input[name=url]')
     @$label_field = @$container.find('input[name=label]')
+    @refresh_inputs()
 
   add_to_menu: =>
     url = @$url_field.val()
@@ -24,9 +25,13 @@ class NewCustomLinkEditor extends NewLinkEditor
     if url && label
       link_view = new CustomMenuLink({custom_url: url, label: label})
       menuLinkIndex.append(link_view)
-      @$url_field.val('')
-      @$label_field.val('')
+      @refresh_inputs()
     return false
+
+  refresh_inputs: =>
+    @$url_field.val('http://')
+    @$label_field.val('')
+
 
 class NewResourceLinkEditor extends NewLinkEditor
 
