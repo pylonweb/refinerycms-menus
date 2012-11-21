@@ -20,6 +20,12 @@ module Refinery
           li.children = div
         end
 
+        # edit title to show actual link label as well
+        title_div = dom.css('.title').first
+        if title_div.present?
+          title_div.content = "#{page_position.label} | #{title_div.content}"
+        end
+
         # recursively create nested list of children
         nested_ul = content_tag :ul, class: 'nested' do
           render_menu_list(page_position.children)
