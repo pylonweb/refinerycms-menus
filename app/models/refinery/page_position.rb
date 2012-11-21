@@ -15,8 +15,12 @@ module Refinery
 
     def self.find_all_of_type(type)
       # find all resources of the given type, determined by the configuration
-      # TODO - we may want to allow configuration of conditions, ordering, etc
-      resource_klass(type).all
+      # TODO - we may want to allow configuration of conditions (DONE), ordering, etc
+      if self.resource_config(type)[:admin_page_filter]
+        resource_klass(type).where(self.resource_config(type)[:admin_page_filter])
+      else
+        resource_klass(type).all
+      end
     end
 
     def self.resource_klass(type)
