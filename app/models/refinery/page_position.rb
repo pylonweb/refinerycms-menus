@@ -13,10 +13,17 @@ module Refinery
     
     validates :menu, :presence => true
 
+    def custom_link?
+      refinery_resource_id.nil? || refinery_resource_type.nil?
+    end
+
+    def resource_link?
+      refinery_resource_id.present? && refinery_resource_type.present?
+    end
 
     def resource
-      return page if refinery_page_id
-      return nil if refinery_resource_id.nil? || refinery_resource_type.nil?
+      return page if refinery_page_id # for now, until we phase out 'refinery_page_id'
+      return nil if custom_link?
       resource_klass.find(refinery_resource_id)
     end
 
@@ -45,7 +52,7 @@ module Refinery
       if refinery_page_id.present?
         page.url
       else
-        if custom_url.present?
+        if custom_link?
           custom_url
         else
           resource_url
@@ -67,7 +74,7 @@ module Refinery
 
     def as_json(options={})
       json = super(options)
-      if resource.present?
+      if resource_link?
         json = {
           resource: {
             title: resource_title
