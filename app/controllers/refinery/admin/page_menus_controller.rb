@@ -7,6 +7,7 @@ module Refinery
       def edit
         #@pages_in_menu = @page_menu.pages
         #@pages_not_in_menu = Refinery::Page.order('lft ASC') - @pages_in_menu
+        @page_positions = @page_menu.positions
         @pages = Refinery::Page.all
       end
       

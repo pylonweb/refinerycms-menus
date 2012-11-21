@@ -22,20 +22,15 @@
 .pp-add-box {
   background: #aaa;
   margin-top: 20px;
-  width: 200px;
+  width: 220px;
   padding: 15px;
 
   h3 {
     margin-top: 0;
   }
 
-  .button {
-    margin-top: 15px;
-    display: block;
-  }
-
   input[type='text'] {
-    width: 190px;
+    width: 210px;
   }
 
   .pp-selection-box {
@@ -44,4 +39,21 @@
     padding: 10px;
     overflow-y: scroll;
   }
+}
+
+#content a.button.add_link {
+  margin-top: 15px;
+}
+
+#left_actions {
+  float: left;
+}
+
+#links_container {
+  float: left;
+  margin: 20px 0 0 20px;
+  padding: 15px;
+  background: #eee;
+  width: 660px;
+  min-height: 400px;
 }
