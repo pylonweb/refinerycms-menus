@@ -11,12 +11,17 @@ module Refinery
         @pages = Refinery::Page.all
       end
 
-      def update
-        @page_positions = @page_menu.positions
-        @pages = Refinery::Page.all
-        render :edit
+      before_filter :joe, only: [:update]
+      def joe
+        logger.debug params
       end
-      
+
+      #def update
+      #  @page_positions = @page_menu.positions
+      #  @pages = Refinery::Page.all
+      #  render :edit
+      #end
+
       def edit_main_menu
         @pages_in_menu = Refinery::Page.in_menu
         @pages_not_in_menu = Refinery::Page.order('lft ASC') - @pages_in_menu

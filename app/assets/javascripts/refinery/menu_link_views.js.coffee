@@ -55,6 +55,8 @@ class ResourceMenuLink extends MenuLink
     @attributes.label ||= @type_name()
 
   form: =>
+    ViewHelpers.hidden_field('refinery_resource_id', @attributes.refinery_resource_id) +
+    ViewHelpers.hidden_field('refinery_resource_type', @attributes.refinery_resource_type) +
     ViewHelpers.text_field_tag('label', @attributes.label) +
     ViewHelpers.text_field_tag('title_attribute', @attributes.title_attribute)
 
