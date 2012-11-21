@@ -11,20 +11,21 @@ module Refinery
     attr_accessible :title, :permatitle, :pages, :page_positions
 
     def page_positions=(pp_arr)
-      ap pp_arr
+      # TODO - can we simplify this?
       pp_arr.each do |page_position|
-        ap page_position
         id = page_position["id"]
         id = id.to_i if id.present?
         page_position.delete("id")
         if page_position["deleted"] == "true" && id.present?
           # delete this page position
-          positions.find_by_id(id).destroy
+          position = positions.find_by_id(id)
+          position.destroy if position.present?
         else
           # update or create this page position
           page_position.delete("deleted")
           if id.present?
-            positions.find_by_id(id).update_attributes(page_position)
+            position = positions.find_by_id(id)
+            position.update_attributes(page_position) if position.present?
           else
             positions.build(page_position).save
           end

@@ -45,7 +45,7 @@ module Refinery
       # edit title to show actual link label as well
       title_div = dom.css('.title').first
       if title_div.present?
-        title_div.content = "#{page_position.label} | #{title_div.content}"
+        title_div.content = page_position.label
       end
 
       # append nested ul to end of this li

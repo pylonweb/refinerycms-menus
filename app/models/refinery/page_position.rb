@@ -15,6 +15,7 @@ module Refinery
 
     def self.find_all_of_type(type)
       # find all resources of the given type, determined by the configuration
+      # TODO - we may want to allow configuration of conditions, ordering, etc
       resource_klass(type).all
     end
 
