@@ -45,7 +45,14 @@ class NewResourceLinkEditor extends NewLinkEditor
 
   add_link: (id) =>
     label = @$container.find("input[value=#{id}]").siblings('label').first().text()
-    link_view = new ResourceMenuLink({refinery_resource_id: id, refinery_resource_type: @type, label: label})
+    link_view = new ResourceMenuLink({
+      refinery_resource_id: id,
+      refinery_resource_type: @type,
+      label: label,
+      resource : {
+        title: label
+      }
+    })
     menuLinkIndex.append(link_view)
     @$container.find('input').removeAttr('checked');
 

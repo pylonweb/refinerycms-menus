@@ -33,6 +33,10 @@ module Refinery
       resource || '/'
     end
 
+    def resource_title
+      resource[resource_config[:title_attr]]
+    end
+
     def title
       page.title
     end
@@ -59,6 +63,18 @@ module Refinery
     
     def original_type
       page.type
+    end
+
+    def as_json(options={})
+      json = super(options)
+      if resource.present?
+        json = {
+          resource: {
+            title: resource_title
+          }
+        }.merge(json)
+      end
+      json
     end
     
   end

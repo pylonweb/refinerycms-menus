@@ -11,18 +11,24 @@ module Refinery
     self.collapsible_menu = true
     self.show_hidden_pages_in_main_menu = false
 
+    # klass: class type of resource
+    # admin_partial: path to partial used in records list
+    # title_attr: attribute name (or method name) on resource to be shown as its title
     self.menu_resources = {
       refinery_page: {
         klass: 'Refinery::Page',
-        admin_partial: '/refinery/admin/page_positions/page_position'
+        admin_partial: '/refinery/admin/page_positions/page_position',
+        title_attr: 'title'
       },
       refinery_blog_post: {
         klass: 'Refinery::Blog::Post',
-        admin_partial: '/refinery/blog/admin/posts/post'
+        admin_partial: '/refinery/blog/admin/posts/post',
+        title_attr: 'title'
       },
       refinery_resource: {
         klass: 'Refinery::Resource',
-        admin_partial: '/refinery/admin/resources/resource'
+        admin_partial: '/refinery/admin/resources/resource',
+        title_attr: 'file_name'
       }
     }
    
