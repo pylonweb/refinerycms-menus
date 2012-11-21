@@ -24,6 +24,8 @@ class NewCustomLinkEditor extends NewLinkEditor
     if url && label
       link_view = new CustomMenuLink({custom_url: url, label: label})
       menuLinkIndex.append(link_view)
+      @$url_field.val('')
+      @$label_field.val('')
     return false
 
 class NewResourceLinkEditor extends NewLinkEditor
