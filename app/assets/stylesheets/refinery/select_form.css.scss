@@ -96,6 +96,7 @@
     background: #dbedff;
     padding: 15px;
     height: 100px;
+    position: relative;
 
     label {
       display: inline-block;
@@ -107,6 +108,13 @@
 
     input {
       width: 250px;
+    }
+    
+    a.remove {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      cursor: pointer;
     }
   }
 }

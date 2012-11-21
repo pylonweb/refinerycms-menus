@@ -2,8 +2,11 @@ class MenuLink
 
   constructor: ->
     @el = $(@render())
+    @$body = @el.find('.body')
     @el.find('.header').click =>
-      @el.find('.body').slideToggle()
+      @$body.slideToggle()
+    @el.find('a.remove').click(@remove)
+    @deleted = false
 
   render: =>
     "<div class='pp-link'>" +
@@ -14,9 +17,13 @@ class MenuLink
       "</div>" +
       "<div class='body'>" +
         @form() +
+        "<a class='remove'>Remove</a>" +
       "</div>" +
     "</div>"
 
+  remove: =>
+    @deleted = true
+    @el.fadeOut()
 
 
 class CustomMenuLink extends MenuLink
@@ -42,7 +49,7 @@ class ResourceMenuLink extends MenuLink
   constructor: (id, type, label, title_attribute) ->
     @id = id
     @type = type
-    @label = label
+    @label = label || type.titleize()
     @title_attribute = title_attribute || ""
     super
 

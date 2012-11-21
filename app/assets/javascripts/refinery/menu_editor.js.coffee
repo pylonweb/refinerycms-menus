@@ -46,6 +46,7 @@ class NewResourceLinkEditor extends NewLinkEditor
     console.log label
     link_view = new ResourceMenuLink(id, @type, label)
     menuLinkIndex.append(link_view)
+    @$container.find('input').removeAttr('checked');
 
 
 ##############
