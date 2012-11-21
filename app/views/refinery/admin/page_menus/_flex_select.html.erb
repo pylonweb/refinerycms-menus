@@ -31,9 +31,9 @@
 
   </div>
 
-  <div id='links_container'>
+  <%= content_tag :div, id: "links_container", data: {links: @page_positions} do %>
     <div class='placeholder-text'>Use the left side to add links to your menu.</div>
-  </div>
+  <% end %>
 
 </div>
 

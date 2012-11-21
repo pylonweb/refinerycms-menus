@@ -22,7 +22,7 @@ class NewCustomLinkEditor extends NewLinkEditor
     url = @$url_field.val()
     label = @$label_field.val()
     if url && label
-      link_view = new CustomMenuLink(url, label)
+      link_view = new CustomMenuLink({custom_url: url, label: label})
       menuLinkIndex.append(link_view)
     return false
 
@@ -44,7 +44,7 @@ class NewResourceLinkEditor extends NewLinkEditor
   add_link: (id) =>
     label = @$container.find("input[value=#{id}]").siblings('label').first().text()
     console.log label
-    link_view = new ResourceMenuLink(id, @type, label)
+    link_view = new ResourceMenuLink({resource_id: id, resource_type: @type, label: label})
     menuLinkIndex.append(link_view)
     @$container.find('input').removeAttr('checked');
 
@@ -57,10 +57,31 @@ class MenuLinkIndex
 
   constructor: ->
     @$container = $('#links_container')
+    @populate_data(@$container.data('links'))
 
   append: (link_view) =>
     @$container.find('.placeholder-text').remove()
     @$container.append(link_view.el)
+
+  populate_data: (links) =>
+    console.log links
+    for link in links
+      attrs = {
+        id: link.id,
+        resource_id: link.refinery_resource_id,
+        resource_type: link.refinery_resource_type,
+        label: link.label,
+        title_attribute: link.title_attribute,
+        custom_url: link.custom_url
+      }
+      console.log attrs
+      if link.refinery_resource_id
+        link_view = new ResourceMenuLink(attrs)
+      else
+        link_view = new CustomMenuLink(attrs)
+      @append(link_view)
+
+
 
 
 $('document').ready ->

@@ -1,6 +1,9 @@
 class MenuLink
 
-  constructor: ->
+  constructor: (opts) ->
+    @title_attribute = opts.title_attribute || ""
+    @id = opts.id || null
+
     @el = $(@render())
     @$body = @el.find('.body')
     @el.find('.header').click =>
@@ -26,13 +29,13 @@ class MenuLink
     @el.fadeOut()
 
 
+
 class CustomMenuLink extends MenuLink
 
-  constructor: (url, label, title_attribute) ->
-    @url = url
-    @label = label
-    @title_attribute = title_attribute || ""
-    super
+  constructor: (opts) ->
+    @url = opts.custom_url
+    @label = opts.label
+    super(opts)
 
   type_name: =>
     "Custom Link"
@@ -46,19 +49,18 @@ class CustomMenuLink extends MenuLink
 
 class ResourceMenuLink extends MenuLink
 
-  constructor: (id, type, label, title_attribute) ->
-    @id = id
-    @type = type
-    @label = label || type.titleize()
-    @title_attribute = title_attribute || ""
-    super
+  constructor: (opts) ->
+    @resource_id = opts.resource_id
+    @resource_type = opts.resource_type
+    @label = opts.label || resource_type.titleize()
+    super(opts)
 
   form: =>
     ViewHelpers.input_tag('label', @label) +
     ViewHelpers.input_tag('title_attribute', @title_attribute)
 
   type_name: =>
-    @type.titleize()
+    @resource_type.titleize()
 
 
 window.CustomMenuLink = CustomMenuLink

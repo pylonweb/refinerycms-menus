@@ -2,7 +2,7 @@ module Refinery
   class PagePosition < Refinery::Core::BaseModel
     
     attr_accessible :parent_id, :refinery_page_id, :refinery_menu_id, :refinery_resource_id, :refinery_resource_type,
-                    :title_attribute, :custom_url
+                    :title_attribute, :custom_url, :label
     
     belongs_to :menu, :class_name => '::Refinery::PageMenu', :foreign_key => :refinery_menu_id
     belongs_to :page, :class_name => '::Refinery::Page', :foreign_key => :refinery_page_id
@@ -12,6 +12,7 @@ module Refinery
     acts_as_nested_set :dependent => :destroy
     
     validates :menu, :presence => true
+
 
     def resource
       return page if refinery_page_id
