@@ -31,7 +31,7 @@ class MenuLink
 
   remove: =>
     @deleted = true
-    @el.find()
+    @el.find('input.deleted-field').val('true')
     @el.fadeOut()
 
 
