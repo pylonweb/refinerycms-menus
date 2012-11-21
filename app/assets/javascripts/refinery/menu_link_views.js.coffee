@@ -1,8 +1,8 @@
 class MenuLink
 
-  constructor: (opts) ->
-    @title_attribute = opts.title_attribute || ""
-    @id = opts.id || null
+  constructor: (attr) ->
+    @attributes = attr
+    @attributes.title_attribute ||= ""
 
     @el = $(@render())
     @$body = @el.find('.body')
@@ -14,7 +14,7 @@ class MenuLink
   render: =>
     "<div class='pp-link'>" +
       "<div class='header'>" +
-        "<div class='name'>#{@label}</div>" +
+        "<div class='name'>#{@attributes.label}</div>" +
         "<div class='type'>#{@type_name()}</div>" +
         "<span class='arrow'>&nbsp;</span>" +
       "</div>" +
@@ -32,35 +32,28 @@ class MenuLink
 
 class CustomMenuLink extends MenuLink
 
-  constructor: (opts) ->
-    @url = opts.custom_url
-    @label = opts.label
-    super(opts)
-
   type_name: =>
     "Custom Link"
 
   form: =>
-    ViewHelpers.input_tag('url', @url) +
-    ViewHelpers.input_tag('label', @label) +
-    ViewHelpers.input_tag('title_attribute', @title_attribute)
+    ViewHelpers.input_tag('custom_url', @attributes.custom_url) +
+    ViewHelpers.input_tag('label', @attributes.label) +
+    ViewHelpers.input_tag('title_attribute', @attributes.title_attribute)
 
 
 
 class ResourceMenuLink extends MenuLink
 
-  constructor: (opts) ->
-    @resource_id = opts.resource_id
-    @resource_type = opts.resource_type
-    @label = opts.label || resource_type.titleize()
-    super(opts)
+  constructor: (attr) ->
+    super(attr)
+    @attributes.label ||= @type_name()
 
   form: =>
-    ViewHelpers.input_tag('label', @label) +
-    ViewHelpers.input_tag('title_attribute', @title_attribute)
+    ViewHelpers.input_tag('label', @attributes.label) +
+    ViewHelpers.input_tag('title_attribute', @attributes.title_attribute)
 
   type_name: =>
-    @resource_type.titleize()
+    @attributes.refinery_resource_type.titleize()
 
 
 window.CustomMenuLink = CustomMenuLink

@@ -45,8 +45,7 @@ class NewResourceLinkEditor extends NewLinkEditor
 
   add_link: (id) =>
     label = @$container.find("input[value=#{id}]").siblings('label').first().text()
-    console.log label
-    link_view = new ResourceMenuLink({resource_id: id, resource_type: @type, label: label})
+    link_view = new ResourceMenuLink({refinery_resource_id: id, refinery_resource_type: @type, label: label})
     menuLinkIndex.append(link_view)
     @$container.find('input').removeAttr('checked');
 
@@ -66,21 +65,11 @@ class MenuLinkIndex
     @$container.append(link_view.el)
 
   populate_data: (links) =>
-    console.log links
     for link in links
-      attrs = {
-        id: link.id,
-        resource_id: link.refinery_resource_id,
-        resource_type: link.refinery_resource_type,
-        label: link.label,
-        title_attribute: link.title_attribute,
-        custom_url: link.custom_url
-      }
-      console.log attrs
       if link.refinery_resource_id
-        link_view = new ResourceMenuLink(attrs)
+        link_view = new ResourceMenuLink(link)
       else
-        link_view = new CustomMenuLink(attrs)
+        link_view = new CustomMenuLink(link)
       @append(link_view)
 
 
