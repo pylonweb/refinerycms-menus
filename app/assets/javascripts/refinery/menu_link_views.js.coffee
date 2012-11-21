@@ -19,13 +19,19 @@ class MenuLink
         "<span class='arrow'>&nbsp;</span>" +
       "</div>" +
       "<div class='body'>" +
+        @hidden_fields() +
         @form() +
         "<a class='remove'>Remove</a>" +
       "</div>" +
     "</div>"
 
+  hidden_fields: =>
+    ViewHelpers.hidden_field('id', @attributes.id) +
+    ViewHelpers.hidden_field('deleted', false)
+
   remove: =>
     @deleted = true
+    @el.find()
     @el.fadeOut()
 
 
@@ -36,9 +42,9 @@ class CustomMenuLink extends MenuLink
     "Custom Link"
 
   form: =>
-    ViewHelpers.input_tag('custom_url', @attributes.custom_url) +
-    ViewHelpers.input_tag('label', @attributes.label) +
-    ViewHelpers.input_tag('title_attribute', @attributes.title_attribute)
+    ViewHelpers.text_field_tag('custom_url', @attributes.custom_url) +
+    ViewHelpers.text_field_tag('label', @attributes.label) +
+    ViewHelpers.text_field_tag('title_attribute', @attributes.title_attribute)
 
 
 
@@ -49,8 +55,8 @@ class ResourceMenuLink extends MenuLink
     @attributes.label ||= @type_name()
 
   form: =>
-    ViewHelpers.input_tag('label', @attributes.label) +
-    ViewHelpers.input_tag('title_attribute', @attributes.title_attribute)
+    ViewHelpers.text_field_tag('label', @attributes.label) +
+    ViewHelpers.text_field_tag('title_attribute', @attributes.title_attribute)
 
   type_name: =>
     @attributes.refinery_resource_type.titleize()

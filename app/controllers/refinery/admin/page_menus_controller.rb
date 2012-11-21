@@ -10,6 +10,12 @@ module Refinery
         @page_positions = @page_menu.positions
         @pages = Refinery::Page.all
       end
+
+      def update
+        @page_positions = @page_menu.positions
+        @pages = Refinery::Page.all
+        render :edit
+      end
       
       def edit_main_menu
         @pages_in_menu = Refinery::Page.in_menu

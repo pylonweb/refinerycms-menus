@@ -2,11 +2,25 @@
 
 class ViewHelpers
 
-  input_tag: (name, value="") ->
+  text_field_tag: (name, value="") =>
     "<div class='field'>" +
       "<label>#{name.titleize()}</label>" +
-      "<input type='text' value='#{value.escapeQuotes()}' />" +
+      @input_tag(name, value, 'text') +
     "</div>"
+
+  hidden_field: (name, value="") =>
+    @input_tag(name, value, 'hidden')
+
+  input_tag: (name, value, type) =>
+    "<input type='#{type}' value='#{@parse_value(value)}' name='#{@name_for_attr(name)}' class='#{name}-field' />"
+
+  parse_value: (val) =>
+    if (typeof val == "string") then val.escapeQuotes() else val
+
+  name_for_attr: (name) =>
+    "page_menu[page_positions][][#{name}]"
+
+
 
 window.ViewHelpers = new ViewHelpers
 
