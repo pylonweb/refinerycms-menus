@@ -30,7 +30,11 @@
   }
 
   input[type='text'] {
-    width: 217px;
+    width: 210px;
+  }
+
+  label {
+    margin-top: 10px;
   }
 
   .pp-selection-box {
@@ -123,4 +127,8 @@
       margin: 5px 0;
     }
   }
+}
+
+.field input[type=text] {
+  padding: 3px 5px;
 }
