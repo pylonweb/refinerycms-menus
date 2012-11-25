@@ -31,9 +31,13 @@ class MenuLink
 
   remove: =>
     @deleted = true
-    @el.find('input.deleted-field').val('true')
-    @el.fadeOut()
-
+    @el.fadeOut =>
+      if @attributes.id
+        # persisted - set 'delete' field to true
+        @el.find('input.deleted-field').val('true')
+      else
+        # not persisted yet - just remove this view from form
+        @el.remove()
 
 
 class CustomMenuLink extends MenuLink
