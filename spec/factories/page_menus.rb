@@ -1,6 +1,10 @@
 FactoryGirl.define do
   factory :page_menu, :class => Refinery::PageMenu do
-    title "My Page Menu"
-    permatitle "my-page-title"
+    sequence :title do |n|
+      "Menu #{n}"
+    end
+    sequence :permatitle do |n|
+      "my-page-title-#{n}"
+    end
   end
 end
