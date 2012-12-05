@@ -1,3 +1,5 @@
+require "spec_helper"
+
 module Refinery
   describe PageMenu do
     let(:page_menu) { FactoryGirl.create(:page_menu) }
