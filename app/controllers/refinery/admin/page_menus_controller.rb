@@ -11,11 +11,6 @@ module Refinery
         @pages = Refinery::Page.all
       end
 
-      before_filter :joe, only: [:update]
-      def joe
-        logger.debug params
-      end
-
       #def update
       #  @page_positions = @page_menu.positions
       #  @pages = Refinery::Page.all

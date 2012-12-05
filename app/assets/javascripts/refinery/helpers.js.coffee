@@ -18,7 +18,7 @@ class ViewHelpers
     if (typeof val == "string") then val.escapeQuotes() else val
 
   name_for_attr: (name) =>
-    "page_menu[page_positions][][#{name}]"
+    "page_menu[positions_attributes][][#{name}]"
 
 
 

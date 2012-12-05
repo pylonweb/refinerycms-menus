@@ -27,14 +27,14 @@ class MenuLink
 
   hidden_fields: =>
     ViewHelpers.hidden_field('id', @attributes.id) +
-    ViewHelpers.hidden_field('deleted', false)
+    ViewHelpers.hidden_field('_destroy', false)
 
   remove: =>
     @deleted = true
     @el.fadeOut =>
       if @attributes.id
         # persisted - set 'delete' field to true
-        @el.find('input.deleted-field').val('true')
+        @el.find('input._destroy-field').val('true')
       else
         # not persisted yet - just remove this view from form
         @el.remove()

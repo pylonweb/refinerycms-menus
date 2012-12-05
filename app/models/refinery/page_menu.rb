@@ -8,31 +8,10 @@ module Refinery
     validates :permatitle, :presence => true, :uniqueness => true
     validates_associated :positions
     
-    attr_accessible :title, :permatitle, :pages, :page_positions
+    attr_accessible :title, :permatitle, :pages, :page_positions, :positions_attributes
 
-    def page_positions=(pp_arr)
-      # TODO - can we simplify this?
-      pp_arr.each do |page_position|
-        id = page_position["id"]
-        id = id.to_i if id.present?
-        page_position.delete("id")
-        if page_position["deleted"] == "true" && id.present?
-          # delete this page position
-          position = positions.find_by_id(id)
-          position.destroy if position.present?
-        else
-          # update or create this page position
-          page_position.delete("deleted")
-          if id.present?
-            position = positions.find_by_id(id)
-            position.update_attributes(page_position) if position.present?
-          else
-            positions.build(page_position).save
-          end
-        end
-      end
-    end
-    
+    accepts_nested_attributes_for :positions, :allow_destroy => true
+
     def pages=(new_ids)
       old_ids = positions.map(&:refinery_page_id)
       (new_ids - old_ids).each do |id|
