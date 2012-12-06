@@ -24,14 +24,6 @@ module Refinery
           draft: false
         }
       },
-      refinery_blog_post: {
-        klass: 'Refinery::Blog::Post',
-        admin_partial: '/refinery/blog/admin/posts/post',
-        title_attr: 'title',
-        admin_page_filter: {
-          draft: false
-        }
-      },
       refinery_resource: {
         klass: 'Refinery::Resource',
         admin_partial: '/refinery/admin/resources/resource',

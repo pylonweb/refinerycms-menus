@@ -11,6 +11,7 @@ group :development, :test do
 
   gem 'refinerycms-testing'#, :git => 'git://github.com/refinery/refinerycms.git'
   gem 'guard-rspec', '~> 1.1.0'
+  gem 'launchy'
 
   platforms :jruby do
     gem 'activerecord-jdbcsqlite3-adapter'
