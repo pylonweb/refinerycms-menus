@@ -1,3 +1,5 @@
 spec/dummy/
 pkg/
 .idea/
+
+.rvmrc
