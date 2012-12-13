@@ -87,6 +87,20 @@ module Refinery
       end
       json
     end
+
+    def to_refinery_menu_item
+      {
+        :id => id,
+        :lft => lft,
+        :menu_match => menu_match,
+        :parent_id => parent_id,
+        :rgt => rgt,
+        :title => title,
+        :type => resource_type,
+        # :type => self.class.name,
+        :url => url
+      }
+    end
     
   end
 end
