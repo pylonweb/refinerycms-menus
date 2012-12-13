@@ -2,13 +2,12 @@ module Refinery
   class PageMenu < Refinery::Core::BaseModel  
     
     has_many :positions, :class_name => "::Refinery::PagePosition", :foreign_key => :refinery_menu_id, :dependent => :destroy, :order => "lft ASC"
-    has_many :pages, :class_name => "::Refinery::Page", :through => :positions, :foreign_key => :refinery_page_id
     
     validates :title, :presence => true, :uniqueness => true
     validates :permatitle, :presence => true, :uniqueness => true
     validates_associated :positions
     
-    attr_accessible :title, :permatitle, :pages, :page_positions, :positions_attributes
+    attr_accessible :title, :permatitle, :positions, :positions_attributes
 
     accepts_nested_attributes_for :positions, :allow_destroy => true
 
@@ -22,10 +21,6 @@ module Refinery
       end
       self.save
     end
-      
-    # def fast_menu(columns = [])
-    #   live.in_menu.order('lft ASC').includes(:translations)
-    # end
 
     def roots
       @roots ||= positions.select {|pos| pos.parent_id.nil?}
