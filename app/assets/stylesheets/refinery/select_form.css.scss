@@ -52,27 +52,53 @@
 
 #left_actions {
   float: left;
+  margin-top: 20px;
+  .controls a {
+    
+    
+    background-color: #dbedff;
+    background-position: 12px;
+    background-repeat: no-repeat;
+    border: 1px solid #65C3F7;
+    display: block;
+    padding: 9px 12px 9px 36px;
+    
+    &:hover {
+      background-color: #cae7fb;
+    }
+  }
+  
 }
 
-#links_container {
+#sortable_list {
   float: left;
   margin: 20px 0 0 20px;
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
   background: #eee;
   width: 650px;
   min-height: 400px;
+  
+  list-style: none;
+  
+  ul {
+    li {
+      list-style: none;
+    }
+    list-style: none;
+  }
+
 }
 
 .pp-link {
   position: relative;
-  margin-bottom: 10px;
+  margin-top: 10px!important;
+  list-style: none;
 
   .header {
     height: 20px;
     line-height: 20px;
     padding: 8px;
     background: #c3e1ff;
-    cursor: pointer;
 
     &:hover {
       background: #add6ff;
@@ -81,17 +107,18 @@
     .type {
       position: absolute;
       top: 8px;
-      right: 30px;
+      right: 36px;
     }
 
     .arrow {
       background-repeat: no-repeat;
       background-image: url(/assets/refinery/icons/down.gif);
+      background-position:center; 
       position: absolute;
-      right: 10px;
-      top: 16px;
-      width: 11px;
-      height: 7px;
+      right: 0px;
+      top: 0px;
+      width: 36px;
+      height: 36px;
       cursor: pointer;
     }
   }
@@ -127,6 +154,7 @@
       margin: 5px 0;
     }
   }
+
 }
 
 .field input[type=text] {

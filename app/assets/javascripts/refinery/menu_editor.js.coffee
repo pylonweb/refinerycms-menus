@@ -69,8 +69,8 @@ class NewResourceLinkEditor extends NewLinkEditor
 class MenuLinkIndex
 
   constructor: ->
-    @$container = $('#links_container')
-    @populate_data(@$container.data('links'))
+    @$container = $('#sortable_list')
+    # @populate_data(@$container.data('links'))
 
   append: (link_view) =>
     @$container.find('.placeholder-text').remove()

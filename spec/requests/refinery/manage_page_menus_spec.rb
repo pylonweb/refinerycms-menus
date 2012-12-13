@@ -12,7 +12,7 @@ describe "manage page menus" do
     it "shows the menu item on the page", :js do
       visit refinery.edit_admin_page_menu_path(@menu)
       save_and_open_page
-      find('#links_container').should have_css('.pp-link')
+      find('#sortable_list').should have_css('.pp-link')
     end
 
   end

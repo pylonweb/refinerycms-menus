@@ -42,6 +42,10 @@ module Refinery
     def resource_type
       refinery_resource_type || 'refinery_page'
     end
+    
+    def type_name
+      custom_link? ? "Custom link" : refinery_resource_type.titleize()
+    end
 
     def custom_link?
       refinery_resource_id.nil? || refinery_resource_type.nil?

@@ -12,7 +12,7 @@ class MenuLink
     @deleted = false
 
   render: =>
-    "<div class='pp-link'>" +
+    "<li class='pp-link record' id='" + @dom_id() + "'>" +
       "<div class='header'>" +
         "<div class='name'>#{@attributes.label}</div>" +
         "<div class='type'>#{@type_name()}</div>" +
@@ -23,7 +23,10 @@ class MenuLink
         @form() +
         "<a class='remove'>Remove</a>" +
       "</div>" +
-    "</div>"
+    "</li>"
+    
+  dom_id: =>
+    'page_position_' + (@attributes.id || "")
 
   hidden_fields: =>
     ViewHelpers.hidden_field('id', @attributes.id) +
