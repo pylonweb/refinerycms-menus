@@ -22,8 +22,9 @@ class NewCustomLinkEditor extends NewLinkEditor
   add_to_menu: =>
     url = @$url_field.val()
     label = @$label_field.val()
+    id = new Date().getTime() + "" + Math.floor(Math.random()*100000) unless @id
     if url && label
-      link_view = new CustomMenuLink({custom_url: url, label: label})
+      link_view = new CustomMenuLink({custom_url: url, label: label, id: id, new_record: true})
       menuLinkIndex.append(link_view)
       @refresh_inputs()
     return false
@@ -51,6 +52,9 @@ class NewResourceLinkEditor extends NewLinkEditor
   add_link: (id) =>
     label = @$container.find("input[value=#{id}]").siblings('label').first().text()
     link_view = new ResourceMenuLink({
+      # Time is not enough, as the links is added nearly simultaneously
+      id: new Date().getTime() + "" + Math.floor(Math.random()*100000) unless @id
+      new_record: true
       refinery_resource_id: id,
       refinery_resource_type: @type,
       label: label,
@@ -70,11 +74,14 @@ class MenuLinkIndex
 
   constructor: ->
     @$container = $('#sortable_list')
-    # @populate_data(@$container.data('links'))
+    @populate_data(@$container.data('links'))
 
   append: (link_view) =>
     @$container.find('.placeholder-text').remove()
-    @$container.append(link_view.el)
+    if parent = link_view.parent
+      parent.children('.nested').append(link_view.el)
+    else
+      @$container.append(link_view.el)
 
   populate_data: (links) =>
     for link in links
@@ -83,9 +90,8 @@ class MenuLinkIndex
       else
         link_view = new CustomMenuLink(link)
       @append(link_view)
-
-
-
+      if link.children
+        @populate_data(link.children)
 
 $('document').ready ->
   new NewCustomLinkEditor($('#custom_url_box'))

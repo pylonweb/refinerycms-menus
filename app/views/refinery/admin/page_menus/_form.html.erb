@@ -11,7 +11,7 @@
   <%= render 'flex_select', f: f %>
 
   <%= render '/refinery/admin/form_actions', :f => f,
-             :continue_editing => true,
+             :continue_editing => false, # Doens't work as we have to submit with custom ajax request
              :delete_title => t('delete', :scope => 'refinery.travels.admin.travels.category'),
              :delete_confirmation => t('message', :scope => 'refinery.admin.delete') %>
 <% end %>
