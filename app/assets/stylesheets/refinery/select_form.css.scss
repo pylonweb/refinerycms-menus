@@ -51,11 +51,10 @@
 }
 
 #left_actions {
-  float: left;
-  margin-top: 20px;
-  .controls a {
-    
-    
+  position:absolute;
+  top: 63px;
+
+  .controls a {    
     background-color: #dbedff;
     background-position: 12px;
     background-repeat: no-repeat;
@@ -70,8 +69,13 @@
   
 }
 
+#pp-select-container {
+  position: relative;
+}
+
 #form-container {
-  float: left;
+  padding-left: 250px;
+  padding-right: 10px;
   #sortable_list {
     margin: 20px 0 0 20px;
     padding: 10px 20px 20px 20px;

@@ -8,3 +8,5 @@ jQuery =>
   $('a.add_link').click ->
   	data = $.post($(this).data('url'))
   	alert(data)
+
+  $('#form-container').css('min-height', $('#left_actions').height() + "px")

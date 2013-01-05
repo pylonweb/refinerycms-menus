@@ -1,36 +1,33 @@
 <div id='pp-select-container' class='clearfix'>
-  <div id='left_actions'>
-    
-    <div id="custom_url_box" class="pp-add-box">
-      <h3>Custom Link</h3>
-      <div class='field'>
-        <%= label_tag(:url) %>
-        <%= text_field_tag(:url) %>
+  <%= form_for [refinery, :admin, @page_menu] do |f| %>
+    <div id='left_actions'>
+      <div id="custom_url_box" class="pp-add-box">
+        <h3>Custom Link</h3>
+        <div class='field'>
+          <%= label_tag(:url) %>
+          <%= text_field_tag(:url) %>
+        </div>
+        <div class='field'>
+          <%= label_tag(:label) %>
+          <%= text_field_tag(:label) %>
+        </div>
+        <a href="#" class="button add_link">Add</a>
       </div>
-      <div class='field'>
-        <%= label_tag(:label) %>
-        <%= text_field_tag(:label) %>
-      </div>
-      <a href="#" class="button add_link">Add</a>
+        <% Refinery::PageMenus.menu_resources.each do |resource_type, config| %>
+          <%= render partial: "refinery/admin/page_positions/resource_link_editor_box", locals: {resource_type: resource_type, config: config, f:f} %>
+        <% end %>
     </div>
+  <% end -%>
+  <%= form_for [refinery, :admin, @page_menu] do |f| %>
+    <%= render '/refinery/admin/error_messages',
+               :object => @page_menu,
+               :include_object_name => true %>
 
-    <% Refinery::PageMenus.menu_resources.each do |resource_type, config| %>
-      <%= render partial: "refinery/admin/page_positions/resource_link_editor_box", locals: {resource_type: resource_type, config: config} %>
-    <% end %>
-
-  </div>
-  <div id='form-container'>
-    <%= form_for [refinery, :admin, @page_menu] do |f| -%>
-      <%= render '/refinery/admin/error_messages',
-                 :object => @page_menu,
-                 :include_object_name => true %>
-
-      <div class='field'>
-        <%= f.label :title %>
-        <%= f.text_field :title, class: "larger" %>
-      </div>
-
-
+    <div class='field'>
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "larger" %>
+    </div>
+    <div id="form-container">
       <%= content_tag :ul, id: "sortable_list", data: {links: @page_positions} do %>
         <%#= hidden_field_tag "ul" %>
         <% if @page_positions.present? %>
@@ -41,21 +38,21 @@
           <li class='placeholder-text'>Use the left side to add links to your menu.</li>
         <% end %>
       <% end %>
-      <%# content_for :javascripts, javascript_include_tag('refinery/menu_editor') %>
+    </div>
+    <%# content_for :javascripts, javascript_include_tag('refinery/menu_editor') %>
 
-      <% content_for :stylesheets, stylesheet_link_tag('refinery/select_form') %>
 
-
-      <%= render '/refinery/admin/make_sortable', :update_url => refinery.update_positions_admin_page_menu_page_positions_path(@page_menu.id || 0), :tree => true%>
-
-      <%= render '/refinery/admin/sortable_list', :continue_reordering => !!local_assigns[:continue_reordering] %>
-
-      <% content_for :javascripts, javascript_include_tag('refinery/backend') %>
-
-        <%= render '/refinery/admin/form_actions', :f => f,
-                   :continue_editing => true,
-                   :delete_title => t('delete', :scope => 'refinery.travels.admin.travels.category'),
-                   :delete_confirmation => t('message', :scope => 'refinery.admin.delete') %>
-    <% end %>
-  </div>
+    <%= render '/refinery/admin/form_actions', :f => f,
+                :continue_editing => true,
+                :delete_title => t('delete', :scope => 'refinery.travels.admin.travels.category'),
+                :delete_confirmation => t('message', :scope => 'refinery.admin.delete') %>
+  <% end %>
 </div>
+
+<% content_for :stylesheets, stylesheet_link_tag('refinery/select_form') %>
+
+<%= render '/refinery/admin/make_sortable', :update_url => refinery.update_positions_admin_page_menu_page_positions_path(@page_menu.id || 0), :tree => true%>
+
+<%= render '/refinery/admin/sortable_list', :continue_reordering => !!local_assigns[:continue_reordering] %>
+
+<% content_for :javascripts, javascript_include_tag('refinery/backend.js') %>

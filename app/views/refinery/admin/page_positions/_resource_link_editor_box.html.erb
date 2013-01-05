@@ -1,5 +1,5 @@
 <%= content_tag :div, class: "pp-add-box resource-pp-add-box", data: {type: resource_type} do %>
-  <%= form_for [refinery, :admin, Refinery::PagePosition.new] do |f| %>
+  <%= f.fields_for [refinery, :admin, Refinery::PagePosition.new] do |f| %>
     <h3><%= resource_type.to_s.titleize %></h3>
     <div class='pp-selection-box'>
       <%= f.hidden_field :type, {value: resource_type} %>
@@ -13,6 +13,6 @@
         <% end %>
       </ul>
     </div>
-    <%= f.submit "Add" # add resource type here %>
+    <%= f.submit "Add" %>
   <% end %>
 <% end %>
