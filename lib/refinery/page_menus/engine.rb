@@ -23,9 +23,7 @@ module Refinery
       end
 
       config.to_prepare do
-        require 'refinerycms-pages'
-        
-        Refinery::Page.send :has_many_page_menus
+        require 'refinerycms-pages'        
         Refinery::Admin::PagesController.send :has_and_belongs_to_page_menus
       end
       

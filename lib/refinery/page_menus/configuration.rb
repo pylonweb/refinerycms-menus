@@ -2,8 +2,7 @@ module Refinery
   module PageMenus
     include ActiveSupport::Configurable
 
-    config_accessor :default_menus,
-                    :menu_resources
+    config_accessor :default_menus, :menu_resources
 
     self.default_menus = ['sidebar_menu']
 

@@ -9,7 +9,7 @@ gem 'refinerycms-settings'#, :git => 'git://github.com/refinery/refinerycms-sett
 group :development, :test do
   require 'rbconfig'
 
-  gem 'refinerycms-testing'#, :git => 'git://github.com/refinery/refinerycms.git'
+  gem 'refinerycms-testing', '~> 2.0.6'#, :git => 'git://github.com/refinery/refinerycms.git'
   gem 'guard-rspec', '~> 1.1.0'
   gem 'launchy'
 
