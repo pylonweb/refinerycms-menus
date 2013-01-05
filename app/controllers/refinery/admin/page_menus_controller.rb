@@ -2,19 +2,12 @@ module Refinery
   module Admin
     class PageMenusController < ::Refinery::AdminController
       
-      crudify :'refinery/page_menu', :xhr_paging => true, :sortable => true#, :redirect_to_url => "refinery.admin_page_menu_page_positions_path(@page_menu)"
+      crudify :'refinery/page_menu', 
+              :xhr_paging => true, 
+              :sortable => false,
       
-      before_filter :find_menu_pages, only: [:new, :edit]
       before_filter :find_page_positions, only: [:edit, :update]
       before_filter :set_page_positions, only: [:create, :update]
-      
-      def new
-        @page_menu = PageMenu.new
-      end
-      
-      def edit        
-        @pages = Refinery::Page.all
-      end
       
       private
 
@@ -61,11 +54,6 @@ module Refinery
             update_child_page_positions(child, child_position)
           end
         end
-      end
-      
-      def find_menu_pages
-        @pages_in_menu = Refinery::Page.in_menu
-        @pages_not_in_menu = Refinery::Page.order('lft ASC') - @pages_in_menu
       end
       
       def find_page_positions

@@ -7,9 +7,6 @@ jQuery =>
 	$('#sortable_list').on 'click', '.header', ->
 		$(this).siblings('.body').slideToggle()
 
-	$('#sortable_list').on 'click', '.remove', ->
-		$(this).parents('.pp-link').fadeOut().find('input.destroy').val('true')
-
 	$('#page_menu_form').submit (e) ->
 		save_structure($(this))
 

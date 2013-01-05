@@ -6,15 +6,13 @@
       <span class='arrow'>&nbsp;</span>
     </div>
     <div class='body'>
-      <%= f.hidden_field :parent_id %>
       <%= f.hidden_field :id %>
-      <%= f.hidden_field :_destroy, class: "destroy" %>
       <% if f.object.custom_link? %>
         <%= render partial: "refinery/admin/page_positions/custom_link", object: page_position, locals: {f: f} %>
       <% else %>
         <%= render partial: "refinery/admin/page_positions/resource_link", object: page_position, locals: {f: f} %>
       <% end %>
-      <a class='remove'>Remove</a>
+      <%= link_to "remove", admin_page_position_path(page_position), method: :delete, remote: true, class: 'remove' %>
     </div>
     
     <% if page_position.children.any? %>
