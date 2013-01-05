@@ -8,7 +8,7 @@
     <div class='body'>
       <%= f.hidden_field :parent_id %>
       <%= f.hidden_field :id %>
-      <%= f.hidden_field :_destroy %>
+      <%= f.hidden_field :_destroy, class: "destroy" %>
       <% if f.object.custom_link? %>
         <%= render partial: "refinery/admin/page_positions/custom_link", object: page_position, locals: {f: f} %>
       <% else %>

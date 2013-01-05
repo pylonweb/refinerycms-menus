@@ -24,7 +24,7 @@
 
     </div>
   <%# end -%>
-  <%= form_for [refinery, :admin, @page_menu] do |f| %>
+  <%= form_for [refinery, :admin, @page_menu], html: { id: 'page_menu_form' } do |f| %>
     <div id='form-container'>
 
       <%= render '/refinery/admin/error_messages',
