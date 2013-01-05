@@ -70,24 +70,27 @@
   
 }
 
-#sortable_list {
+#form-container {
   float: left;
-  margin: 20px 0 0 20px;
-  padding: 10px 20px 20px 20px;
-  background: #eee;
-  width: 650px;
-  min-height: 400px;
-  
-  list-style: none;
-  
-  ul {
-    li {
+  #sortable_list {
+    margin: 20px 0 0 20px;
+    padding: 10px 20px 20px 20px;
+    background: #eee;
+    width: 650px;
+    min-height: 400px;
+    
+    list-style: none;
+    
+    ul {
+      li {
+        list-style: none;
+      }
       list-style: none;
     }
-    list-style: none;
-  }
 
+  }
 }
+
 
 .pp-link {
   position: relative;
