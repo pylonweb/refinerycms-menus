@@ -1,38 +1,46 @@
 <div id='pp-select-container' class='clearfix'>
-  <%= form_for [refinery, :admin, @page_menu] do |f| %>
+  <%#= form_for [refinery, :admin, @page_menu], remote: true do |f| %>
     <div id='left_actions'>
+      
       <div id="custom_url_box" class="pp-add-box">
-        <h3>Custom Link</h3>
-        <div class='field'>
-          <%= label_tag(:url) %>
-          <%= text_field_tag(:url) %>
-        </div>
-        <div class='field'>
-          <%= label_tag(:label) %>
-          <%= text_field_tag(:label) %>
-        </div>
-        <a href="#" class="button add_link">Add</a>
-      </div>
-        <% Refinery::PageMenus.menu_resources.each do |resource_type, config| %>
-          <%= render partial: "refinery/admin/page_positions/resource_link_editor_box", locals: {resource_type: resource_type, config: config, f:f} %>
+        <%= form_for [refinery, :admin, @page_menu.positions.build], remote: true do |f| %>
+          <%= f.hidden_field :refinery_menu_id %>
+          <h3>Custom Link</h3>
+          <div class='field'>
+            <%= f.label :custom_url %>
+            <%= f.text_field :custom_url %>
+          </div>
+          <div class='field'>
+            <%= f.label :label %>
+            <%= f.text_field :label %>
+          </div>
+        <%= f.submit "Add" %>
         <% end %>
-    </div>
-  <% end -%>
-  <%= form_for [refinery, :admin, @page_menu] do |f| %>
-    <%= render '/refinery/admin/error_messages',
-               :object => @page_menu,
-               :include_object_name => true %>
+      </div>
 
-    <div class='field'>
-      <%= f.label :title %>
-      <%= f.text_field :title, class: "larger" %>
+      <% Refinery::PageMenus.menu_resources.each do |resource_type, config| %>
+        <%= render partial: "refinery/admin/page_positions/resource_link_editor_box", locals: { resource_type: resource_type, config: config } %>
+      <% end %>
+
     </div>
-    <div id="form-container">
+  <%# end -%>
+  <%= form_for [refinery, :admin, @page_menu] do |f| %>
+    <div id='form-container'>
+
+      <%= render '/refinery/admin/error_messages',
+                 :object => @page_menu,
+                 :include_object_name => true %>
+
+      <div class='field'>
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "larger" %>
+      </div>
+
       <%= content_tag :ul, id: "sortable_list", data: {links: @page_positions} do %>
         <%#= hidden_field_tag "ul" %>
         <% if @page_positions.present? %>
-          <%= f.fields_for :positions, @page_positions.select{|p| p.parent_id.nil?} do |position_form|  %>
-            <%= render 'refinery/admin/page_positions/page_position', pf: position_form, f: f %>
+          <% @page_positions.each do |page_position|  %>
+            <%= render partial: 'refinery/admin/page_positions/page_position', object: page_position %>
           <% end %>
         <% else %>
           <li class='placeholder-text'>Use the left side to add links to your menu.</li>

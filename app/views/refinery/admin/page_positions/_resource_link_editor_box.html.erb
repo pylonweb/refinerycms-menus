@@ -1,18 +1,21 @@
-<%= content_tag :div, class: "pp-add-box resource-pp-add-box", data: {type: resource_type} do %>
-  <%= f.fields_for [refinery, :admin, Refinery::PagePosition.new] do |f| %>
+<%= content_tag :div, class: "pp-add-box resource-pp-add-box" do %>
+  <%= form_for [refinery, :admin, @page_menu.positions.build(refinery_resource_type: resource_type)], remote: true do |f| %>
     <h3><%= resource_type.to_s.titleize %></h3>
     <div class='pp-selection-box'>
-      <%= f.hidden_field :type, {value: resource_type} %>
       <ul class='checkboxes'>
+        <%= f.hidden_field :refinery_menu_id %>
+        <%= f.hidden_field :refinery_resource_type %>
+
         <% resources = Refinery::PagePosition.find_all_of_type(resource_type) %>
-        <% resources.each do |object| %>
+        <% resources.each_with_index do |object, index| %>
           <li>
-            <%= check_box_tag(dom_id(object), object.id) %>
-            <%= label_tag(dom_id(object), object.title, class: 'stripped') %>
+            <%= check_box_tag "refinery_resource_ids[]", object.id %>
+            <%= label_tag "refinery_resource_ids[]", object.title %> 
           </li>
         <% end %>
       </ul>
     </div>
-    <%= f.submit "Add" %>
+    <% # add resource type here %>
+    <%= f.submit "Add"  %>
   <% end %>
 <% end %>

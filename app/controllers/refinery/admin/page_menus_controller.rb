@@ -25,7 +25,7 @@ module Refinery
       end
       
       def find_page_positions
-        @page_positions = @page_menu.positions
+        @page_positions = @page_menu.roots
       end
       
     end

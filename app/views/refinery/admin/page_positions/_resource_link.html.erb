@@ -1,5 +1,5 @@
-<%= f.hidden_field :refinery_resource_id unless page_position.custom_link? %>
-<%= f.hidden_field :refinery_resource_type unless page_position.custom_link? %>
+<%= f.hidden_field :refinery_resource_id  %>
+<%= f.hidden_field :refinery_resource_type  %>
 
 <div class="field">
   <%= f.label :label %>
@@ -13,5 +13,5 @@
 
 <div class="field">
   <%= f.label :original %>
-  <div class='original-resource'><%= page_position.resource.title %></div>
+  <div class='original-resource'><%= resource_link.resource.title %></div>
 </div>

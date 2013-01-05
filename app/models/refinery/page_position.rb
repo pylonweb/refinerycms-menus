@@ -69,7 +69,7 @@ module Refinery
     end
 
     def title
-      title_attribute.present? ? title_attribute : label
+      title_attribute.present? ? title_attribute : label.present? ? label : resource.title 
     end
         
     def url

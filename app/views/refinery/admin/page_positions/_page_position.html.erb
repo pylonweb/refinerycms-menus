@@ -1,27 +1,28 @@
-<% page_position = pf.object %>
-<li class='pp-link clearfix record' id="<%= dom_id(page_position)%>">
-  <div class='header'>
-    <div class='name'><%= page_position.label %></div>
-    <div class='type'><%= page_position.type_name %></div>
-    <span class='arrow'>&nbsp;</span>
-  </div>
-  <div class='body'>
-    <%= pf.hidden_field :parent_id %>
-    <%= pf.hidden_field :id %>
-    <%= pf.hidden_field :_destroy %>
-    <% if page_position.custom_link? %>
-      <%= render "refinery/admin/page_positions/custom_link", f: pf, page_position: page_position %>
-    <% else %>
-      <%= render "refinery/admin/page_positions/resource_link", f: pf, page_position: page_position %>
-    <% end %>
-    <a class='remove'>Remove</a>
-  </div>
-  
-  <% if page_position.children.any? %>
-    <ul class='nested'>
-      <%= f.fields_for :positions, page_position.children do |position_form|  %>
-        <%= render 'refinery/admin/page_positions/page_position', pf: position_form, f: f %>
+<%= fields_for 'page_menu[positions_attributes]', page_position do |f| %>
+  <li class='pp-link clearfix record' id="<%= dom_id(page_position)%>">
+    <div class='header'>
+      <div class='name'><%= page_position.title %></div>
+      <div class='type'><%= page_position.type_name %></div>
+      <span class='arrow'>&nbsp;</span>
+    </div>
+    <div class='body'>
+      <%= f.hidden_field :parent_id %>
+      <%= f.hidden_field :id %>
+      <%= f.hidden_field :_destroy %>
+      <% if f.object.custom_link? %>
+        <%= render partial: "refinery/admin/page_positions/custom_link", object: page_position, locals: {f: f} %>
+      <% else %>
+        <%= render partial: "refinery/admin/page_positions/resource_link", object: page_position, locals: {f: f} %>
       <% end %>
-    </ul>
-  <% end %>
-</li>
+      <a class='remove'>Remove</a>
+    </div>
+    
+    <% if page_position.children.any? %>
+      <ul class='nested'>
+        <% page_position.children.each do |child|  %>
+          <%= render partial: 'refinery/admin/page_positions/page_position', object: child %>
+        <% end %>
+      </ul>
+    <% end %>
+  </li>
+<% end %>
