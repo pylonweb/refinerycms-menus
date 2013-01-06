@@ -4,7 +4,8 @@ module Refinery
       
       crudify :'refinery/page_menu', 
               :xhr_paging => true, 
-              :sortable => false
+              :sortable => false,
+              :include => [:links]
       
       before_filter :find_menu_links, only: [:edit, :update]
       before_filter :set_links_positions, only: [:create, :update]
