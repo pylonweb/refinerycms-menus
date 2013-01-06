@@ -1,7 +1,7 @@
 <%= fields_for 'page_menu[links_attributes]', menu_link do |f| %>
   <li class='pp-link clearfix record' id="<%= dom_id(menu_link)%>">
     <div class='header'>
-      <div class='name'><%= menu_link.title %></div>
+      <div class='name'><%= menu_link.label %></div>
       <div class='type'><%= menu_link.type_name %></div>
       <span class='arrow'>&nbsp;</span>
     </div>

@@ -10,7 +10,7 @@
         <% resources.each_with_index do |object, index| %>
           <li>
             <%= check_box_tag "refinery_resource_ids[]", object.id %>
-            <%= label_tag "refinery_resource_ids[]", object.title %> 
+            <%= label_tag "refinery_resource_ids[]", object.send(Refinery::MenuLink.resource_config(resource_type)[:title_attr]) %> 
           </li>
         <% end %>
       </ul>

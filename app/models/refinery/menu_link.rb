@@ -12,6 +12,9 @@ module Refinery
     acts_as_nested_set :dependent => :destroy
     
     validates :menu, :presence => true
+    validates :label, :presence => true
+
+    before_validation :set_label
 
     def self.find_all_of_type(type)
       # find all resources of the given type, determined by the configuration
@@ -31,6 +34,10 @@ module Refinery
       Refinery::PageMenus.menu_resources[type.to_sym]
     end
 
+    def set_label
+      self.label = resource.send(resource_config[:title_attr]) if label.nil? && resource_link?
+    end
+
     def resource_klass
       Refinery::MenuLink.resource_klass(resource_type)
     end
@@ -40,11 +47,11 @@ module Refinery
     end
 
     def resource_type
-      refinery_resource_type || 'refinery_page'
+      refinery_resource_type || "Custom link"
     end
     
     def type_name
-      custom_link? ? "Custom link" : refinery_resource_type.titleize()
+      resource_type.titleize
     end
 
     def custom_link?
@@ -60,16 +67,16 @@ module Refinery
       resource_klass.find(refinery_resource_id)
     end
 
-    def resource_url
-      resource.present? ? resource.url : '/'
-    end
-
     def resource_title
       resource[resource_config[:title_attr]]
     end
 
     def title
-      title_attribute.present? ? title_attribute : label.present? ? label : resource.title 
+      title_attribute.present? ? title_attribute : label
+    end
+
+    def resource_url
+      resource.present? ? resource.url : '/'
     end
         
     def url
@@ -99,7 +106,7 @@ module Refinery
         :menu_match => menu_match,
         :parent_id => parent_id,
         :rgt => rgt,
-        :title => title,
+        :title => label, # title attributes has not yet been implemented in RefineryCMS
         :type => self.class.name,
         :url => url
       }
