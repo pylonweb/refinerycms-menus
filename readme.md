@@ -37,19 +37,31 @@ rake db:migrate
 Now when you start up your Refinery application, go to the pages in your admin interface, and you should see a roll-down menu called "Menus".
 
 ## Usage
+### Add to your view
 
-`app/views/refinery/pages/_header.html.erb`
-
+Go to `app/views/refinery/pages/_header.html.erb` in your application.
 If you don't have this file then Refinery will be using its default. You can override this with
 
 ```bash
 rake refinery:override view=refinery/_header
 ```
 
+Then add this code to the header, to generate the custom menu:
 ```erb
 <%= render :partial => "/refinery/menu", :locals => { 
 			:roots => refinery_page_menu("custom_menu")
 	  }	%>     	          
+```
+"custom_menu" must be replaced by the permatitle of your menu.
+### Rake commands
+To show list all your menus and their permatitles run this rake task:
+```bash
+rake refinery:page_menus:menus
+```
+
+You can create a new menu in the rails console, or you can use the following command:
+```bash
+rake refinery:page_menus:create_menu title=some_title
 ```
 
 ## Contributing
