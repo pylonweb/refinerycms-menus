@@ -1,12 +1,5 @@
 # Page Menus Extension for Refinery CMS
 
-## IMPORTANT: IN DEVELOPMENT!
-
-This extension is still in development! There is no tests yet. 
-Also you can't create new menus in the admin interface, you have to create them yourself.
-
-A stable complete version will soon be released.
-
 If you are willing to contribute please send me a mail (johan@pylonweb.dk), and follow the contribution guidelines below. Especially test would be appriciated!
 
 ## About
