@@ -12,7 +12,10 @@
       <% else %>
         <%= render partial: "refinery/admin/menu_links/resource_link", object: menu_link, locals: {f: f} %>
       <% end %>
-      <%= link_to "remove", admin_menu_link_path(menu_link), method: :delete, remote: true, class: 'remove' %>
+      <%= link_to t('remove', :scope => 'refinery.admin.menu_links'), admin_menu_link_path(menu_link), 
+                  method: :delete, 
+                  remote: true, 
+                  class: 'remove' %>
     </div>
     
     <% if menu_link.children.any? %>

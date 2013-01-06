@@ -1,2 +1,3 @@
-<%= will_paginate @page_mennus if Refinery::Admin::PageMenusController.pageable? %>
-<%= render 'sortable_list' %>
+<ul>
+  <%= render :partial => 'page_menu', :collection => @page_menus %>
+</ul>

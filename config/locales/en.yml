@@ -2,35 +2,33 @@ en:
   refinery:
     plugins:
       refinery_page_menus:
-        title: Page Menu
+        title: Menus
         description: Create and manage custom menus for your site
     admin:
-      pages:
-        form_advanced_options: 
-          show_in_menu_title: Show in mainmenu
-          show_in_menu_description: Show the page in the mainmenu on the site
-          show_in_menu_help: Uncheck this box if you want to remove a page from your mainmenu. This can be handy if you have a page you want to link people to directly or use in another menu but don&apos;t want to show the page in the menu.
-        actions:
-          pages:
-            title: Pages
-            create_new: Add new page
-            manage: Manage pages
-          menus:
-            title: Menus
-            main: Mainmenu
-            create_new: Add new menu
-            manage: Manage menus
-            edit: Edit this menu
+      menu_links:
+        remove: remove
+        add: "Add %{resource}"
+        custom_link:
+          add: Add Custom Link
+          custom_url: Url
       page_menus:
         form:
-          menu_pages: Pages in the menu
-          pages_help: This is a list of all the pages for this menu. Select pages and click '<' to remove them from the menu.
-          all_pages: Pages not in the menu
-          all_pages_help: This is a list of all available pages that&apos;s not in the menu already. Select those pages you want in the menu and click '>' to add them.
+          no_links: Use the left side to add links to your menu.
+        records:
+          title: Menus
+          no_items_yet: There are no menues yet. Ask your developer to create one for you.
+        page_menu:
+          edit: Edit this menu
+          delete: Remove this menu forever
   activerecord:
     models:
       refinery/page_menu: Menu
+      refinery/menu_link: Link
     attributes:
       refinery/page_menu:
         title: Title
-        pages: Pages
+        permatitle: Permatitle
+      refinery/menu_link:
+        title_attribute: Title attribute
+        custom_url: Url
+        label: Label

@@ -5,14 +5,14 @@
       <%= f.hidden_field :refinery_menu_id %>
       <h3>Custom Link</h3>
       <div class='field'>
-        <%= f.label :custom_url, "Url" %>
+        <%= f.label :custom_url, t('custom_url', scope: 'refinery.admin.menu_links.custom_link') %>
         <%= f.text_field :custom_url %>
       </div>
       <div class='field'>
         <%= f.label :label %>
         <%= f.text_field :label %>
       </div>
-    <%= f.submit "Add" %>
+    <%= f.submit t('add', :scope => 'refinery.admin.menu_links.custom_link') %>
     <% end %>
   </div>
 

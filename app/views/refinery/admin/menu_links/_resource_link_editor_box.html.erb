@@ -16,6 +16,6 @@
       </ul>
     </div>
     <% # add resource type here %>
-    <%= f.submit "Add"  %>
+    <%= f.submit t('add', :scope => 'refinery.admin.menu_links', resource: resource_type.to_s.titleize)  %>
   <% end %>
 <% end %>

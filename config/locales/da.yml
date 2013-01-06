@@ -2,35 +2,33 @@ da:
   refinery:
     plugins:
       refinery_page_menus:
-        title: Side Menu
-        description: Opret og håndter brugerdefinerede menuer for din side
+        title: Menuer
+        description: Opret og administrer brugerdefinerede menuer for din side
     admin:
-      pages:
-        form_advanced_options: 
-          show_in_menu_title: Vis i hovedmenuen
-          show_in_menu_description: Vis siden i hovedmenuen på sitet
-          show_in_menu_help: Afkryds ikke, hvis du vil fjerne siden fra hovedmenuen på sitet. Dette kan benyttes, hvis du vil have en side, du kan linke til direkte, eller bruge i en anden menu, men som ikke skal vises i hovedmenuen.
-        actions:
-          pages:
-            title: Sider
-            create_new: Tilføj en ny side
-            manage: Håndter sider
-          menus:
-            title: Menuer
-            main: Hovedmenu
-            create_new: Tilføj en ny menu
-            manage: Håndter menuer
-            edit: Redigér menuen
+      menu_links:
+        remove: fjern
+        add: "Tilføj %{resource}"
+        custom_link:
+          add: Tilføj brugerdefineret link
+          custom_url: Url
       page_menus:
         form:
-          menu_pages: Sider i menuen
-          pages_help: Dette er en liste over alle de sider der indgår i menuen. Vælg sider og tryk '<' for at fjerne dem.
-          all_pages: Sider ikke i menuen
-          all_pages_help: Dette er en liste over alle tilgængelige sider der ikke indgår i menuen. Vælg hvilke sider der skal indgå i menuen, og tryk '>'.
+          no_links: "Brug panelet i venstre, til at tilføje links til din menu."
+        records:
+          title: Menuer
+          no_items_yet: Der er ingen menuer endnu. Bed din webudvikler om at oprette en for dig.
+        page_menu:
+          edit: Redigér menuen
+          delete: Slet menuen permanent
   activerecord:
     models:
       refinery/page_menu: Menu
+      refinery/menu_link: Link
     attributes:
       refinery/page_menu:
         title: Titel
-        pages: Sider
+        permatitle: Permanent titel
+      refinery/menu_link:
+        title_attribute: Titel attribut
+        custom_url: Url
+        label: Label

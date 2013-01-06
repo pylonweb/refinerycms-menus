@@ -10,7 +10,6 @@
                :include_object_name => true %>
 
 
-
     <ul id="sortable_list">
       <% if @menu_links.present? %>
         <% @menu_links.each do |menu_link|  %>
@@ -19,15 +18,14 @@
       <% else %>
         <li class='pp-placeholder' id="">
           <%# We need a div here so we don't get a js error for a empty list %>
-          <div>Use the left side to add links to your menu.</div>
+          <div><%= t('.no_links') %></div>
         </li>
       <% end %>
     </ul>
   </div>
 
-
   <%= render '/refinery/admin/form_actions', :f => f,
               :continue_editing => false,
-              :delete_title => t('delete', :scope => 'refinery.travels.admin.travels.category'),
-              :delete_confirmation => t('message', :scope => 'refinery.admin.delete') %>
+              :delete_title => t('delete', :scope => 'refinery.admin.page_menus.page_menu'),
+              :delete_confirmation => t('message', :scope => 'refinery.admin.delete', title: @page_menu.title) %>
 <% end %>
