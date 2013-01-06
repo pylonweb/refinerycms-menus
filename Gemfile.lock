@@ -1,11 +1,8 @@
 PATH
   remote: .
   specs:
-    refinerycms-page-menus (2.0.6.dev)
+    refinerycms-page-menus (2.0.4.dev1)
       awesome_nested_set (~> 2.1.0)
-      nokogiri (~> 1.5.5)
-      refinerycms-core (~> 2.0.6)
-      refinerycms-pages (~> 2.0.6)
 
 GEM
   remote: http://rubygems.org/
@@ -273,7 +270,7 @@ DEPENDENCIES
   refinerycms-i18n
   refinerycms-page-menus!
   refinerycms-settings
-  refinerycms-testing (~> 2.0.6)
+  refinerycms-testing
   ruby_gntp (~> 0.3.4)
   sass-rails
   sqlite3

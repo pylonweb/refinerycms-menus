@@ -2,16 +2,15 @@ source "http://rubygems.org"
 
 gemspec
 
-gem 'refinerycms', '~> 2.0.6'#:git => 'git://github.com/refinery/refinerycms.git'
-gem 'refinerycms-i18n'#, :git => 'git://github.com/refinery/refinerycms-i18n.git'
-gem 'refinerycms-settings'#, :git => 'git://github.com/refinery/refinerycms-settings.git'
+gem 'refinerycms', :git => 'git://github.com/refinery/refinerycms.git'
+gem 'refinerycms-i18n', :git => 'git://github.com/refinery/refinerycms-i18n.git'
+gem 'refinerycms-settings', :git => 'git://github.com/refinery/refinerycms-settings.git'
 
 group :development, :test do
   require 'rbconfig'
 
-  gem 'refinerycms-testing', '~> 2.0.6'#, :git => 'git://github.com/refinery/refinerycms.git'
+  gem 'refinerycms-testing', :git => 'git://github.com/refinery/refinerycms.git'
   gem 'guard-rspec', '~> 1.1.0'
-  gem 'launchy'
 
   platforms :jruby do
     gem 'activerecord-jdbcsqlite3-adapter'
