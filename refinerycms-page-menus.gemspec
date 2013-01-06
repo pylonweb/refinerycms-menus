@@ -1,13 +1,12 @@
 # Encoding: UTF-8
-# $:.push File.expand_path('../../core/lib', __FILE__)
-# require 'refinery/version'
-# 
-# version = Refinery::Version.to_s
+require File.expand_path('../lib/refinery/page_menus/version.rb', __FILE__)
+
+version = Refinery::PageMenus::Version.to_s
 
 Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.name              = %q{refinerycms-page-menus}
-  s.version           = '2.0.6.dev'
+  s.version           = version
   s.summary           = %q{Pages Menus extension for Refinery CMS}
   s.description       = %q{Add custom menus to pages}
   s.date              = Date.today.strftime("%Y-%m-%d")
@@ -21,8 +20,7 @@ Gem::Specification.new do |s|
   s.test_files        = `git ls-files -- spec/*`.split("\n")
 
   s.add_dependency    'awesome_nested_set', '~> 2.1.0'
-  s.add_dependency    'refinerycms', '~> 2.0.6'#'~> 2.1.0.dev'
-  # s.add_dependency    'refinerycms-core', '~> 2.0.6'#'~> 2.1.0.dev'
-  # s.add_dependency    'refinerycms-pages', '~> 2.0.6'#'~> 2.1.0.dev'
+  s.add_dependency    'refinerycms-core', '~> 2.0.6'#'~> 2.1.0.dev'
+  s.add_dependency    'refinerycms-pages', '~> 2.0.6'#'~> 2.1.0.dev'
   s.add_dependency    'nokogiri', '~> 1.5.5'
 end

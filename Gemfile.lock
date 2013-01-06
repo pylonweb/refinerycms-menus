@@ -1,10 +1,8 @@
 PATH
   remote: .
   specs:
-    refinerycms-page-menus (2.0.6.dev)
+    refinerycms-page-menus (2.0.4.dev1)
       awesome_nested_set (~> 2.1.0)
-      nokogiri (~> 1.5.5)
-      refinerycms (~> 2.0.6)
 
 GEM
   remote: http://rubygems.org/
