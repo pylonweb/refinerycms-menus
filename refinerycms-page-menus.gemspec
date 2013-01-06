@@ -21,7 +21,8 @@ Gem::Specification.new do |s|
   s.test_files        = `git ls-files -- spec/*`.split("\n")
 
   s.add_dependency    'awesome_nested_set', '~> 2.1.0'
-  s.add_dependency    'refinerycms-core', '~> 2.0.6'#'~> 2.1.0.dev'
-  s.add_dependency    'refinerycms-pages', '~> 2.0.6'#'~> 2.1.0.dev'
+  s.add_dependency    'refinerycms', '~> 2.0.6'#'~> 2.1.0.dev'
+  # s.add_dependency    'refinerycms-core', '~> 2.0.6'#'~> 2.1.0.dev'
+  # s.add_dependency    'refinerycms-pages', '~> 2.0.6'#'~> 2.1.0.dev'
   s.add_dependency    'nokogiri', '~> 1.5.5'
 end
