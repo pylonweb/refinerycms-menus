@@ -15,16 +15,15 @@ module Refinery
       initializer "register refinery_page_menus plugin" do
         Refinery::Plugin.register do |plugin|
           plugin.pathname = root
+          plugin.url = proc { Refinery::Core::Engine.routes.url_helpers.admin_page_menus_path }
           plugin.name = 'refinery_page_menus'
           plugin.menu_match = /refinery\/(page_menus|main_menu|page_positions)/ #Match controller path
-          plugin.hide_from_menu = true
+          # plugin.hide_from_menu = true
         end
       end
 
       config.to_prepare do
-        require 'refinerycms-pages'
-        
-        Refinery::Page.send :has_many_page_menus
+        require 'refinerycms-pages'        
         Refinery::Admin::PagesController.send :has_and_belongs_to_page_menus
       end
       

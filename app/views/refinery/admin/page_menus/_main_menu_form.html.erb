@@ -1,9 +1,0 @@
-<%= form_for :page_menu, :url => refinery.admin_update_main_menu_path, :html => {:onsubmit => "selectAll('.select_to')" } do |f| %>
-
-	<%= render 'pages_select', :f => f %>
-  
-  <%= render '/refinery/admin/form_actions', :f => f,
-             :continue_editing => false,
-             :delete_title => t('delete', :scope => 'refinery.travels.admin.travels.category'),
-             :delete_confirmation => t('message', :scope => 'refinery.admin.delete') %>
-<% end %>

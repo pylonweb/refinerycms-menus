@@ -2,28 +2,62 @@ module Refinery
   module Admin
     class PageMenusController < ::Refinery::AdminController
       
-      crudify :'refinery/page_menu', :xhr_paging => true, :sortable => false, :redirect_to_url => "refinery.admin_page_menu_page_positions_path(@page_menu)"
+      crudify :'refinery/page_menu', 
+              :xhr_paging => true, 
+              :sortable => false
       
-      def edit
-        @pages_in_menu = @page_menu.pages
-        @pages_not_in_menu = Refinery::Page.order('lft ASC') - @pages_in_menu
+      before_filter :find_page_positions, only: [:edit, :update]
+      before_filter :set_page_positions, only: [:create, :update]
+      
+      private
+
+      # Based upon http://github.com/matenia/jQuery-Awesome-Nested-Set-Drag-and-Drop
+      def set_page_positions
+        previous = nil
+        params[:ul].each do |_, list|
+          list.each do |index, hash|
+            moved_item_id = hash['id'].split(/page_position\_?/).reject(&:empty?).first
+
+            if moved_item_id
+              current_position = @page_menu.positions.find(moved_item_id) # Scope?
+
+              if current_position.respond_to?(:move_to_root)
+                if previous.present?
+                  current_position.move_to_right_of(@page_menu.positions.find(previous)) #SCOPE?
+                else
+                  current_position.move_to_root
+                end
+              else
+                current_position.update_attributes :position => index
+              end
+
+              if hash['children'].present?
+                update_child_page_positions(hash, current_position)
+              end
+
+              previous = moved_item_id
+            end
+          end
+        end if params[:ul].present?
+
+        PagePosition.rebuild!
       end
-      
-      def edit_main_menu
-        @pages_in_menu = Refinery::Page.in_menu
-        @pages_not_in_menu = Refinery::Page.order('lft ASC') - @pages_in_menu
-      end
-      
-      def update_main_menu 
-        Refinery::Page.all.each do |page|
-          if params[:page_menu][:pages].include?(page.id.to_s) && !page.show_in_menu?
-            page.update_attribute(:show_in_menu, true)
-          elsif !params[:page_menu][:pages].include?(page.id.to_s) && page.show_in_menu?
-            page.update_attribute(:show_in_menu, false)
+
+      def update_child_page_positions(_node, position)
+        list = _node['children']['0']
+        list.each do |index, child|
+          child_id = child['id'].split(/page_position\_?/).reject(&:empty?).first
+          child_position = @page_menu.positions.find(child_id) # Scoped?
+          child_position.move_to_child_of(position)
+
+          if child['children'].present?
+            update_child_page_positions(child, child_position)
           end
         end
-        
-        redirect_to refinery.admin_pages_main_menu_path
+      end
+      
+      def find_page_positions
+        @page_positions = @page_menu.roots
       end
       
     end

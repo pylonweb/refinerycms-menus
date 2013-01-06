@@ -1,17 +1,33 @@
-<%= form_for [refinery, :admin, @page_menu], :html => {:onsubmit => "selectAll('.select_to')" } do |f| -%>
-  <%= render '/refinery/admin/error_messages',
-              :object => @page_menu,
-              :include_object_name => true %>
-
+<%= form_for [refinery, :admin, @page_menu], html: { id: 'page_menu_form' } do |f| %>
   <div class='field'>
     <%= f.label :title %>
     <%= f.text_field :title, class: "larger widest" %>
-  </div> 
-	
-	<%= render 'pages_select', :f => f %>
-  
+  </div>
+  <div id='form-container'>
+
+    <%= render '/refinery/admin/error_messages',
+               :object => @page_menu,
+               :include_object_name => true %>
+
+
+
+    <ul id="sortable_list">
+      <% if @page_positions.present? %>
+        <% @page_positions.each do |page_position|  %>
+          <%= render partial: 'refinery/admin/page_positions/page_position', object: page_position %>
+        <% end %>
+      <% else %>
+        <li class='pp-placeholder' id="">
+          <%# We need a div here so we don't get a js error for a empty list %>
+          <div>Use the left side to add links to your menu.</div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+
   <%= render '/refinery/admin/form_actions', :f => f,
-             :continue_editing => false,
-             :delete_title => t('delete', :scope => 'refinery.travels.admin.travels.category'),
-             :delete_confirmation => t('message', :scope => 'refinery.admin.delete') %>
+              :continue_editing => false,
+              :delete_title => t('delete', :scope => 'refinery.travels.admin.travels.category'),
+              :delete_confirmation => t('message', :scope => 'refinery.admin.delete') %>
 <% end %>
