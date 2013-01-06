@@ -100,7 +100,7 @@ module Refinery
         :parent_id => parent_id,
         :rgt => rgt,
         :title => title,
-        :type => resource_type,
+        :type => self.class.name,
         :url => url
       }
     end

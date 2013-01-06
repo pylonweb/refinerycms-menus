@@ -8,7 +8,7 @@ module Refinery
 
       # Compiles a page menu.
       def refinery_page_menu(menu_title)
-        ::Refinery::Menu.new(::Refinery::PageMenu.find_or_create_by_permatitle(menu_title).roots)
+        ::Refinery::Menu.new(::Refinery::PageMenu.find_or_create_by_permatitle(menu_title).positions).roots
       end
 
     end
