@@ -101,7 +101,6 @@ module Refinery
         :rgt => rgt,
         :title => title,
         :type => resource_type,
-        # :type => self.class.name,
         :url => url
       }
     end

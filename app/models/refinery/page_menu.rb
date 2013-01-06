@@ -11,17 +11,6 @@ module Refinery
 
     accepts_nested_attributes_for :positions, :allow_destroy => true
 
-    def pages=(new_ids)
-      old_ids = positions.map(&:refinery_page_id)
-      (new_ids - old_ids).each do |id|
-        positions.build(:refinery_page_id => id) if !id.empty?
-      end
-      (old_ids - new_ids).each do |id|
-        positions.where(:refinery_page_id => id).destroy_all
-      end
-      self.save
-    end
-
     def roots
       @roots ||= positions.select {|pos| pos.parent_id.nil?}
     end    
