@@ -5,7 +5,7 @@ module Refinery
 
     describe "validations" do
       it "should be valid with unique title and permatitle" do
-        FactoryGirl.build(:page_menu)
+        FactoryGirl.build(:page_menu, title: "New Menu", permatitle: "new_menu")
         FactoryGirl.build(:page_menu).should be_valid
       end
 
@@ -52,6 +52,26 @@ module Refinery
         @page_menu.positions_attributes = [{id: @page_position.id, _destroy: true}]
         @page_menu.save
         @page_menu.positions.count.should == 0
+      end
+
+    end
+
+    describe "#roots" do
+      before(:each) do
+        @page_menu = FactoryGirl.create(:page_menu)
+        @page_position_parent = FactoryGirl.create(:page_position, menu: @page_menu)
+        @page_position_child = FactoryGirl.create(:page_position, menu: @page_menu, parent_id: @page_position_parent.id)
+      end
+
+      it "should returns all parents" do
+        @page_menu.reload
+        @page_menu.roots.should include(@page_position_parent)
+      end
+
+      it "should not return childs" do
+        @page_menu.reload
+        @page_menu.positions.should include(@page_position_child, @page_position_parent)
+        @page_menu.roots.should_not include(@page_position_child)
       end
 
     end
