@@ -12,3 +12,7 @@ if defined?(::Refinery::PageMenu)
     ::Refinery::PageMenu.create(:title => menu.titleize, :permatitle => menu)
   end
 end
+
+Refinery::PageMenus.default_menus.each do |menu|
+	Refinery::PageMenu.create(title: menu.titleize, permatitle: menu)
+end

@@ -7,7 +7,6 @@ module Refinery
   module PageMenus
     require 'refinery/page_menus/engine'
     require 'refinery/page_menus/configuration'
-    require 'refinery/page_menus/model_extension'
     require 'refinery/page_menus/controller_extension'
     
     autoload :InstanceMethods, 'refinery/page_menus/instance_methods'
@@ -18,7 +17,7 @@ module Refinery
       end
 
       def factory_paths
-        @factory_paths ||= [ root.join("spec/factories").to_s ]
+        @factory_paths ||= [ root.join('spec', 'factories').to_s ]
       end
     end
     

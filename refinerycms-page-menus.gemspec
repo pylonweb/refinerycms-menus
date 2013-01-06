@@ -16,11 +16,16 @@ Gem::Specification.new do |s|
   s.license           = %q{MIT}
   s.require_paths     = %w(lib)
 
-  s.files             = `git ls-files`.split("\n")
-  s.test_files        = `git ls-files -- spec/*`.split("\n")
+  s.files             = Dir["{app,config,db,lib}/**/*"] + ["readme.md"]
 
+  # Runtime dependencies
+  s.add_dependency    'refinerycms-core',    '~> 2.0.9'
+  s.add_dependency    'refinerycms-pages',    '~> 2.0.9'
   s.add_dependency    'awesome_nested_set', '~> 2.1.0'
-  s.add_dependency    'refinerycms-core', '~> 2.0.6'#'~> 2.1.0.dev'
-  s.add_dependency    'refinerycms-pages', '~> 2.0.6'#'~> 2.1.0.dev'
   s.add_dependency    'nokogiri', '~> 1.5.5'
+
+  # Development dependencies (usually used for testing)
+  s.add_development_dependency 'refinerycms-testing', '~> 2.0.9'
+
+
 end
