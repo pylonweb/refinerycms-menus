@@ -44,6 +44,8 @@ GEM
     babosa (0.3.8)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    bullet (4.3.0)
+      uniform_notifier
     capybara (1.1.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -112,6 +114,9 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta_request (0.2.1)
+      rack-contrib
+      rails
     method_source (0.8.1)
     mime-types (1.19)
     multi_json (1.4.0)
@@ -130,6 +135,8 @@ GEM
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-contrib (1.1.0)
+      rack (>= 0.9.1)
     rack-ssl (1.3.2)
       rack
     rack-test (0.6.2)
@@ -142,6 +149,8 @@ GEM
       activesupport (= 3.2.9)
       bundler (~> 1.0)
       railties (= 3.2.9)
+    rails-footnotes (3.7.9)
+      rails (>= 3.0.0)
     railties (3.2.9)
       actionpack (= 3.2.9)
       activesupport (= 3.2.9)
@@ -250,6 +259,7 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    uniform_notifier (1.1.1)
     warden (1.1.1)
       rack (>= 1.0)
     websocket (1.0.4)
@@ -264,15 +274,18 @@ DEPENDENCIES
   activerecord-jdbcmysql-adapter
   activerecord-jdbcpostgresql-adapter
   activerecord-jdbcsqlite3-adapter
+  bullet
   coffee-rails
   guard-rspec (~> 0.7.0)
   guard-spork (~> 0.5.2)
   jquery-rails (~> 2.0.0)
   jruby-openssl
   launchy
+  meta_request (= 0.2.1)
   mysql2
   pg
   rails
+  rails-footnotes (>= 3.7.9)
   rb-fchange (~> 0.0.5)
   rb-fsevent (~> 0.9.0)
   rb-notifu (~> 0.0.4)

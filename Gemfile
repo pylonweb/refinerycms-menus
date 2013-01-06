@@ -20,6 +20,12 @@ platforms :ruby do
   gem 'pg'
 end
 
+group :development do
+  gem 'bullet'
+  gem 'rails-footnotes', '>= 3.7.9'
+  gem 'meta_request', '0.2.1'
+end
+
 group :development, :test do
   gem 'simplecov', :require => false
   gem 'launchy'
