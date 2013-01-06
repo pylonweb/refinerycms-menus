@@ -1,4 +1,4 @@
-class AddFlexFieldsToPagePositions < ActiveRecord::Migration
+class RemoveRefineryPageIdFromRefineryPagePositions < ActiveRecord::Migration
   def up
     remove_column :refinery_page_positions, :refinery_page_id
   end
