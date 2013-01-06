@@ -47,9 +47,9 @@ rake refinery:override view=refinery/_header
 ```
 
 ```erb
-== render :partial => "/refinery/menu", :locals => { 
-				:roots => refinery_page_menu("custom_menu")
-	          }	          	          
+<%= render :partial => "/refinery/menu", :locals => { 
+			:roots => refinery_page_menu("custom_menu")
+	  }	%>     	          
 ```
 
 ## Contributing
