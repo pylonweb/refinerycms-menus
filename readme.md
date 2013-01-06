@@ -6,7 +6,7 @@ If you are willing to contribute please send me a mail (johan@pylonweb.dk), and 
 
 Page menus allows you to create and edit several custom menus for your Refinery CMS app. 
 
-![image](doc/refinery_menu_edit.png)
+![image](https://raw.github.com/pylonweb/refinerycms-page-menus/master/doc/refinery_menu_edit.png)
 
 ## Requirements
 
