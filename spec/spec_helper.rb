@@ -2,6 +2,11 @@ def setup_environment
   # Configure Rails Environment
   ENV["RAILS_ENV"] ||= 'test'
 
+  unless ENV['COVERAGE']
+    require 'simplecov'
+    SimpleCov.start 'rails'
+  end
+
   if File.exist?(dummy_path = File.expand_path('../dummy/config/environment.rb', __FILE__))
     require dummy_path
   elsif File.dirname(__FILE__) =~ %r{vendor/extensions}
@@ -23,6 +28,11 @@ def setup_environment
 end
 
 def each_run
+  if ENV['COVERAGE']
+    require 'simplecov'
+    SimpleCov.start 'rails'
+  end
+
   Rails.cache.clear
   ActiveSupport::Dependencies.clear
   FactoryGirl.reload

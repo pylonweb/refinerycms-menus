@@ -4,6 +4,7 @@ gemspec
 
 gem 'refinerycms', '~> 2.0.3'
 gem 'refinerycms-i18n', '~> 2.0.2'
+gem 'rails'
 
 # Database Configuration
 platforms :jruby do
@@ -20,8 +21,11 @@ platforms :ruby do
 end
 
 group :development, :test do
+  gem 'simplecov', :require => false
+  gem 'launchy'
   gem 'refinerycms-testing', '~> 2.0.3'
   gem 'guard-rspec', '~> 0.7.0'
+  gem 'rspec-rails'
 
   platforms :mswin, :mingw do
     gem 'win32console', '~> 1.3.0'

@@ -14,5 +14,5 @@ if defined?(::Refinery::PageMenu)
 end
 
 Refinery::PageMenus.default_menus.each do |menu|
-	Refinery::PageMenu.create(title: menu.titleize, permatitle: menu)
+	Refinery::PageMenu.create(title: menu.titleize, permatitle: menu.underscore)
 end

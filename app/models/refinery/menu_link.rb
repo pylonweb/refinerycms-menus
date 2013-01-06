@@ -1,5 +1,5 @@
 module Refinery
-  class PagePosition < Refinery::Core::BaseModel
+  class MenuLink < Refinery::Core::BaseModel
     
     attr_accessible :parent_id, :refinery_page_id, :refinery_menu_id, :refinery_resource_id, :refinery_resource_type,
                     :title_attribute, :custom_url, :label
@@ -32,11 +32,11 @@ module Refinery
     end
 
     def resource_klass
-      Refinery::PagePosition.resource_klass(resource_type)
+      Refinery::MenuLink.resource_klass(resource_type)
     end
 
     def resource_config
-      Refinery::PagePosition.resource_config(resource_type)
+      Refinery::MenuLink.resource_config(resource_type)
     end
 
     def resource_type
