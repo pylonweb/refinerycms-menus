@@ -1,3 +1,4 @@
+$('.pp-placeholder').remove();
 <% @page_positions.each do |page_position| %>
 	var partial = '<%= j render partial: "refinery/admin/page_positions/page_position", object: page_position %>'
 	$('#sortable_list').append(partial);

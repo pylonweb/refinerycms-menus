@@ -11,15 +11,18 @@
 
 
 
-    <%= content_tag :ul, id: "sortable_list", data: {links: @page_positions} do %>
+    <ul id="sortable_list">
       <% if @page_positions.present? %>
         <% @page_positions.each do |page_position|  %>
           <%= render partial: 'refinery/admin/page_positions/page_position', object: page_position %>
         <% end %>
       <% else %>
-        <li class='placeholder-text'>Use the left side to add links to your menu.</li>
+        <li class='pp-placeholder' id="">
+          <%# We need a div here so we don't get a js error for a empty list %>
+          <div>Use the left side to add links to your menu.</div>
+        </li>
       <% end %>
-    <% end %>
+    </ul>
   </div>
 
 
