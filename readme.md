@@ -12,8 +12,6 @@ Page menus allows you to create and edit several custom menus for your Refinery 
 
 * refinerycms >= 2.0.6
 
-(have not been tested on lower versions but does most likely work on all versions after 2.0.0)
-
 ## Install
 
 Add this line to your applications `Gemfile`
