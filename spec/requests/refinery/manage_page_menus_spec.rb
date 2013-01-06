@@ -5,7 +5,7 @@ describe "manage page menus" do
 
   before(:each) do
     @menu = FactoryGirl.create(:page_menu)
-    @position = FactoryGirl.create(:page_position, menu: @menu)
+    @position = FactoryGirl.create(:menu_link, menu: @menu)
   end
 
   describe "update" do

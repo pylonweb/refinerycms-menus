@@ -2,11 +2,11 @@ Refinery::Core::Engine.routes.draw do
 
   # Admin routes
   namespace :admin, :path => 'refinery' do
-    resources :page_positions, only: [:create, :destroy]
+    resources :menu_links, only: [:create, :destroy]
 
     resources :page_menus do
       post :update_positions, :on => :collection
-      resources :page_positions, :only => [:index, :show] do
+      resources :menu_links, :only => [:index, :show] do
         post :update_positions, :on => :collection
       end
     end

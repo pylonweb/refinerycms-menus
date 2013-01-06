@@ -8,7 +8,7 @@ FactoryGirl.define do
 		end
 	end
 
-	factory :page_position, aliases: [:position], :class => Refinery::PagePosition do
+	factory :menu_link, aliases: [:position], :class => Refinery::MenuLink do
 		menu
 	end
 end

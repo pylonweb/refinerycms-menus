@@ -1,39 +1,39 @@
 module Refinery
-  module PagePositionsHelper
+  module MenuLinksHelper
     require 'nokogiri'
 
-    def render_menu_list(page_positions)
+    def render_menu_list(menu_links)
       results = "".html_safe
-      page_positions.each do |page_position|
-        if page_position.custom_link?
-          results << render_custom_menu_link(page_position)
+      menu_links.each do |menu_link|
+        if menu_link.custom_link?
+          results << render_custom_menu_link(menu_link)
         else
-          results << render_resource_menu_link(page_position)
+          results << render_resource_menu_link(menu_link)
         end
       end
       results
     end
 
-    def render_custom_menu_link(page_position)
-      list_partial = render(partial: "custom_page_position", locals: {page_position: page_position})
+    def render_custom_menu_link(menu_link)
+      list_partial = render(partial: "custom_menu_link", locals: {menu_link: menu_link})
 
       dom = Nokogiri::HTML.fragment(list_partial)
       li = dom.css('li').first
 
       # append nested ul to end of this li
-      li << nested_ul(page_position)
+      li << nested_ul(menu_link)
 
       dom.to_s.html_safe
     end
 
-    def render_resource_menu_link(page_position)
-      list_partial = render(:partial => page_position.resource_config[:admin_partial], :collection => [page_position.resource])
+    def render_resource_menu_link(menu_link)
+      list_partial = render(:partial => menu_link.resource_config[:admin_partial], :collection => [menu_link.resource])
 
       dom = Nokogiri::HTML.fragment(list_partial)
       li = dom.css('li').first
 
       # change li's id to that of the page_partial
-      li['id'] = dom_id(page_position)
+      li['id'] = dom_id(menu_link)
 
       # wrap inside of li in div if it's not already
       if dom.css('li > div').empty?
@@ -45,19 +45,19 @@ module Refinery
       # edit title to show actual link label as well
       title_div = dom.css('.title').first
       if title_div.present?
-        title_div.content = page_position.label
+        title_div.content = menu_link.label
       end
 
       # append nested ul to end of this li
-      li << nested_ul(page_position)
+      li << nested_ul(menu_link)
 
       dom.to_s.html_safe
     end
 
-    def nested_ul(page_position)
+    def nested_ul(menu_link)
       # recursively create nested list of children
       content_tag :ul, class: 'nested' do
-        render_menu_list(page_position.children)
+        render_menu_list(menu_link.children)
       end
     end
 

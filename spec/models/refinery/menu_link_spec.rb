@@ -1,16 +1,16 @@
 require "spec_helper"
 
 module Refinery
-  describe PagePosition do
+  describe MenuLink do
 
     describe "validations" do
       it "should be valid with title menu" do
         @page_menu = FactoryGirl.build(:page_menu)
-        FactoryGirl.build(:page_position, menu: @page_menu).should be_valid
+        FactoryGirl.build(:menu_link, menu: @page_menu).should be_valid
       end
 
       it "should require a menu" do
-        FactoryGirl.build(:page_position, menu: nil).should_not be_valid
+        FactoryGirl.build(:menu_link, menu: nil).should_not be_valid
       end
     end
 

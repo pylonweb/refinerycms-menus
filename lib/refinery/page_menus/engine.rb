@@ -17,7 +17,7 @@ module Refinery
           plugin.name = 'page_menus'
           plugin.url = proc { Refinery::Core::Engine.routes.url_helpers.admin_page_menus_path }
           plugin.pathname = root
-          plugin.menu_match = /refinery\/(page_menus|main_menu|page_positions)/ #Match controller path
+          plugin.menu_match = /refinery\/(page_menus|menu_links)/ #Match controller path
         end
       end
       

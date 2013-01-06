@@ -14,7 +14,7 @@ module Refinery
     self.menu_resources = {
       refinery_page: {
         klass: 'Refinery::Page',
-        admin_partial: '/refinery/admin/page_positions/page_position',
+        admin_partial: '/refinery/admin/menu_links/menu_link',
         title_attr: 'title',
         admin_page_filter: {
           draft: false

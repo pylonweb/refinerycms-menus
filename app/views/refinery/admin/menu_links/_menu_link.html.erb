@@ -1,0 +1,26 @@
+<%= fields_for 'page_menu[links_attributes]', menu_link do |f| %>
+  <li class='pp-link clearfix record' id="<%= dom_id(menu_link)%>">
+    <div class='header'>
+      <div class='name'><%= menu_link.title %></div>
+      <div class='type'><%= menu_link.type_name %></div>
+      <span class='arrow'>&nbsp;</span>
+    </div>
+    <div class='body'>
+      <%= f.hidden_field :id %>
+      <% if f.object.custom_link? %>
+        <%= render partial: "refinery/admin/menu_links/custom_link", object: menu_link, locals: {f: f} %>
+      <% else %>
+        <%= render partial: "refinery/admin/menu_links/resource_link", object: menu_link, locals: {f: f} %>
+      <% end %>
+      <%= link_to "remove", admin_menu_link_path(menu_link), method: :delete, remote: true, class: 'remove' %>
+    </div>
+    
+    <% if menu_link.children.any? %>
+      <ul class='nested'>
+        <% menu_link.children.each do |child|  %>
+          <%= render partial: 'refinery/admin/menu_links/menu_link', object: child %>
+        <% end %>
+      </ul>
+    <% end %>
+  </li>
+<% end %>
