@@ -35,7 +35,17 @@ module Refinery
     end
 
     def set_label
-      self.label = resource.send(resource_config[:title_attr]) if label.nil? && resource_link?
+      if label.blank?
+        if custom_link?
+          begin
+            self.label = custom_url.match(/(\w+)\.\w+$/).captures.join.titleize 
+          rescue
+            self.label = custom_url
+          end
+        else
+          self.label = resource.send(resource_config[:title_attr]) 
+        end
+      end
     end
 
     def resource_klass
