@@ -78,7 +78,7 @@ module Refinery
     end
 
     def resource_title
-      resource[resource_config[:title_attr]]
+      resource.send(resource_config[:title_attr])
     end
 
     def title
@@ -116,7 +116,8 @@ module Refinery
         :menu_match => menu_match,
         :parent_id => parent_id,
         :rgt => rgt,
-        :title => label, # title attributes has not yet been implemented in RefineryCMS
+        :menu_title => label,
+        :title => title,
         :type => self.class.name,
         :url => url
       }

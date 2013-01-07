@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.require_paths     = %w(lib)
 
   s.files             = Dir["{app,config,db,lib}/**/*"] + ["readme.md"]
+  s.test_files        = Dir["spec/**/*"] + ["Guardfile"]
 
   # Runtime dependencies
   s.add_dependency    'refinerycms-core',    '~> 2.0.9'
