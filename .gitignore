@@ -1,8 +1,14 @@
+# Ignore setup tests files
 spec/dummy/
-pkg/
-.idea/
-
-.rvmrc
+coverage/
 .rspec
 
-coverage/
+# Ignore gem configuration files
+pkg/
+.rvmrc
+
+# Ignore wiki files
+wiki/
+
+# Other stuff
+.idea/
