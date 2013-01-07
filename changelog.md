@@ -13,7 +13,7 @@
 
 # Changelog
 ## [2.0.5](https://github.com/pylonweb/refinerycms-page-menus/tree/v2.0.5) [6 Januar 2013]
-* Renamed PagePosition to MenuLink [#12](/pylonweb/refinerycms-page-menus/pull/12) (@jokklan)
+* Renamed PagePosition to MenuLink [#12](/pylonweb/refinerycms-page-menus/pull/12) ([@jokklan](/jokklan))
 * Fixed validation of labels, and MenuLink title
 * Added rake task helpers for listing and creating menus [#2](/pylonweb/refinerycms-page-menus/issues/2)
 * Updated english and danish translations
@@ -22,9 +22,9 @@
 ## [2.0.4](https://github.com/pylonweb/refinerycms-page-menus/tree/v2.0.4) [5 Januar 2013]
 * Added interface for main menu
 * Added configuration
-* Added support for RefineryCMS 2.0.6 [#7](/pylonweb/refinerycms-page-menus/pull/7) (@bricesanchez)
-* Fixed translations, and added french [#7](/pylonweb/refinerycms-page-menus/pull/7)  (@bricesanchez)
-* Added flex menus (links to all types of resources and custom links) [#10](/pylonweb/refinerycms-page-menus/pull/10) (@joekur, @jokklan, @f3ng3r)
+* Added support for RefineryCMS 2.0.6 [#7](/pylonweb/refinerycms-page-menus/pull/7) ([@bricesanchez](/bricesanchez))
+* Fixed translations, and added french [#7](/pylonweb/refinerycms-page-menus/pull/7)  ([@bricesanchez](/bricesanchez))
+* Added flex menus (links to all types of resources and custom links) [#10](/pylonweb/refinerycms-page-menus/pull/10) ([@joekur](/joekur), [@jokklan](/jokklan), [@f3ng3r](/f3ng3r))
 * Lots of bugs fixes
 * [See full list](https://github.com/pylonweb/refinerycms-page-menus/compare/v2.0.3...v2.0.4)
 
