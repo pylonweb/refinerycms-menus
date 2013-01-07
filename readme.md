@@ -3,6 +3,8 @@ If you are willing to contribute please send me a mail (johan@pylonweb.dk), and 
 
 <!--
 [![Build Status](https://travis-ci.org/pylonweb/refinerycms-page-menus.png)](https://travis-ci.org/pylonweb/refinerycms-page-menus)
+https://codeclimate.com/github/pylonweb/refinerycms-page-menus
+https://gatekeeper.tech-angels.net/account
 -->
 
 ## About
