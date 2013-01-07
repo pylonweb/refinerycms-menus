@@ -1,5 +1,5 @@
 # Page Menus Extension for Refinery CMS
-
+[![Build Status](https://travis-ci.org/pylonweb/refinerycms-page-menus.png)](https://travis-ci.org/pylonweb/refinerycms-page-menus)
 If you are willing to contribute please send me a mail (johan@pylonweb.dk), and follow the contribution guidelines below. Especially test would be appriciated!
 
 ## About
