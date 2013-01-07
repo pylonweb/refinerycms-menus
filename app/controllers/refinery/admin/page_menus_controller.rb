@@ -5,7 +5,8 @@ module Refinery
       crudify :'refinery/page_menu', 
               :xhr_paging => true, 
               :sortable => false,
-              :include => [:links]
+              :include => [:links],
+              :redirect_to_url => "refinery.admin_page_menus_path"
       
       before_filter :find_menu_links, only: [:edit, :update]
       before_filter :set_links_positions, only: [:create, :update]
@@ -15,6 +16,7 @@ module Refinery
       # Based upon http://github.com/matenia/jQuery-Awesome-Nested-Set-Drag-and-Drop
       def set_links_positions
         previous = nil
+        # raise params.inspect
         params[:ul].each do |_, list|
           list.each do |index, hash|
             moved_item_id = hash['id'].split(/menu_link\_?/).reject(&:empty?).first

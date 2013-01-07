@@ -27,6 +27,7 @@ group :development do
 end
 
 group :development, :test do
+  gem "capybara-webkit"
   gem 'simplecov', :require => false
   gem 'launchy'
   gem 'refinerycms-testing', '~> 2.0.3'

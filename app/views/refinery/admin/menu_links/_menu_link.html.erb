@@ -18,12 +18,10 @@
                   class: 'remove' %>
     </div>
     
-    <% if menu_link.children.any? %>
-      <ul class='nested'>
-        <% menu_link.children.each do |child|  %>
-          <%= render partial: 'refinery/admin/menu_links/menu_link', object: child %>
-        <% end %>
-      </ul>
-    <% end %>
+    <ul class='nested'>
+      <% menu_link.children.each do |child|  %>
+        <%= render partial: 'refinery/admin/menu_links/menu_link', object: child %>
+      <% end %>
+    </ul>
   </li>
 <% end %>

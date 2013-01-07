@@ -3,7 +3,7 @@
     <%= f.label :title %>
     <%= f.text_field :title, class: "larger widest" %>
   </div>
-  <div id='form-container'>
+  <div id='links-container'>
 
     <%= render '/refinery/admin/error_messages',
                :object => @page_menu,
@@ -16,7 +16,7 @@
           <%= render partial: 'refinery/admin/menu_links/menu_link', object: menu_link %>
         <% end %>
       <% else %>
-        <li class='pp-placeholder' id="">
+        <li class='pp-placeholder' id="menu_link">
           <%# We need a div here so we don't get a js error for a empty list %>
           <div><%= t('.no_links') %></div>
         </li>
