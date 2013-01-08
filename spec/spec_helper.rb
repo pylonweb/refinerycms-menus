@@ -2,7 +2,7 @@ def setup_environment
   # Configure Rails Environment
   ENV["RAILS_ENV"] ||= 'test'
 
-  unless ENV['COVERAGE']
+  unless ENV['COVERAGE'] || ENV['TRAVIS']
     require 'simplecov'
     SimpleCov.start 'rails'
   end
@@ -30,7 +30,7 @@ def setup_environment
 end
 
 def each_run
-  if ENV['COVERAGE']
+  if ENV['COVERAGE'] && !ENV['TRAVIS']
     require 'simplecov'
     SimpleCov.start 'rails'
   end
@@ -49,7 +49,7 @@ def each_run
 end
 
 # If spork is available in the Gemfile it'll be used but we don't force it.
-unless (begin; require 'spork'; rescue LoadError; nil end).nil?
+unless (begin; require 'spork'; rescue LoadError; nil end).nil? || ENV['TRAVIS']
   Spork.prefork do
     # Loading more in this block will cause your tests to run faster. However,
     # if you change any configuration or code from libraries loaded here, you'll

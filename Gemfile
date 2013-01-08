@@ -21,14 +21,18 @@ platforms :ruby do
 end
 
 group :development do
-  gem 'bullet'
-  gem 'rails-footnotes', '>= 3.7.9'
-  gem 'meta_request', '0.2.1'
+  unless ENV['TRAVIS']
+    gem 'bullet'
+    gem 'rails-footnotes', '>= 3.7.9'
+    gem 'meta_request', '0.2.1'
+  end
 end
 
 group :development, :test do
   gem "capybara-webkit"
-  gem 'simplecov', :require => false
+  unless ENV['TRAVIS']
+    gem 'simplecov', :require => false
+  end
   gem 'launchy'
   gem 'refinerycms-testing', '~> 2.0.3'
   gem 'guard-rspec', '~> 0.7.0'
