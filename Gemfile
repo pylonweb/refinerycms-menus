@@ -21,21 +21,20 @@ platforms :ruby do
 end
 
 group :development do
-  unless ENV['TRAVIS']
-    gem 'bullet'
-    gem 'rails-footnotes', '>= 3.7.9'
-    gem 'meta_request', '0.2.1'
-  end
+  gem 'bullet'
+  gem 'rails-footnotes', '>= 3.7.9'
+  gem 'meta_request', '0.2.1'
 end
 
 group :development, :test do
-  gem "capybara-webkit"
   unless ENV['TRAVIS']
     gem 'simplecov', :require => false
+    gem 'guard-rspec', '~> 0.7.0'
   end
+
+  gem 'capybara-webkit'
   gem 'launchy'
   gem 'refinerycms-testing', '~> 2.0.3'
-  gem 'guard-rspec', '~> 0.7.0'
   gem 'rspec-rails'
 
   platforms :mswin, :mingw do
