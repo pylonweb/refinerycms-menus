@@ -4,5 +4,5 @@ install:
 rvm:
   - "1.9.2"
   - "1.9.3"
-# uncomment this line if your project needs to run something other than `rake`:
-# script: bundle exec rspec spec
+before_script:
+  - "bundle exec rake refinery:testing:dummy_app > /dev/null"
