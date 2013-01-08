@@ -1,6 +1,6 @@
 def setup_environment
   # Configure Rails Environment
-  ENV["RAILS_ENV"] ||= 'test'
+  ENV["RAILS_ENV"] = 'test'
 
   unless ENV['COVERAGE'] || ENV['TRAVIS']
     require 'simplecov'
