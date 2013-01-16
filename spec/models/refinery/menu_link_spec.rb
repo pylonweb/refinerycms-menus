@@ -1,5 +1,29 @@
 require "spec_helper"
 
+ActiveRecord::Schema.define do
+  create_table :support_resource, :force => true do |t|
+    t.string :title
+    t.boolean :draft, default: false
+  end
+
+  create_table :support_another_resource, :force => true do |t|
+    t.string :title
+    t.boolean :draft, default: false
+  end
+end
+
+module Refinery
+  class LinkResource < ActiveRecord::Base
+    self.table_name = :support_resource
+    attr_accessible  :title, :draft
+  end
+
+  class AnotherLinkResource < ActiveRecord::Base
+    self.table_name = :support_another_resource
+    attr_accessible  :title, :draft
+  end
+end
+
 module Refinery
   describe MenuLink do
 
@@ -30,13 +54,12 @@ module Refinery
     describe ".find_all_of_type" do
       before(:each) do
         @configuration = { admin_page_filter: { draft: false }}
-        Support::CreateSupportResource.up
 
-        @resource_puplished = FactoryGirl.create(:refinery_resource)
-        @resource_draft = FactoryGirl.create(:refinery_resource_draft)
-        @another_resource = FactoryGirl.create(:another_refinery_resource)
+        @resource_puplished = Refinery::LinkResource.create!
+        @resource_draft = Refinery::LinkResource.create!(draft: true)
+        @another_resource = Refinery::AnotherLinkResource.create
 
-        Refinery::MenuLink.stub(:resource_klass).with(:refinery_resource).and_return(Support::Resource)
+        Refinery::MenuLink.stub(:resource_klass).with(:refinery_resource).and_return(Refinery::LinkResource)
       end
 
       it "should return all of chosen type" do
@@ -49,7 +72,6 @@ module Refinery
         Refinery::MenuLink.stub(:resource_config).with(:refinery_resource).and_return(Hash.new)
 
         Refinery::MenuLink.find_all_of_type(:refinery_resource).should_not include(@another_resource)
-        Refinery::MenuLink.find_all_of_type(:refinery_resource).should include(@resource_puplished, @resource_draft)
       end
 
       it "should apply admin_page_filters if present" do
@@ -63,7 +85,7 @@ module Refinery
     describe ".resource_klass" do
       before(:all) do
         @configuration = {
-          klass: 'Support::Resource',
+          klass: 'Refinery::LinkResource',
           title_attr: 'title',
           admin_page_filter: {
             draft: false
@@ -75,7 +97,7 @@ module Refinery
       end
 
       it "should return a class object of input type" do
-        Refinery::MenuLink.resource_klass(:refinery_resource).should == Support::Resource
+        Refinery::MenuLink.resource_klass(:refinery_resource).should == Refinery::LinkResource
       end
 
       it "should return a error if class is not in configuration" do
@@ -87,7 +109,7 @@ module Refinery
       before(:each) do
         @configuration = {
           refinery_resource: {
-            klass: 'Support::Resource',
+            klass: 'Refinery::LinkResource',
             title_attr: 'title',
             admin_page_filter: {
               draft: false
@@ -217,9 +239,9 @@ module Refinery
 
       it "should return a resource if not custom_link" do
         @menu_link.stub(:custom_link?).and_return(false)
-        @menu_link.stub(:resource_klass).and_return(Support::Resource)
+        @menu_link.stub(:resource_klass).and_return(Refinery::LinkResource)
         @resource = double("support_resource")
-        Support::Resource.stub(:find).and_return(@resource)
+        Refinery::LinkResource.stub(:find).and_return(@resource)
 
         @menu_link.resource.should be(@resource)
       end
