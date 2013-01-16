@@ -1,5 +1,4 @@
 # Page Menus Extension for Refinery CMS
-If you are willing to contribute please send me a mail (johan@pylonweb.dk), and follow the contribution guidelines below. Especially test would be appriciated!
 
 <!--
 [![Build Status](https://travis-ci.org/pylonweb/refinerycms-page-menus.png)](https://travis-ci.org/pylonweb/refinerycms-page-menus)
@@ -9,13 +8,18 @@ https://gatekeeper.tech-angels.net/account
 
 ## About
 
-Page menus allows you to create and edit several custom menus for your Refinery CMS app. 
-
-![image](https://raw.github.com/pylonweb/refinerycms-page-menus/master/doc/refinery_menu_edit.png)
+Page menus allows you to create and edit several custom menus for your Refinery CMS app. It gives you the ability to add links to any kind of model you want. As default are custom links (fx http://google.com, http://github.com etc.) Refinery Pages and Refinery Resources (files). See the screenshot below for an example.
 
 ## Requirements
 
 * refinerycms >= 2.0.6
+
+## Features
+
+* Ability to create more than one menu for your application.
+* Ability to link to any number of custom models you want.
+* Ability to link to any custom url.
+* Simple and easy-to-use interface.
 
 ## Install
 
@@ -68,11 +72,35 @@ You can create a new menu in the rails console, or you can use the following com
 ```bash
 rake refinery:page_menus:create_menu title=some_title
 ```
+### Configuration
+Refinerycms Page Menus is very flexible and is very easy to setup your own models, so you can link to them in your menus. To add a new model to Refinerycms Page Menus, just go to the config file (`config/initializers/refinery/page_menus.rb`) and follow the instructions on how to add your model to the `menu_resources` configuration option.
 
-## Contributing
+Your model only have to respond to two methods: 
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+* `url` which must define which path the menu link should link to.
+*  A custom title method that you can specify in the configuration.
+
+Here is a example of how Refinery Pages are added as a custom resource model:
+
+```ruby
+config.menu_resources = refinery_page: {
+  							klass: 'Refinery::Page',
+  							title_attr: 'title',
+  							admin_page_filter: {
+   				 				draft: false
+  							}
+						 }
+```
+
+## Questions, problems and contributions
+
+We will very much appreciate all kinds of contributions to refinerycms-page-menus! Just fork this project, create a new feature branch and open up a pull request. If you don't know how to do this, try to check out [RailsCasts episode 300](http://railscasts.com/episodes/300-contributing-to-open-source). If you are able, please add tests to your pull requests.
+
+If you have any issues or questions, that you cannot find the answer to here, then please feel free to add an [issue on GitHub](https://github.com/refinery/refinerycms-page-images/issues/new).
+
+### Running tests
+Refinery Page Menus uses RSpec to test. See the documentation on [RSpec GitHub page](https://github.com/rspec/rspec). You can run all specs by running the command `bundle exec rake`.
+
+## Screenshot
+
+![image](https://raw.github.com/pylonweb/refinerycms-page-menus/master/doc/refinery_menu_edit.png)

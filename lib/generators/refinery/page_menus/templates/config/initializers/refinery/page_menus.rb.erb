@@ -2,7 +2,9 @@ Refinery::PageMenus.configure do |config|
 	# Configure which menus that will be created when seeding. You can then call them by refinery_page_menu('<MENU NAME>')
   # config.default_menus = <% Refinery::PageMenus.default_menus %> 
 
-  # Configure which resources that can be linked to in the menu. Default is pages, and resources (files)
+
+  # Configure which resources that can be linked to in the menu. Default is pages, and resources (files). 
+  # Your resource class have to respond to 'url', and have a title attribute (specified below).
   
   # The options are:
   # klass: class type of resource
