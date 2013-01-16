@@ -1,10 +1,8 @@
 # Page Menus Extension for Refinery CMS
 
-<!--
 [![Build Status](https://travis-ci.org/pylonweb/refinerycms-page-menus.png)](https://travis-ci.org/pylonweb/refinerycms-page-menus)
 https://codeclimate.com/github/pylonweb/refinerycms-page-menus
 https://gatekeeper.tech-angels.net/account
--->
 
 ## About
 
