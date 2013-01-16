@@ -1,8 +1,16 @@
 language: ruby
+before_install:
+  - gem install bundler
 install:
   - bundle install --without development
 rvm:
   - "1.9.2"
   - "1.9.3"
 before_script:
+  - "sh -e /etc/init.d/xvfb start"
   - "bundle exec rake refinery:testing:dummy_app"
+script:
+  - "DISPLAY=:99.0 bundle exec rspec spec"
+env:
+- DB=postgresql
+- DB=mysql
