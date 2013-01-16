@@ -29,7 +29,7 @@ end
 group :development, :test do
   unless ENV['TRAVIS']
     gem 'simplecov', :require => false
-    gem 'guard-rspec', '~> 0.7.0'
+    gem 'guard-rspec'
   end
 
   gem 'capybara-webkit'
@@ -45,7 +45,7 @@ group :development, :test do
 
   platforms :ruby do
     gem 'spork', '~> 0.9.0'
-    gem 'guard-spork', '~> 0.5.2'
+    gem 'guard-spork'
 
     unless ENV['TRAVIS']
       require 'rbconfig'
@@ -83,4 +83,4 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'jquery-rails', '~> 2.0.0'
+gem 'jquery-rails'
