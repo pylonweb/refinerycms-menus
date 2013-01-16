@@ -14,7 +14,6 @@ module Refinery
     self.menu_resources = {
       refinery_page: {
         klass: 'Refinery::Page',
-        admin_partial: '/refinery/admin/menu_links/menu_link',
         title_attr: 'title',
         admin_page_filter: {
           draft: false
@@ -22,7 +21,6 @@ module Refinery
       },
       refinery_resource: {
         klass: 'Refinery::Resource',
-        admin_partial: '/refinery/admin/resources/resource',
         title_attr: 'file_name'
       }
     }
