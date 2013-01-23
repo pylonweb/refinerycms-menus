@@ -57,9 +57,9 @@ rake refinery:override view=refinery/_header
 
 Then add this code to the header, to generate the custom menu:
 ```erb
-<%= render :partial => "/refinery/menu", :locals => { 
+<%= render :partial => "/refinery/menu", :locals => {
 			:roots => refinery_page_menu("custom_menu")
-	  }	%>     	          
+	  }	%>
 ```
 "custom_menu" must be replaced by the permatitle of your menu.
 ### Rake commands
@@ -75,7 +75,7 @@ rake refinery:page_menus:create_menu title=some_title
 ### Configuration
 Refinerycms Page Menus is very flexible and is very easy to setup your own models, so you can link to them in your menus. To add a new model to Refinerycms Page Menus, just go to the config file (`config/initializers/refinery/page_menus.rb`) and follow the instructions on how to add your model to the `menu_resources` configuration option.
 
-Your model only have to respond to two methods: 
+Your model only have to respond to two methods:
 
 * `url` which must define which path the menu link should link to.
 *  A custom title method that you can specify in the configuration.
