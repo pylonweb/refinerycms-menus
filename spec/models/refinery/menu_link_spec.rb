@@ -51,6 +51,17 @@ module Refinery
       end
     end
 
+    describe 'attributes' do
+      %w(class_attribute id_attribute).each do |attribute|
+        it "makes the #{attribute} attribute available to Refinery MenuItems" do
+          ml = MenuLink.new
+          ml.send("#{attribute}=".to_sym, 'the_test_val')
+          m = Refinery::MenuItem.new(ml.to_refinery_menu_item)
+          m[attribute].should eq('the_test_val')
+        end
+      end
+    end
+
     describe ".find_all_of_type" do
       before(:each) do
         @configuration = { admin_page_filter: { draft: false }}
