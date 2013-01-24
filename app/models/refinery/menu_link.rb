@@ -119,7 +119,9 @@ module Refinery
         :menu_title => label,
         :title => title,
         :type => self.class.name,
-        :url => url
+        :url => url,
+        :id_attribute => id_attribute,
+        :class_attribute => class_attribute
       }
     end
 
