@@ -51,6 +51,17 @@ module Refinery
       end
     end
 
+    describe 'attributes' do
+      %w(class_attribute id_attribute).each do |attribute|
+        it "makes the #{attribute} attribute available to Refinery MenuItems" do
+          ml = MenuLink.new
+          ml.send("#{attribute}=".to_sym, 'the_test_val')
+          m = Refinery::MenuItem.new(ml.to_refinery_menu_item)
+          m[attribute].should eq('the_test_val')
+        end
+      end
+    end
+
     describe ".find_all_of_type" do
       before(:each) do
         @configuration = { admin_page_filter: { draft: false }}
@@ -76,7 +87,7 @@ module Refinery
 
       it "should apply admin_page_filters if present" do
         Refinery::MenuLink.stub(:resource_config).with(:refinery_resource).and_return(@configuration)
-        
+
         Refinery::MenuLink.find_all_of_type(:refinery_resource).should_not include(@resource_draft)
         Refinery::MenuLink.find_all_of_type(:refinery_resource).should include(@resource_puplished)
       end
@@ -91,7 +102,7 @@ module Refinery
             draft: false
           }
         }
-        
+
         Refinery::MenuLink.stub(:resource_config).with(:refinery_resource).and_return(@configuration)
         Refinery::MenuLink.stub(:resource_config).with(:refinery_another_resource).and_return(nil)
       end
@@ -152,7 +163,7 @@ module Refinery
 
         expect{ @menu_link.set_label }.to change { @menu_link.label }.from(nil).to(@resource.title)
       end
-    end  
+    end
 
     describe "#resource_klass" do
       it "should call class method resource_klass" do
@@ -258,7 +269,7 @@ module Refinery
         @menu_link.resource_title.should == "A title"
       end
     end
-    
+
     describe "#title" do
       it "should return title_attribute if present" do
         @menu_link = FactoryGirl.build(:menu_link, title_attribute: "Title")

@@ -12,12 +12,23 @@
       <% else %>
         <%= render partial: "refinery/admin/menu_links/resource_link", object: menu_link, locals: {f: f} %>
       <% end %>
-      <%= link_to t('remove', :scope => 'refinery.admin.menu_links'), admin_menu_link_path(menu_link), 
-                  method: :delete, 
-                  remote: true, 
+
+      <div class="field">
+        <%= f.label :id_attribute, t('id_attribute', :scope => 'refinery.admin.menu_links') %>
+        <%= f.text_field :id_attribute %>
+      </div>
+
+      <div class="field">
+        <%= f.label :class_attribute %>
+        <%= f.text_field :class_attribute %>
+      </div>
+
+      <%= link_to t('remove', :scope => 'refinery.admin.menu_links'), admin_menu_link_path(menu_link),
+                  method: :delete,
+                  remote: true,
                   class: 'remove' %>
     </div>
-    
+
     <ul class='nested'>
       <% menu_link.children.each do |child|  %>
         <%= render partial: 'refinery/admin/menu_links/menu_link', object: child %>

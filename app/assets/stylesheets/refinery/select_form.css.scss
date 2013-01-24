@@ -6,7 +6,7 @@
 
 .select_to{
   display:block;
-  float:left; 
+  float:left;
   width: 100%;
 }
 
@@ -22,7 +22,6 @@
 .pp-add-box {
   background: #aaa;
   margin-top: 20px;
-  width: 220px;
   padding: 15px;
 
   h3 {
@@ -51,17 +50,17 @@
 }
 
 #left_actions {
-  position:absolute;
-  top: 63px;
+  float: left;
+  width: 250px;
 
-  .controls a {    
+  .controls a {
     background-color: #dbedff;
     background-position: 12px;
     background-repeat: no-repeat;
     border: 1px solid #65C3F7;
     display: block;
     padding: 9px 12px 9px 36px;
-    
+
     &:hover {
       background-color: #cae7fb;
     }
@@ -74,7 +73,7 @@
     }
   }
 
-  
+
 }
 
 #pp-select-container {
@@ -82,24 +81,21 @@
 }
 
 #links-container {
-  padding-left: 250px;
-  padding-right: 10px;
   #sortable_list {
-    margin: 20px 0 0 20px;
     padding: 10px 20px 20px 20px;
     background: #eee;
     width: 650px;
     min-height: 400px;
-    
+
     list-style: none;
-    
+
     ul {
       li {
         list-style: none;
       }
       list-style: none;
     }
-  
+
     .pp-placeholder {
       margin-top: 10px;
       cursor: default;
@@ -133,7 +129,7 @@
     .arrow {
       background-repeat: no-repeat;
       background-image: url(/assets/refinery/icons/down.gif);
-      background-position:center; 
+      background-position:center;
       position: absolute;
       right: 0px;
       top: 0px;
@@ -147,7 +143,7 @@
     display: none;
     background: #dbedff;
     padding: 15px;
-    height: 100px;
+
     position: relative;
 
     label {
@@ -161,7 +157,7 @@
     input {
       width: 250px;
     }
-    
+
     a.remove {
       position: absolute;
       right: 10px;
@@ -175,6 +171,11 @@
     }
   }
 
+}
+
+#page_menu_form {
+  float: right;
+  width: 700px;
 }
 
 .field input[type=text] {

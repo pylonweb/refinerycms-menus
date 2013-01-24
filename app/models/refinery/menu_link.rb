@@ -1,16 +1,16 @@
 module Refinery
   class MenuLink < Refinery::Core::BaseModel
-    
+
     attr_accessible :parent_id, :refinery_page_id, :refinery_menu_id, :refinery_resource_id, :refinery_resource_type,
-                    :title_attribute, :custom_url, :label, :menu
-    
+                    :title_attribute, :custom_url, :label, :menu, :id_attribute, :class_attribute
+
     belongs_to :menu, :class_name => '::Refinery::PageMenu', :foreign_key => :refinery_menu_id
     belongs_to :resource, :foreign_key => :refinery_resource_id, :polymorphic => true
 
     # Docs for acts_as_nested_set https://github.com/collectiveidea/awesome_nested_set
     # rather than :delete_all we want :destroy
     acts_as_nested_set :dependent => :destroy
-    
+
     validates :menu, :presence => true
     validates :label, :presence => true
 
@@ -38,12 +38,12 @@ module Refinery
       if label.blank?
         if custom_link?
           begin
-            self.label = custom_url.match(/(\w+)\.\w+$/).captures.join.titleize 
+            self.label = custom_url.match(/(\w+)\.\w+$/).captures.join.titleize
           rescue
             self.label = custom_url
           end
         else
-          self.label = resource.send(resource_config[:title_attr]) 
+          self.label = resource.send(resource_config[:title_attr])
         end
       end
     end
@@ -59,7 +59,7 @@ module Refinery
     def resource_type
       refinery_resource_type || "Custom link"
     end
-    
+
     def type_name
       resource_type.titleize
     end
@@ -88,7 +88,7 @@ module Refinery
     def resource_url
       resource.present? ? resource.url : '/'
     end
-        
+
     def url
       if custom_link?
         custom_url
@@ -119,9 +119,11 @@ module Refinery
         :menu_title => label,
         :title => title,
         :type => self.class.name,
-        :url => url
+        :url => url,
+        :id_attribute => id_attribute,
+        :class_attribute => class_attribute
       }
     end
-    
+
   end
 end

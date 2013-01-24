@@ -55,9 +55,9 @@ rake refinery:override view=refinery/_header
 
 Then add this code to the header, to generate the custom menu:
 ```erb
-<%= render :partial => "/refinery/menu", :locals => { 
+<%= render :partial => "/refinery/menu", :locals => {
 			:roots => refinery_page_menu("custom_menu")
-	  }	%>     	          
+	  }	%>
 ```
 "custom_menu" must be replaced by the permatitle of your menu.
 ### Rake commands
@@ -73,7 +73,7 @@ rake refinery:page_menus:create_menu title=some_title
 ### Configuration
 Refinerycms Page Menus is very flexible and is very easy to setup your own models, so you can link to them in your menus. To add a new model to Refinerycms Page Menus, just go to the config file (`config/initializers/refinery/page_menus.rb`) and follow the instructions on how to add your model to the `menu_resources` configuration option.
 
-Your model only have to respond to two methods: 
+Your model only have to respond to two methods:
 
 * `url` which must define which path the menu link should link to.
 *  A custom title method that you can specify in the configuration.
@@ -97,7 +97,10 @@ We will very much appreciate all kinds of contributions to refinerycms-page-menu
 If you have any issues or questions, that you cannot find the answer to here, then please feel free to add an [issue on GitHub](https://github.com/refinery/refinerycms-page-images/issues/new).
 
 ### Running tests
-Refinery Page Menus uses RSpec to test. See the documentation on [RSpec GitHub page](https://github.com/rspec/rspec). You can run all specs by running the command `bundle exec rake`.
+Refinery Page Menus uses RSpec to test. See the documentation on [RSpec GitHub page](https://github.com/rspec/rspec).
+
+1. To run the test suite, you must first install a dummy refinery app to test against: `bundle exec refinery:testing:dummy_app`. See the [Refinery Testing Guide](http://refinerycms.com/guides/testing) for more info.
+2. You can run all specs by running the command `bundle exec rake`.
 
 ## Screenshot
 

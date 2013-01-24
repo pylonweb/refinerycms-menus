@@ -11,6 +11,7 @@ en:
         custom_link:
           add: Add Custom Link
           custom_url: Url
+        id_attribute: ID attribute
       page_menus:
         form:
           no_links: Use the left side to add links to your menu.
