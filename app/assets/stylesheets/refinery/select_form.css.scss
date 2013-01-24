@@ -6,7 +6,7 @@
 
 .select_to{
   display:block;
-  float:left; 
+  float:left;
   width: 100%;
 }
 
@@ -54,14 +54,14 @@
   position:absolute;
   top: 63px;
 
-  .controls a {    
+  .controls a {
     background-color: #dbedff;
     background-position: 12px;
     background-repeat: no-repeat;
     border: 1px solid #65C3F7;
     display: block;
     padding: 9px 12px 9px 36px;
-    
+
     &:hover {
       background-color: #cae7fb;
     }
@@ -74,7 +74,7 @@
     }
   }
 
-  
+
 }
 
 #pp-select-container {
@@ -90,16 +90,16 @@
     background: #eee;
     width: 650px;
     min-height: 400px;
-    
+
     list-style: none;
-    
+
     ul {
       li {
         list-style: none;
       }
       list-style: none;
     }
-  
+
     .pp-placeholder {
       margin-top: 10px;
       cursor: default;
@@ -133,7 +133,7 @@
     .arrow {
       background-repeat: no-repeat;
       background-image: url(/assets/refinery/icons/down.gif);
-      background-position:center; 
+      background-position:center;
       position: absolute;
       right: 0px;
       top: 0px;
@@ -161,7 +161,7 @@
     input {
       width: 250px;
     }
-    
+
     a.remove {
       position: absolute;
       right: 10px;
