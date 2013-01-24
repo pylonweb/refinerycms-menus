@@ -76,7 +76,7 @@ module Refinery
 
       it "should apply admin_page_filters if present" do
         Refinery::MenuLink.stub(:resource_config).with(:refinery_resource).and_return(@configuration)
-        
+
         Refinery::MenuLink.find_all_of_type(:refinery_resource).should_not include(@resource_draft)
         Refinery::MenuLink.find_all_of_type(:refinery_resource).should include(@resource_puplished)
       end
@@ -91,7 +91,7 @@ module Refinery
             draft: false
           }
         }
-        
+
         Refinery::MenuLink.stub(:resource_config).with(:refinery_resource).and_return(@configuration)
         Refinery::MenuLink.stub(:resource_config).with(:refinery_another_resource).and_return(nil)
       end
@@ -152,7 +152,7 @@ module Refinery
 
         expect{ @menu_link.set_label }.to change { @menu_link.label }.from(nil).to(@resource.title)
       end
-    end  
+    end
 
     describe "#resource_klass" do
       it "should call class method resource_klass" do
@@ -258,7 +258,7 @@ module Refinery
         @menu_link.resource_title.should == "A title"
       end
     end
-    
+
     describe "#title" do
       it "should return title_attribute if present" do
         @menu_link = FactoryGirl.build(:menu_link, title_attribute: "Title")
