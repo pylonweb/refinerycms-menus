@@ -10,14 +10,12 @@ module Refinery
     # klass: class type of resource
     # admin_partial: path to partial used in records list
     # title_attr: attribute name (or method name) on resource to be shown as its title
-    # admin_page_filter: hash of conditions to be used for filtering objects shown to be add-able via menu edit page
+    # scope: a scope symbol or proc to be used for filtering objects shown to be addable via the menu edit page
     self.menu_resources = {
       refinery_page: {
         klass: 'Refinery::Page',
         title_attr: 'title',
-        admin_page_filter: {
-          draft: false
-        }
+        scope: Proc.new { live.order('lft ASC') }
       },
       refinery_resource: {
         klass: 'Refinery::Resource',

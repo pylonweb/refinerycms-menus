@@ -16,6 +16,7 @@ module Refinery
   class LinkResource < ActiveRecord::Base
     self.table_name = :support_resource
     attr_accessible  :title, :draft
+    scope :live, where(draft: false)
   end
 
   class AnotherLinkResource < ActiveRecord::Base
@@ -64,8 +65,6 @@ module Refinery
 
     describe ".find_all_of_type" do
       before(:each) do
-        @configuration = { admin_page_filter: { draft: false }}
-
         @resource_puplished = Refinery::LinkResource.create!
         @resource_draft = Refinery::LinkResource.create!(draft: true)
         @another_resource = Refinery::AnotherLinkResource.create
@@ -85,9 +84,16 @@ module Refinery
         Refinery::MenuLink.find_all_of_type(:refinery_resource).should_not include(@another_resource)
       end
 
-      it "should apply admin_page_filters if present" do
-        Refinery::MenuLink.stub(:resource_config).with(:refinery_resource).and_return(@configuration)
+      it "should apply scope from symbol if present" do
+        Refinery::MenuLink.stub(:resource_config).with(:refinery_resource).and_return(:scope => :live)
+        
+        Refinery::MenuLink.find_all_of_type(:refinery_resource).should_not include(@resource_draft)
+        Refinery::MenuLink.find_all_of_type(:refinery_resource).should include(@resource_puplished)
+      end
 
+      it "should apply scope from a block if present" do
+        Refinery::MenuLink.stub(:resource_config).with(:refinery_resource).and_return(scope: Proc.new { where(draft: false) })
+        
         Refinery::MenuLink.find_all_of_type(:refinery_resource).should_not include(@resource_draft)
         Refinery::MenuLink.find_all_of_type(:refinery_resource).should include(@resource_puplished)
       end
@@ -98,9 +104,6 @@ module Refinery
         @configuration = {
           klass: 'Refinery::LinkResource',
           title_attr: 'title',
-          admin_page_filter: {
-            draft: false
-          }
         }
 
         Refinery::MenuLink.stub(:resource_config).with(:refinery_resource).and_return(@configuration)
@@ -122,9 +125,6 @@ module Refinery
           refinery_resource: {
             klass: 'Refinery::LinkResource',
             title_attr: 'title',
-            admin_page_filter: {
-              draft: false
-            }
           }
         }
 
