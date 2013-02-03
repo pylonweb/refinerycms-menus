@@ -84,9 +84,7 @@ Here is a example of how Refinery Pages are added as a custom resource model:
 config.menu_resources = refinery_page: {
   							klass: 'Refinery::Page',
   							title_attr: 'title',
-  							admin_page_filter: {
-   				 				draft: false
-  							}
+  							scope: Proc.new { live.order('lft ASC') }
 						 }
 ```
 

@@ -1,3 +1,5 @@
+.bundle
+
 # Ignore setup tests files
 spec/dummy/
 coverage/
@@ -16,28 +18,4 @@ wiki/
 .DS_Store
 
 # Binstubs
-bin/autospec
-bin/coderay
-bin/erubis
-bin/guard
-bin/htmldiff
-bin/launchy
-bin/ldiff
-bin/nokogiri
-bin/pry
-bin/rackup
-bin/rails
-bin/rake
-bin/rake2thor
-bin/rdoc
-bin/refinerycms
-bin/ri
-bin/rspec
-bin/sass
-bin/sass-convert
-bin/scss
-bin/spork
-bin/sprockets
-bin/thor
-bin/tilt
-bin/tt
+bin
