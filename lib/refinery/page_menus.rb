@@ -1,11 +1,13 @@
 require 'refinerycms-core'
 
+
 module Refinery
   autoload :PageMenusGenerator, 'generators/refinery/page_menus/page_menus_generator'
   
   module PageMenus
     require 'refinery/page_menus/engine'
     require 'refinery/page_menus/configuration'
+    require 'refinery/page_menus/menu_item_decorator'
     
     autoload :InstanceMethods, 'refinery/page_menus/instance_methods'
 

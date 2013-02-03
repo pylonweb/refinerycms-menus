@@ -2,9 +2,10 @@ module Refinery
   module PageMenus
     include ActiveSupport::Configurable
 
-    config_accessor :default_menus, :menu_resources
+    config_accessor :default_menus, :html_attributes, :menu_resources
 
     self.default_menus = ['sidebar_menu']
+    self.html_attributes = false
 
 
     # klass: class type of resource

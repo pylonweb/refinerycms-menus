@@ -8,7 +8,19 @@
   <%= f.text_field :label %>
 </div>
 
-<div class="field">
-  <%= f.label :title_attribute %>
-  <%= f.text_field :title_attribute %>
-</div>
+<% if Refinery::PageMenus.html_attributes %>
+	<div class="field">
+	  <%= f.label :title_attribute %>
+	  <%= f.text_field :title_attribute %>
+	</div>
+
+  <div class="field">
+    <%= f.label :id_attribute, t('id_attribute', :scope => 'refinery.admin.menu_links') %>
+    <%= f.text_field :id_attribute %>
+  </div>
+
+  <div class="field">
+    <%= f.label :class_attribute %>
+    <%= f.text_field :class_attribute %>
+  </div>
+<% end %>

@@ -116,12 +116,14 @@ module Refinery
         :menu_match => menu_match,
         :parent_id => parent_id,
         :rgt => rgt,
-        :menu_title => label,
-        :title => title,
+        :title => label,
         :type => self.class.name,
         :url => url,
-        :id_attribute => id_attribute,
-        :class_attribute => class_attribute
+        :html => {
+          :id => id_attribute,
+          :class => class_attribute,
+          :title => title
+        }
       }
     end
 
