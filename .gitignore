@@ -13,6 +13,9 @@ wiki/
 # Other stuff
 .idea/
 .bundle/config
+.DS_Store
+
+# Binstubs
 bin/autospec
 bin/coderay
 bin/erubis
