@@ -41,7 +41,7 @@ rails generate refinery:page_menus
 rake db:migrate
 ```
 
-Now when you start up your Refinery application, go to the pages in your admin interface, and you should see a roll-down menu called "Menus".
+Now when you start up your Refinery application, you should see a new menus tap in the admin interface.
 
 ## Usage
 ### Add to your view
