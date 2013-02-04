@@ -52,13 +52,15 @@ module Refinery
       end
     end
 
-    describe 'attributes' do
-      %w(class_attribute id_attribute).each do |attribute|
-        it "makes the #{attribute} attribute available to Refinery MenuItems" do
+    describe 'html attributes' do
+      before { Refinery::PageMenus.html_attributes = true }
+
+      %w(title class id).each do |attribute|
+        it "makes the #{attribute}_attribute attribute available to Refinery MenuItems" do
           ml = MenuLink.new
-          ml.send("#{attribute}=".to_sym, 'the_test_val')
+          ml.send("#{attribute}_attribute=".to_sym, 'the_test_val')
           m = Refinery::MenuItem.new(ml.to_refinery_menu_item)
-          m[attribute].should eq('the_test_val')
+          m[:html][attribute].should eq('the_test_val')
         end
       end
     end
@@ -377,7 +379,7 @@ module Refinery
         end
       end
 
-      context "with #menu_title" do
+      context "with #title" do
         before do
           menu_link[:label] = "Menu Title"
         end
@@ -385,11 +387,11 @@ module Refinery
         it_should_behave_like "Refinery menu item hash"
 
         it "returns the menu_title for :title" do
-          subject[:menu_title].should eq("Menu Title")
+          subject[:title].should eq("Menu Title")
         end
       end
 
-      context "with #title" do
+      context "with #html" do
         before do
           menu_link[:title_attribute] = "Title"
         end
@@ -397,7 +399,7 @@ module Refinery
         it_should_behave_like "Refinery menu item hash"
 
         it "returns the title for :title" do
-          subject[:title].should eq("Title")
+          subject[:html][:title].should eq("Title")
         end
       end
 
