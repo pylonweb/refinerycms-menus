@@ -7,12 +7,6 @@ if defined?(::Refinery::User)
   end
 end
 
-if defined?(::Refinery::PageMenu)
-  ::Refinery::PageMenus.default_menus.each do |menu|
-    ::Refinery::PageMenu.create(:title => menu.titleize, :permatitle => menu)
-  end
-end
-
 Refinery::PageMenus.default_menus.each do |menu|
 	Refinery::PageMenu.create(title: menu.titleize, permatitle: menu.underscore)
 end
