@@ -6,9 +6,15 @@
 * Add support for refinerycms 2.1.0 menu presenter [#15](/pylonweb/refinerycms-menus/issues/15)
 * [See full list](https://github.com/pylonweb/refinerycms-menus/compare/v2.0.3...master)
 
-## [2.0.6](https://github.com/pylonweb/refinerycms-menus/tree/master) [4 February 2013]
+## [2.0.6](https://github.com/pylonweb/refinerycms-menus/tree/master) [unreleased]
+
+## [2.0.6](https://github.com/pylonweb/refinerycms-menus/tree/master) [unreleased]
 * Namespace whole engine with menus namespace [#26](/pylonweb/refinerycms-menus/pull/26)
 * Rename to just refinerycms-menus to reflect that we now support all kinds of resources [#25](/pylonweb/refinerycms-menus/pull/25)
+* Fixed seed duplication [#23](/pylonweb/refinerycms-menus/pull/23) ([@robholland](robholland))
+* Fixed bug with menu_links form fields, so they now all updates correctly [#22](/pylonweb/refinerycms-menus/pull/22) ([@skipchris](skipchris))
+* Replaced admin_filters with scopes [#20](/pylonweb/refinerycms-menus/pull/20) ([@robholland](robholland))
+* Added html attributes (id, class and title) to menu links [#18](/pylonweb/refinerycms-menus/pull/18) ([@skipchris](skipchris))
 * Add full test suite [#3](/pylonweb/refinerycms-menus/issues/3)
 * [See full list](https://github.com/pylonweb/refinerycms-menus/compare/v2.0.5...v2.0.6)
 
