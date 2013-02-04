@@ -63,7 +63,7 @@ Then add this code to the header, to generate the custom menu:
 ### Rake commands
 To show list all your menus and their permatitles run this rake task:
 ```bash
-rake refinery:page_menus:menus
+rake refinery:page_menus:list
 ```
 
 You can create a new menu in the rails console, or you can use the following command:

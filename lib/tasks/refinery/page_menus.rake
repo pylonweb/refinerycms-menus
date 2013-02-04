@@ -28,8 +28,8 @@ namespace :refinery do
     	end
     end
 
-    desc "Create a new menu"
-    task :menus => :environment do
+    desc "Lists all menus"
+    task :list => :environment do
   		begin
   			menus = Refinery::PageMenu.all
 
