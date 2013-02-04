@@ -2,7 +2,11 @@
   # Temporary solution until refinerycms supporst html attributes for menu links
   if !!local_assigns[:apply_css] and (classes = menu_branch_css(local_assigns)).any?
     if menu_branch.html
-      menu_branch.html[:class] += ' ' + classes.join(' ')
+      if menu_branch.html[:class]
+        menu_branch.html[:class] += ' ' + classes.join(' ')
+      else
+        menu_branch.html[:class] = classes.join(' ')
+      end
     else
       menu_branch.html = {:class => classes.join(' ')}
     end
