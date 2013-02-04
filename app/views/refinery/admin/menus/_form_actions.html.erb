@@ -1,7 +1,7 @@
 <div id='left_actions'>
   
   <div id="custom_url_box" class="pp-add-box">
-    <%= form_for [refinery, :admin, @page_menu.links.build], remote: true do |f| %>
+    <%= form_for [refinery, :admin, @menu.links.build], remote: true do |f| %>
       <%= f.hidden_field :refinery_menu_id %>
       <h3>Custom Link</h3>
       <div class='field'>
@@ -16,7 +16,7 @@
     <% end %>
   </div>
 
-  <% Refinery::PageMenus.menu_resources.each do |resource_type, config| %>
+  <% Refinery::Menus.menu_resources.each do |resource_type, config| %>
     <%= render partial: "refinery/admin/menu_links/resource_link_editor_box", locals: { resource_type: resource_type, config: config } %>
   <% end %>
 

@@ -1,12 +1,12 @@
 if defined?(::Refinery::User)
   ::Refinery::User.all.each do |user|
-    if user.plugins.where(:name => 'refinery_page_menus').blank?
-      user.plugins.create(:name => 'refinery_page_menus',
+    if user.plugins.where(:name => 'refinery_menus').blank?
+      user.plugins.create(:name => 'refinery_menus',
                           :position => (user.plugins.maximum(:position) || -1) +1)
     end
   end
 end
 
-Refinery::PageMenus.default_menus.each do |menu|
-	Refinery::PageMenu.create(title: menu.titleize, permatitle: menu.underscore)
+Refinery::Menus.default_menus.each do |menu|
+	Refinery::Menu.create(title: menu.titleize, permatitle: menu.underscore)
 end

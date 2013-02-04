@@ -1,12 +1,12 @@
 module Refinery
   module Admin
-    class PageMenusController < ::Refinery::AdminController
+    class MenusController < ::Refinery::AdminController
       
-      crudify :'refinery/page_menu', 
+      crudify :'refinery/menu', 
               :xhr_paging => true, 
               :sortable => false,
               :include => [:links],
-              :redirect_to_url => "refinery.admin_page_menus_path"
+              :redirect_to_url => "refinery.admin_menus_path"
       
       before_filter :find_menu_links, only: [:edit, :update]
       before_filter :set_links_positions, only: [:create, :update]
@@ -22,11 +22,11 @@ module Refinery
             moved_item_id = hash['id'].split(/menu_link\_?/).reject(&:empty?).first
 
             if moved_item_id
-              current_link = @page_menu.links.find(moved_item_id) # Scope?
+              current_link = @menu.links.find(moved_item_id) # Scope?
 
               if current_link.respond_to?(:move_to_root)
                 if previous.present?
-                  current_link.move_to_right_of(@page_menu.links.find(previous)) #SCOPE?
+                  current_link.move_to_right_of(@menu.links.find(previous)) #SCOPE?
                 else
                   current_link.move_to_root
                 end
@@ -50,7 +50,7 @@ module Refinery
         list = _node['children']['0']
         list.each do |index, child|
           child_id = child['id'].split(/menu_link\_?/).reject(&:empty?).first
-          child_link = @page_menu.links.find(child_id) # Scoped?
+          child_link = @menu.links.find(child_id) # Scoped?
           child_link.move_to_child_of(link)
 
           if child['children'].present?
@@ -60,7 +60,7 @@ module Refinery
       end
       
       def find_menu_links
-        @menu_links = @page_menu.roots
+        @menu_links = @menu.roots
       end
       
     end

@@ -1,7 +1,7 @@
 en:
   refinery:
     plugins:
-      refinery_page_menus:
+      refinery_menus:
         title: Menus
         description: Create and manage custom menus for your site
     admin:
@@ -12,21 +12,21 @@ en:
           add: Add Custom Link
           custom_url: Url
         id_attribute: ID attribute
-      page_menus:
+      menus:
         form:
           no_links: Use the left side to add links to your menu.
         records:
           title: Menus
           no_items_yet: There are no menues yet. Ask your developer to create one for you.
-        page_menu:
+        menu:
           edit: Edit this menu
           delete: Remove this menu forever
   activerecord:
     models:
-      refinery/page_menu: Menu
+      refinery/menu: Menu
       refinery/menu_link: Link
     attributes:
-      refinery/page_menu:
+      refinery/menu:
         title: Title
         permatitle: Permatitle
       refinery/menu_link:

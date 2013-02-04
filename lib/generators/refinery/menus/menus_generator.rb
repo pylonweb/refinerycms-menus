@@ -1,13 +1,13 @@
 module Refinery
-  class PageMenusGenerator < Rails::Generators::Base
+  class MenusGenerator < Rails::Generators::Base
     source_root File.expand_path('../templates', __FILE__)
     
-    def generate_page_menus_initializer
-      template "config/initializers/refinery/page_menus.rb.erb", File.join(destination_root, "config", "initializers", "refinery", "page_menus.rb")
+    def generate_menus_initializer
+      template "config/initializers/refinery/menus.rb.erb", File.join(destination_root, "config", "initializers", "refinery", "menus.rb")
     end
 
     def rake_db
-      rake("refinery_page_menus:install:migrations")
+      rake("refinery_menus:install:migrations")
     end
     
     def append_load_seed_data
@@ -15,7 +15,7 @@ module Refinery
       append_file 'db/seeds.rb', :verbose => true do
               <<-EOH
       # Added by Refinery CMS Page Menus extension
-      Refinery::PageMenus::Engine.load_seed
+      Refinery::Menus::Engine.load_seed
               EOH
       end
     end

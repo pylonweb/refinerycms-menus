@@ -1,0 +1,16 @@
+<li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(menu) %>">
+  <span class='title'>
+    <%= menu.title %>
+
+  </span>
+  <span class='actions'>
+    
+    <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_admin_menu_path(menu),
+         :title => t('.edit') %>
+    <%= link_to refinery_icon_tag("delete.png"), refinery.admin_menu_path(menu),
+        :class => "cancel confirm-delete",
+        :title => t('.delete'),
+        :confirm => t('message', :scope => 'refinery.admin.delete', :title => menu.title),
+        :method => :delete %>
+  </span>
+</li>
