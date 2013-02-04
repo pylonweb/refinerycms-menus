@@ -1,17 +1,17 @@
 # Encoding: UTF-8
-require File.expand_path('../lib/refinery/page_menus/version.rb', __FILE__)
+require File.expand_path('../lib/refinery/menus/version.rb', __FILE__)
 
-version = Refinery::PageMenus::Version.to_s
+version = Refinery::Menus::Version.to_s
 
 Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
-  s.name              = %q{refinerycms-page-menus}
+  s.name              = %q{refinerycms-menus}
   s.version           = version
   s.summary           = %q{Pages Menus extension for Refinery CMS}
   s.description       = %q{Add custom menus to pages}
   s.date              = Date.today.strftime("%Y-%m-%d")
   s.email             = %q{johan@pylonweb.dk}
-  s.homepage          = %q{http://github.com/pylonweb/refinerycms-page-menus}
+  s.homepage          = %q{http://github.com/pylonweb/refinerycms-menus}
   s.authors           = ['Johan Frølich']
   s.license           = %q{MIT}
   s.require_paths     = %w(lib)
@@ -21,7 +21,6 @@ Gem::Specification.new do |s|
 
   # Runtime dependencies
   s.add_dependency    'refinerycms-core',    '~> 2.0.9'
-  s.add_dependency    'refinerycms-pages',    '~> 2.0.9'
   s.add_dependency    'awesome_nested_set', '~> 2.1.0'
 
   # Development dependencies (usually used for testing)

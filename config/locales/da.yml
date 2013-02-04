@@ -1,7 +1,7 @@
 da:
   refinery:
     plugins:
-      refinery_page_menus:
+      refinery_menus:
         title: Menuer
         description: Opret og administrer brugerdefinerede menuer for din side
     admin:
@@ -11,21 +11,21 @@ da:
         custom_link:
           add: Tilføj brugerdefineret link
           custom_url: Url
-      page_menus:
+      menus:
         form:
           no_links: "Brug panelet i venstre, til at tilføje links til din menu."
         records:
           title: Menuer
           no_items_yet: Der er ingen menuer endnu. Bed din webudvikler om at oprette en for dig.
-        page_menu:
+        menu:
           edit: Redigér menuen
           delete: Slet menuen permanent
   activerecord:
     models:
-      refinery/page_menu: Menu
+      refinery/menu: Menu
       refinery/menu_link: Link
     attributes:
-      refinery/page_menu:
+      refinery/menu:
         title: Titel
         permatitle: Permanent titel
       refinery/menu_link:

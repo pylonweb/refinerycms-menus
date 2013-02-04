@@ -1,4 +1,4 @@
-<%= fields_for "page_menu[links_attributes][#{menu_link.id}]", menu_link do |f| %>
+<%= fields_for "menu[links_attributes][#{menu_link.id}]", menu_link do |f| %>
   <li class='pp-link clearfix record' id="<%= dom_id(menu_link)%>">
     <div class='header'>
       <div class='name'><%= menu_link.label %></div>

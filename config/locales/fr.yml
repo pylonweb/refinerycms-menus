@@ -1,13 +1,13 @@
 fr:
   refinery:
     plugins:
-      refinery_page_menus:
+      refinery_menus:
         title: Menus
         description: Cr&eacute;er et g&eacute;rer des menus personnalis&eacute;s pour votre site
   activerecord:
     models:
-      refinery/page_menu: Menu
+      refinery/menu: Menu
     attributes:
-      refinery/page_menu:
+      refinery/menu:
         title: Titre
         pages: Pages

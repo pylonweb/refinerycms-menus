@@ -8,18 +8,18 @@ module Refinery
       context "when no menus" do
         context "index" do 
           it "invites to add one" do
-            visit refinery.admin_page_menus_path
-            page.should have_content(::I18n.t('no_items_yet', :scope => 'refinery.admin.page_menus.records'))
+            visit refinery.admin_menus_path
+            page.should have_content(::I18n.t('no_items_yet', :scope => 'refinery.admin.menus.records'))
           end
         end
       end
 
       context "when an menu exists" do
-        let!(:menu) { FactoryGirl.create(:page_menu) }
+        let!(:menu) { FactoryGirl.create(:menu) }
 
         context "index" do 
           it "lists all menus" do
-            visit refinery.admin_page_menus_path
+            visit refinery.admin_menus_path
 
             page.should have_content(menu.title)
           end
@@ -27,11 +27,11 @@ module Refinery
 
         context "edit/update" do
           it "updates menu" do
-            visit refinery.admin_page_menus_path
+            visit refinery.admin_menus_path
 
-            page.should have_selector("a[href='#{refinery.edit_admin_page_menu_path(menu)}']")
+            page.should have_selector("a[href='#{refinery.edit_admin_menu_path(menu)}']")
 
-            click_link ::I18n.t('edit', :scope => 'refinery.admin.page_menus.page_menu')
+            click_link ::I18n.t('edit', :scope => 'refinery.admin.menus.menu')
 
             fill_in "Title", :with => "Updated Menu"
             click_button "Save"
@@ -45,7 +45,7 @@ module Refinery
 
           describe "custom links" do
             it "adds new custom link", :js do
-              visit refinery.edit_admin_page_menu_path(menu)
+              visit refinery.edit_admin_menu_path(menu)
 
               fill_in "menu_link_custom_url", with: "http://google.dk" 
               fill_in "menu_link_label", with: "Google" 
@@ -58,7 +58,7 @@ module Refinery
             end
 
             it "adds new custom link without label", :js do
-              visit refinery.edit_admin_page_menu_path(menu)
+              visit refinery.edit_admin_menu_path(menu)
 
               fill_in "menu_link_custom_url", with: "http://google.dk" 
 
@@ -76,15 +76,15 @@ module Refinery
 
           context "when no links" do
             it "invites to add one" do
-              visit refinery.edit_admin_page_menu_path(menu)
-              page.should have_content(::I18n.t('no_links', :scope => 'refinery.admin.page_menus.form'))
+              visit refinery.edit_admin_menu_path(menu)
+              page.should have_content(::I18n.t('no_links', :scope => 'refinery.admin.menus.form'))
             end
 
             it "removes help text when link is added", :js do
-              visit refinery.edit_admin_page_menu_path(menu)
+              visit refinery.edit_admin_menu_path(menu)
               click_button (::I18n.t('add', :scope => 'refinery.admin.menu_links.custom_link'))
 
-              page.should_not have_content(::I18n.t('no_links', :scope => 'refinery.admin.page_menus.form'))
+              page.should_not have_content(::I18n.t('no_links', :scope => 'refinery.admin.menus.form'))
             end
           end
 
@@ -95,14 +95,14 @@ module Refinery
             before { menu.reload }
 
             it "lists all links" do
-              visit refinery.edit_admin_page_menu_path(menu)
+              visit refinery.edit_admin_menu_path(menu)
 
               page.should have_content(link_1.label)
               page.should have_content(link_2.label)
             end
 
             it "destroys links with js", :js do
-              visit refinery.edit_admin_page_menu_path(menu)
+              visit refinery.edit_admin_menu_path(menu)
 
               page.should have_content(link_1.label)
 
@@ -125,7 +125,7 @@ module Refinery
 
 
             it "shows correct nested tree" do
-              visit refinery.edit_admin_page_menu_path(menu)
+              visit refinery.edit_admin_menu_path(menu)
 
               page.should have_content(company_link.label)
 
@@ -153,7 +153,7 @@ module Refinery
             # TODO: Do not work, error in drag and drop
             # context "test" do
             #   it "DRAG AND DROP TEST", :js do
-            #     visit refinery.edit_admin_page_menu_path(menu)
+            #     visit refinery.edit_admin_menu_path(menu)
 
             #     within "#menu_link_#{team_link.id}" do
             #       page.should_not have_content(about_link.label) 

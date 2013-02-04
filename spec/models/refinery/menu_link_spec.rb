@@ -30,8 +30,8 @@ module Refinery
 
     describe "validations" do
       it "should be valid with menu and label" do
-        @page_menu = FactoryGirl.build(:page_menu)
-        FactoryGirl.build(:menu_link, menu: @page_menu, label: "Home").should be_valid
+        @menu = FactoryGirl.build(:menu)
+        FactoryGirl.build(:menu_link, menu: @menu, label: "Home").should be_valid
       end
 
       it "should require a menu" do
@@ -45,15 +45,15 @@ module Refinery
 
     describe "callbacks" do
       it "should call set_label before validations" do
-        @page_menu = MenuLink.new
-        @page_menu.should_receive(:set_label)
+        @menu = MenuLink.new
+        @menu.should_receive(:set_label)
 
-        @page_menu.valid?
+        @menu.valid?
       end
     end
 
     describe 'html attributes' do
-      before { Refinery::PageMenus.html_attributes = true }
+      before { Refinery::Menus.html_attributes = true }
 
       %w(title class id).each do |attribute|
         it "makes the #{attribute}_attribute attribute available to Refinery MenuItems" do
@@ -130,7 +130,7 @@ module Refinery
           }
         }
 
-        Refinery::PageMenus.menu_resources = @configuration
+        Refinery::Menus.menu_resources = @configuration
       end
 
       it "should return a hash with all configuration for type" do

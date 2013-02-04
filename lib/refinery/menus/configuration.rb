@@ -1,5 +1,5 @@
 module Refinery
-  module PageMenus
+  module Menus
     include ActiveSupport::Configurable
 
     config_accessor :default_menus, :html_attributes, :menu_resources

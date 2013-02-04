@@ -7,7 +7,7 @@ jQuery =>
 	$('#sortable_list').on 'click', '.header', ->
 		$(this).siblings('.body').slideToggle()
 
-	$('#page_menu_form').submit (e) ->
+	$('#menu_form').submit (e) ->
 		save_structure($(this))
 
 	reset_custom_link_form()
