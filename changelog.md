@@ -6,7 +6,7 @@
 * Add support for refinerycms 2.1.0 menu presenter [#15](/pylonweb/refinerycms-menus/issues/15)
 * [See full list](https://github.com/pylonweb/refinerycms-menus/compare/v2.0.3...master)
 
-## [2.0.6](https://github.com/pylonweb/refinerycms-menus/tree/master) [unreleased]
+## [2.0.7](https://github.com/pylonweb/refinerycms-menus/tree/master) [unreleased]
 
 ## [2.0.6](https://github.com/pylonweb/refinerycms-menus/tree/master) [unreleased]
 * Namespace whole engine with menus namespace [#26](/pylonweb/refinerycms-menus/pull/26)
