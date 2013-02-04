@@ -24,13 +24,13 @@ Page menus allows you to create and edit several custom menus for your Refinery 
 Add this line to your applications `Gemfile`
 
 ```ruby
-gem 'refinerycms-menus', '2.0.5'
+gem 'refinerycms-page-menus', '2.0.5'
 ```
 
 or for edge version
 
 ```ruby
-gem 'refinerycms-menus', git: 'git://github.com/pylonweb/refinerycms-menus.git'
+gem 'refinerycms-page-menus', git: 'git://github.com/pylonweb/refinerycms-menus.git'
 ```
 
 Next run
