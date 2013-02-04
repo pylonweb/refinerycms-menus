@@ -2,14 +2,14 @@ require 'refinerycms-core'
 
 
 module Refinery
-  autoload :PageMenusGenerator, 'generators/refinery/page_menus/page_menus_generator'
+  autoload :MenusGenerator, 'generators/refinery/menus/menus_generator'
   
-  module PageMenus
-    require 'refinery/page_menus/engine'
-    require 'refinery/page_menus/configuration'
-    require 'refinery/page_menus/menu_item_decorator'
+  module Menus
+    require 'refinery/menus/engine'
+    require 'refinery/menus/configuration'
+    require 'refinery/menus/menu_item_decorator'
     
-    autoload :InstanceMethods, 'refinery/page_menus/instance_methods'
+    autoload :InstanceMethods, 'refinery/menus/instance_methods'
 
     class << self
       def root

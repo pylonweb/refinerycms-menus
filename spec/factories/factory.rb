@@ -1,5 +1,5 @@
 FactoryGirl.define do
-	factory :page_menu, aliases: [:menu], :class => Refinery::PageMenu do
+	factory :menu, :class => Refinery::Menu do
 		sequence(:title) { |n| "Menu #{n}" }
 		sequence(:permatitle) {|n| "menu_#{n}" }
 	end

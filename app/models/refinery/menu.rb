@@ -1,5 +1,5 @@
 module Refinery
-  class PageMenu < Refinery::Core::BaseModel  
+  class Menu < Refinery::Core::BaseModel  
     
     has_many :links, :class_name => "::Refinery::MenuLink", :foreign_key => :refinery_menu_id, :dependent => :destroy, :order => "lft ASC"
     

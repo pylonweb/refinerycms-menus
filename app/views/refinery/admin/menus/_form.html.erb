@@ -1,4 +1,4 @@
-<%= form_for [refinery, :admin, @page_menu], html: { id: 'page_menu_form' } do |f| %>
+<%= form_for [refinery, :admin, @menu], html: { id: 'menu_form' } do |f| %>
   <div class='field'>
     <%= f.label :title %>
     <%= f.text_field :title, class: "larger widest" %>
@@ -6,7 +6,7 @@
   <div id='links-container'>
 
     <%= render '/refinery/admin/error_messages',
-               :object => @page_menu,
+               :object => @menu,
                :include_object_name => true %>
 
 
@@ -26,6 +26,6 @@
 
   <%= render '/refinery/admin/form_actions', :f => f,
               :continue_editing => false,
-              :delete_title => t('delete', :scope => 'refinery.admin.page_menus.page_menu'),
-              :delete_confirmation => t('message', :scope => 'refinery.admin.delete', title: @page_menu.title) %>
+              :delete_title => t('delete', :scope => 'refinery.admin.menus.menu'),
+              :delete_confirmation => t('message', :scope => 'refinery.admin.delete', title: @menu.title) %>
 <% end %>

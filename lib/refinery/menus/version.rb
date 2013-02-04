@@ -1,5 +1,5 @@
 module Refinery
-	module PageMenus
+	module Menus
 	  class Version
 	    @major = 2
 	    @minor = 0

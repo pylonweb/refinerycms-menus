@@ -4,7 +4,7 @@ module Refinery
     attr_accessible :parent_id, :refinery_page_id, :refinery_menu_id, :refinery_resource_id, :refinery_resource_type,
                     :title_attribute, :custom_url, :label, :menu, :id_attribute, :class_attribute
 
-    belongs_to :menu, :class_name => '::Refinery::PageMenu', :foreign_key => :refinery_menu_id
+    belongs_to :menu, :class_name => '::Refinery::Menu', :foreign_key => :refinery_menu_id
     belongs_to :resource, :foreign_key => :refinery_resource_id, :polymorphic => true
 
     # Docs for acts_as_nested_set https://github.com/collectiveidea/awesome_nested_set
@@ -31,7 +31,7 @@ module Refinery
     end
 
     def self.resource_config(type)
-      Refinery::PageMenus.menu_resources[type.to_sym]
+      Refinery::Menus.menu_resources[type.to_sym]
     end
 
     def set_label

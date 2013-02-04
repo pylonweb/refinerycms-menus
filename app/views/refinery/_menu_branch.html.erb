@@ -12,7 +12,7 @@
     end
   end
 
-  if Refinery::PageMenus.html_attributes
+  if Refinery::Menus.html_attributes
     css = ''
     menu_branch.html.each do |attr, value|
       css += "#{attr}='#{value}' ".html_safe

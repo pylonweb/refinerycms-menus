@@ -1,5 +1,5 @@
 <%= content_tag :div, class: "pp-add-box resource-pp-add-box" do %>
-  <%= form_for [refinery, :admin, @page_menu.links.build(refinery_resource_type: resource_type)], remote: true do |f| %>
+  <%= form_for [refinery, :admin, @menu.links.build(refinery_resource_type: resource_type)], remote: true do |f| %>
     <h3><%= resource_type.to_s.titleize %></h3>
     <div class='pp-selection-box'>
       <ul class='checkboxes'>
