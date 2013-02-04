@@ -92,7 +92,7 @@ config.menu_resources = refinery_page: {
 
 We will very much appreciate all kinds of contributions to refinerycms-page-menus! Just fork this project, create a new feature branch and open up a pull request. If you don't know how to do this, try to check out [RailsCasts episode 300](http://railscasts.com/episodes/300-contributing-to-open-source). If you are able, please add tests to your pull requests.
 
-If you have any issues or questions, that you cannot find the answer to here, then please feel free to add an [issue on GitHub](https://github.com/refinery/refinerycms-page-images/issues/new).
+If you have any issues or questions, that you cannot find the answer to here, then please feel free to add an [issue on GitHub](https://github.com/pylonweb/refinerycms-page-menus/issues/new).
 
 ### Running tests
 Refinery Page Menus uses RSpec to test. See the documentation on [RSpec GitHub page](https://github.com/rspec/rspec).
