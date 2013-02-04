@@ -1,6 +1,6 @@
 # Page Menus Extension for Refinery CMS
 
-[![Build Status](https://travis-ci.org/pylonweb/refinerycms-page-menus.png?branch=master)](undefined)
+[![Build Status](https://travis-ci.org/pylonweb/refinerycms-page-menus.png?branch=master)](https://travis-ci.org/pylonweb/refinerycms-page-menus)
 [![Dependency Status](https://gemnasium.com/pylonweb/refinerycms-page-menus.png)](https://gemnasium.com/pylonweb/refinerycms-page-menus)
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/pylonweb/refinerycms-page-menus)
 [![Gem Version](https://badge.fury.io/rb/refinerycms-page-menus.png)](http://badge.fury.io/rb/refinerycms-page-menus)
