@@ -1,4 +1,4 @@
-<%= form_for [refinery, :admin, @menu], html: { id: 'menu_form' } do |f| %>
+<%= form_for [refinery, :menus, :admin, @menu], html: { id: 'menu_form' } do |f| %>
   <div class='field'>
     <%= f.label :title %>
     <%= f.text_field :title, class: "larger widest" %>
@@ -13,7 +13,7 @@
     <ul id="sortable_list">
       <% if @menu_links.present? %>
         <% @menu_links.each do |menu_link|  %>
-          <%= render partial: 'refinery/admin/menu_links/menu_link', object: menu_link %>
+          <%= render partial: 'refinery/menus/admin/menu_links/menu_link', object: menu_link %>
         <% end %>
       <% else %>
         <li class='pp-placeholder' id="menu_link">
@@ -26,6 +26,6 @@
 
   <%= render '/refinery/admin/form_actions', :f => f,
               :continue_editing => false,
-              :delete_title => t('delete', :scope => 'refinery.admin.menus.menu'),
+              :delete_title => t('delete', :scope => 'refinery.menus.admin.menus.menu'),
               :delete_confirmation => t('message', :scope => 'refinery.admin.delete', title: @menu.title) %>
 <% end %>

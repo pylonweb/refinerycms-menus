@@ -8,9 +8,9 @@ module Refinery
 
       # Compiles a menu.
       def refinery_menu(menu_title)
-        ::Refinery::Menu.new(::Refinery::Menu.find_or_create_by_permatitle(menu_title).links).roots
+        ::Refinery::Menu.new(::Refinery::Menus::Menu.find_or_create_by_permatitle(menu_title).links).roots
       end
-      alias :refinery_page_menu, :refinery_menu
+      alias_method :refinery_page_menu, :refinery_menu
 
     end
   end

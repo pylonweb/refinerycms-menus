@@ -8,12 +8,12 @@
     <div class='body'>
       <%= f.hidden_field :id %>
       <% if f.object.custom_link? %>
-        <%= render partial: "refinery/admin/menu_links/custom_link", object: menu_link, locals: {f: f} %>
+        <%= render partial: "refinery/menus/admin/menu_links/custom_link", object: menu_link, locals: {f: f} %>
       <% else %>
-        <%= render partial: "refinery/admin/menu_links/resource_link", object: menu_link, locals: {f: f} %>
+        <%= render partial: "refinery/menus/admin/menu_links/resource_link", object: menu_link, locals: {f: f} %>
       <% end %>
 
-      <%= link_to t('remove', :scope => 'refinery.admin.menu_links'), admin_menu_link_path(menu_link),
+      <%= link_to t('remove', :scope => 'refinery.menus.admin.menu_links'), refinery.menus_admin_menu_link_path(menu_link),
                   method: :delete,
                   remote: true,
                   class: 'remove' %>
@@ -21,7 +21,7 @@
 
     <ul class='nested'>
       <% menu_link.children.each do |child|  %>
-        <%= render partial: 'refinery/admin/menu_links/menu_link', object: child %>
+        <%= render partial: 'refinery/menus/admin/menu_links/menu_link', object: child %>
       <% end %>
     </ul>
   </li>

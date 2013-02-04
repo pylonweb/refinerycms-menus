@@ -8,5 +8,5 @@ if defined?(::Refinery::User)
 end
 
 Refinery::Menus.default_menus.each do |menu|
-	Refinery::Menu.create(title: menu.titleize, permatitle: menu.underscore)
+	Refinery::Menus::Menu.create(title: menu.titleize, permatitle: menu.underscore)
 end

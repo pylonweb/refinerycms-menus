@@ -1,21 +1,21 @@
 <%= content_tag :div, class: "pp-add-box resource-pp-add-box" do %>
-  <%= form_for [refinery, :admin, @menu.links.build(refinery_resource_type: resource_type)], remote: true do |f| %>
+  <%= form_for [refinery, :menus, :admin, @menu.links.build(refinery_resource_type: resource_type)], remote: true do |f| %>
     <h3><%= resource_type.to_s.titleize %></h3>
     <div class='pp-selection-box'>
       <ul class='checkboxes'>
         <%= f.hidden_field :refinery_menu_id %>
         <%= f.hidden_field :refinery_resource_type %>
 
-        <% resources = Refinery::MenuLink.find_all_of_type(resource_type) %>
+        <% resources = Refinery::Menus::MenuLink.find_all_of_type(resource_type) %>
         <% resources.each_with_index do |object, index| %>
           <li>
             <%= check_box_tag "refinery_resource_ids[]", object.id %>
-            <%= label_tag "refinery_resource_ids[]", object.send(Refinery::MenuLink.resource_config(resource_type)[:title_attr]) %> 
+            <%= label_tag "refinery_resource_ids[]", object.send(Refinery::Menus::MenuLink.resource_config(resource_type)[:title_attr]) %> 
           </li>
         <% end %>
       </ul>
     </div>
     <% # add resource type here %>
-    <%= f.submit t('add', :scope => 'refinery.admin.menu_links', resource: resource_type.to_s.titleize)  %>
+    <%= f.submit t('add', :scope => 'refinery.menus.admin.menu_links', resource: resource_type.to_s.titleize)  %>
   <% end %>
 <% end %>

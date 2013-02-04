@@ -6,8 +6,8 @@ fr:
         description: Cr&eacute;er et g&eacute;rer des menus personnalis&eacute;s pour votre site
   activerecord:
     models:
-      refinery/menu: Menu
+      refinery/menus/menu: Menu
     attributes:
-      refinery/menu:
+      refinery/menus/menu:
         title: Titre
         pages: Pages
