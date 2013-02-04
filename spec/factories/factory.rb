@@ -1,10 +1,10 @@
 FactoryGirl.define do
-	factory :menu, :class => Refinery::Menu do
+	factory :menu, :class => Refinery::Menus::Menu do
 		sequence(:title) { |n| "Menu #{n}" }
 		sequence(:permatitle) {|n| "menu_#{n}" }
 	end
 
-	factory :menu_link, aliases: [:link], :class => Refinery::MenuLink do
+	factory :menu_link, aliases: [:link], :class => Refinery::Menus::MenuLink do
 		menu
 		label "label"
 		

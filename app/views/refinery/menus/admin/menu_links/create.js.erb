@@ -1,6 +1,6 @@
 $('.pp-placeholder').remove();
 reset_link_forms();
 <% @menu_links.each do |menu_link| %>
-	var partial = '<%= j render partial: "refinery/admin/menu_links/menu_link", object: menu_link %>'
+	var partial = '<%= j render partial: "refinery/menus/admin/menu_links/menu_link", object: menu_link %>'
 	$('#sortable_list').append(partial);
 <% end %>

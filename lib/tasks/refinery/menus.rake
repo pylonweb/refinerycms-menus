@@ -9,7 +9,7 @@ namespace :refinery do
     	if title
   			permatitle = title.gsub(' ', '_').underscore if permatitle.nil?
     		begin
-    			menu = Refinery::Menu.create!(title: title, permatitle: permatitle)
+    			menu = Refinery::Menus::Menu.create!(title: title, permatitle: permatitle)
        		puts "Created new menu with title '#{title}' and permatitle '#{permatitle}'"
     			puts "To use this menu in your views, paste this code into your view file:"
     			puts "<%= render :partial => '/refinery/menu', :locals => { "
@@ -31,7 +31,7 @@ namespace :refinery do
     desc "Lists all menus"
     task :list => :environment do
   		begin
-  			menus = Refinery::Menu.all
+  			menus = Refinery::Menus::Menu.all
 
 				if menus.none?
 					puts "You don't have any menus."

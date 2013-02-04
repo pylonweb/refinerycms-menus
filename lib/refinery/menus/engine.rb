@@ -15,9 +15,9 @@ module Refinery
       initializer "register refinery_menus plugin" do
         Refinery::Plugin.register do |plugin|
           plugin.name = 'refinery_menus'
-          plugin.url = proc { Refinery::Core::Engine.routes.url_helpers.admin_menus_path }
+          plugin.url = proc { Refinery::Core::Engine.routes.url_helpers.menus_admin_menus_path }
           plugin.pathname = root
-          plugin.menu_match = /refinery\/(menus|menu_links)/ #Match controller path
+          plugin.menu_match = /refinery\/menus(\/.*)?/ #Match controller path
         end
       end
       

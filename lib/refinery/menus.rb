@@ -1,5 +1,6 @@
 require 'refinerycms-core'
 
+require 'refinery/menu_item_decorator'
 
 module Refinery
   autoload :MenusGenerator, 'generators/refinery/menus/menus_generator'
@@ -7,7 +8,6 @@ module Refinery
   module Menus
     require 'refinery/menus/engine'
     require 'refinery/menus/configuration'
-    require 'refinery/menus/menu_item_decorator'
     
     autoload :InstanceMethods, 'refinery/menus/instance_methods'
 

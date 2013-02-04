@@ -4,31 +4,32 @@ da:
       refinery_menus:
         title: Menuer
         description: Opret og administrer brugerdefinerede menuer for din side
-    admin:
-      menu_links:
-        remove: fjern
-        add: "Tilføj %{resource}"
-        custom_link:
-          add: Tilføj brugerdefineret link
-          custom_url: Url
-      menus:
-        form:
-          no_links: "Brug panelet i venstre, til at tilføje links til din menu."
-        records:
-          title: Menuer
-          no_items_yet: Der er ingen menuer endnu. Bed din webudvikler om at oprette en for dig.
-        menu:
-          edit: Redigér menuen
-          delete: Slet menuen permanent
+    menus:
+      admin:
+        menu_links:
+          remove: fjern
+          add: "Tilføj %{resource}"
+          custom_link:
+            add: Tilføj brugerdefineret link
+            custom_url: Url
+        menus:
+          form:
+            no_links: "Brug panelet i venstre, til at tilføje links til din menu."
+          records:
+            title: Menuer
+            no_items_yet: Der er ingen menuer endnu. Bed din webudvikler om at oprette en for dig.
+          menu:
+            edit: Redigér menuen
+            delete: Slet menuen permanent
   activerecord:
     models:
-      refinery/menu: Menu
-      refinery/menu_link: Link
+      refinery/menus/menu: Menu
+      refinery/menus/menu_link: Link
     attributes:
-      refinery/menu:
+      refinery/menus/menu:
         title: Titel
         permatitle: Permanent titel
-      refinery/menu_link:
+      refinery/menus/menu_link:
         title_attribute: Titel attribut
         custom_url: Url
         label: Label
