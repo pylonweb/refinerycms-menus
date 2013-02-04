@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/pylonweb/refinerycms-menus.png?branch=master)](https://travis-ci.org/pylonweb/refinerycms-menus)
 [![Dependency Status](https://gemnasium.com/pylonweb/refinerycms-menus.png)](https://gemnasium.com/pylonweb/refinerycms-menus)
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/pylonweb/refinerycms-menus)
-[![Gem Version](https://badge.fury.io/rb/refinerycms-menus.png)](http://badge.fury.io/rb/refinerycms-menus)
+<!--[![Gem Version](https://badge.fury.io/rb/refinerycms-menus.png)](http://badge.fury.io/rb/refinerycms-menus)-->
 ## About
 
 Page menus allows you to create and edit several custom menus for your Refinery CMS app. It gives you the ability to add links to any kind of model you want. As default are custom links (fx http://google.com, http://github.com etc.) Refinery Pages and Refinery Resources (files). See the screenshot below for an example.
