@@ -30,7 +30,7 @@ gem 'refinerycms-page-menus', '2.0.5'
 or for edge version
 
 ```ruby
-gem 'refinerycms-page-menus', git: 'git://github.com/pylonweb/refinerycms-menus.git'
+gem 'refinerycms-menus', git: 'git://github.com/pylonweb/refinerycms-menus.git'
 ```
 
 Next run
