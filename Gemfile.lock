@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    refinerycms-page-menus (2.0.6)
+    refinerycms-menus (2.0.6)
       awesome_nested_set (~> 2.1.0)
       refinerycms-core (~> 2.0.9)
 
@@ -296,7 +296,7 @@ DEPENDENCIES
   rb-notifu (~> 0.0.4)
   refinerycms (~> 2.0.3)
   refinerycms-i18n (~> 2.0.2)
-  refinerycms-page-menus!
+  refinerycms-menus!
   refinerycms-testing (~> 2.0.3)
   rspec-rails
   ruby_gntp (~> 0.3.4)
