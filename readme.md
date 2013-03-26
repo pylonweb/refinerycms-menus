@@ -24,7 +24,7 @@ Refinery Menus allows you to create and edit several custom menus for your Refin
 Add this line to your applications `Gemfile`
 
 ```ruby
-gem 'refinerycms-menus', '2.0.6'
+gem 'refinerycms-menus', '~> 2.0.7'
 ```
 
 or for edge version
@@ -42,6 +42,17 @@ rake db:migrate
 ```
 
 Now when you start up your Refinery application, you should see a new menus tap in the admin interface.
+
+## Update
+
+Refinerycms Menus is still fairly new, and some updates include new database migrations, even on 2.0.X releases. You should therefore always remember to run the following after updating Refinerycms Menus:
+
+```bash
+rails generate refinery:menus
+rake db:migrate
+```
+
+If you have made changes to the `config/initializers/refinery/menus.rb` file then remember not to overwrite it when running the generator.
 
 ## Usage
 ### Add to your view
