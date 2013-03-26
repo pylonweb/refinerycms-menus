@@ -2,8 +2,8 @@ source "http://rubygems.org"
 
 gemspec
 
-gem 'refinerycms', '~> 2.0.3'
-gem 'refinerycms-i18n', '~> 2.0.2'
+gem 'refinerycms', '~> 2.0.9'
+gem 'refinerycms-i18n', '~> 2.0.9'
 gem 'rails'
 
 # Database Configuration
