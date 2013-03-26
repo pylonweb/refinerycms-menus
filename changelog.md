@@ -12,7 +12,7 @@
 
 # Changelog
 ## [2.0.7](https://github.com/pylonweb/refinerycms-menus/tree/v2.0.7) [27 Marts 2013]
-* Critical bug fix [#32](https://github.com/pylonweb/refinerycms-menus/issue/32) ([@jokklan](https://github.com/jokklan))
+* Critical bug fix [#32](https://github.com/pylonweb/refinerycms-menus/issues/32) ([@jokklan](https://github.com/jokklan))
 * Updated readme file with the correct names [#28](https://github.com/pylonweb/refinerycms-menus/pull/28) ([@drockwell](https://github.com/drockwell))
 * Fixed bug in initializer template
 
@@ -22,14 +22,14 @@
 * Fixed seed duplication [#23](https://github.com/pylonweb/refinerycms-menus/pull/23) ([@robholland](https://github.com/robholland))
 * Fixed bug with menu_links form fields, so they now all updates correctly [#22](https://github.com/pylonweb/refinerycms-menus/pull/22) ([@skipchris](https://github.com/skipchris))
 * Replaced admin_filters with scopes [#20](https://github.com/pylonweb/refinerycms-menus/pull/20) ([@robholland](https://github.com/robholland))
-* Added html attributes (id, class and title) to menu links [#18](/pylonweb/refinerycms-menus/pull/18) ([@skipchris](https://github.com/skipchris))
+* Added html attributes (id, class and title) to menu links [#18](https://github.com//pylonweb/refinerycms-menus/pull/18) ([@skipchris](https://github.com/skipchris))
 * Add full test suite [#3](https://github.com/pylonweb/refinerycms-menus/issues/3)
 * [See full list](https://github.com/pylonweb/refinerycms-menus/compare/v2.0.5...v2.0.6)
 
 ## [2.0.5](https://github.com/pylonweb/refinerycms-menus/tree/v2.0.5) [6 January 2013]
 * Renamed PagePosition to MenuLink [#12](https://github.com/pylonweb/refinerycms-menus/pull/12) ([@jokklan](https://github.com/jokklan))
 * Fixed validation of labels, and MenuLink title
-* Added rake task helpers for listing and creating menus [#2](/pylonweb/refinerycms-menus/issues/2) ([@jokklan](https://github.com/jokklan))
+* Added rake task helpers for listing and creating menus [#2](https://github.com/pylonweb/refinerycms-menus/issues/2) ([@jokklan](https://github.com/jokklan))
 * Updated english and danish translations
 * [See full list](https://github.com/pylonweb/refinerycms-menus/compare/v2.0.4...v2.0.5)
 
@@ -38,7 +38,7 @@
 * Added configuration
 * Added support for RefineryCMS 2.0.6 [#7](https://github.com/pylonweb/refinerycms-menus/pull/7) ([@bricesanchez](https://github.com/bricesanchez))
 * Fixed translations, and added french [#7](https://github.com/pylonweb/refinerycms-menus/pull/7)  ([@bricesanchez](https://github.com/bricesanchez))
-* Added flex menus (links to all types of resources and custom links) [#8](https://github.com/pylonweb/refinerycms-menus/pull/8), [#10](https://github.com/pylonweb/refinerycms-menus/pull/10) ([@joekur](https://github.com/joekur), [@jokklan](https://github.com/jokklan), [@f3ng3r](/f3ng3r))
+* Added flex menus (links to all types of resources and custom links) [#8](https://github.com/pylonweb/refinerycms-menus/pull/8), [#10](https://github.com/pylonweb/refinerycms-menus/pull/10) ([@joekur](https://github.com/joekur), [@jokklan](https://github.com/jokklan), [@f3ng3r](https://github.com/f3ng3r))
 * Lots of bugs fixes
 * [See full list](https://github.com/pylonweb/refinerycms-menus/compare/v2.0.3...v2.0.4)
 
