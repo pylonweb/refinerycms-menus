@@ -1,4 +1,4 @@
-# Page Menus Extension for Refinery CMS
+# Menus extension for Refinery CMS
 
 [![Build Status](https://travis-ci.org/pylonweb/refinerycms-menus.png?branch=master)](https://travis-ci.org/pylonweb/refinerycms-menus)
 [![Dependency Status](https://gemnasium.com/pylonweb/refinerycms-menus.png)](https://gemnasium.com/pylonweb/refinerycms-menus)
@@ -6,7 +6,7 @@
 <!--[![Gem Version](https://badge.fury.io/rb/refinerycms-menus.png)](http://badge.fury.io/rb/refinerycms-menus)-->
 ## About
 
-Page menus allows you to create and edit several custom menus for your Refinery CMS app. It gives you the ability to add links to any kind of model you want. As default are custom links (fx http://google.com, http://github.com etc.) Refinery Pages and Refinery Resources (files). See the screenshot below for an example.
+Refinery Menus allows you to create and edit several custom menus for your Refinery CMS app. It gives you the ability to add links to any kind of model you want. As default are custom links (fx http://google.com, http://github.com etc.) Refinery Pages and Refinery Resources (files). See the screenshot below for an example.
 
 ## Requirements
 
@@ -24,13 +24,13 @@ Page menus allows you to create and edit several custom menus for your Refinery 
 Add this line to your applications `Gemfile`
 
 ```ruby
-gem 'refinerycms-page-menus', '2.0.5'
+gem 'refinerycms-menus', '2.0.6'
 ```
 
 or for edge version
 
 ```ruby
-gem 'refinerycms-page-menus', git: 'git://github.com/pylonweb/refinerycms-menus.git'
+gem 'refinerycms-menus', git: 'git://github.com/pylonweb/refinerycms-menus.git'
 ```
 
 Next run
@@ -56,8 +56,8 @@ rake refinery:override view=refinery/_header
 Then add this code to the header, to generate the custom menu:
 ```erb
 <%= render :partial => "/refinery/menu", :locals => {
-			:roots => refinery_menu("custom_menu")
-	  }	%>
+      :roots => refinery_menu("custom_menu")
+    } %>
 ```
 "custom_menu" must be replaced by the permatitle of your menu.
 ### Rake commands
@@ -71,7 +71,7 @@ You can create a new menu in the rails console, or you can use the following com
 rake refinery:menus:create_menu title=some_title
 ```
 ### Configuration
-Refinerycms Page Menus is very flexible and is very easy to setup your own models, so you can link to them in your menus. To add a new model to Refinerycms Page Menus, just go to the config file (`config/initializers/refinery/menus.rb`) and follow the instructions on how to add your model to the `menu_resources` configuration option.
+Refinerycms Menus is very flexible and is very easy to setup your own models, so you can link to them in your menus. To add a new model to Refinerycms Menus, just go to the config file (`config/initializers/refinery/menus.rb`) and follow the instructions on how to add your model to the `menu_resources` configuration option.
 
 Your model only have to respond to two methods:
 
@@ -82,20 +82,20 @@ Here is a example of how Refinery Pages are added as a custom resource model:
 
 ```ruby
 config.menu_resources = refinery_page: {
-  							klass: 'Refinery::Page',
-  							title_attr: 'title',
-  							scope: Proc.new { live.order('lft ASC') }
-						 }
+                klass: 'Refinery::Page',
+                title_attr: 'title',
+                scope: Proc.new { live.order('lft ASC') }
+             }
 ```
 
 ## Questions, problems and contributions
 
 We will very much appreciate all kinds of contributions to refinerycms-menus! Just fork this project, create a new feature branch and open up a pull request. If you don't know how to do this, try to check out [RailsCasts episode 300](http://railscasts.com/episodes/300-contributing-to-open-source). If you are able, please add tests to your pull requests.
 
-If you have any issues or questions, that you cannot find the answer to here, then please feel free to add an [issue on GitHub](https://github.com/pylonweb/refinerycms-page-menus/issues/new).
+If you have any issues or questions, that you cannot find the answer to here, then please feel free to add an [issue on GitHub](https://github.com/pylonweb/refinerycms-menus/issues/new).
 
 ### Running tests
-Refinery Page Menus uses RSpec to test. See the documentation on [RSpec GitHub page](https://github.com/rspec/rspec).
+Refinery Menus uses RSpec to test. See the documentation on [RSpec GitHub page](https://github.com/rspec/rspec).
 
 1. To run the test suite, you must first install a dummy refinery app to test against: `bundle exec refinery:testing:dummy_app`. See the [Refinery Testing Guide](http://refinerycms.com/guides/testing) for more info.
 2. You can run all specs by running the command `bundle exec rake`.

@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.name              = %q{refinerycms-menus}
   s.version           = version
-  s.summary           = %q{Pages Menus extension for Refinery CMS}
-  s.description       = %q{Add custom menus to pages}
+  s.summary           = %q{Menus extension for Refinery CMS}
+  s.description       = %q{Ruby on Rails Menus extension for Refinery CMS}
   s.date              = Date.today.strftime("%Y-%m-%d")
   s.email             = %q{johan@pylonweb.dk}
   s.homepage          = %q{http://github.com/pylonweb/refinerycms-menus}
