@@ -9,8 +9,8 @@ FactoryGirl.define do
 		label "label"
 		
 		factory :menu_link_with_resource do
-			refinery_resource_id 1
-			refinery_resource_type 'refinery_resource'
+			resource_id 1
+			resource_type 'refinery_resource'
 		end
 	end
 end

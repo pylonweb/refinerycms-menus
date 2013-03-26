@@ -7,9 +7,9 @@ module Refinery
           respond_to do |format|
             format.js do
               @menu_links = []
-              if params[:refinery_resource_ids]
-                params[:refinery_resource_ids].each do |id|
-                  @menu_links << MenuLink.create({refinery_resource_id: id}.merge(params[:menu_link]))
+              if params[:resource_ids]
+                params[:resource_ids].each do |id|
+                  @menu_links << MenuLink.create({resource_id: id}.merge(params[:menu_link]))
                 end
               else
                 @menu_links << MenuLink.create(params[:menu_link])

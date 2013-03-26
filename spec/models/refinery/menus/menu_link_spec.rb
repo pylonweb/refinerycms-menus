@@ -160,7 +160,7 @@ module Refinery
         end
 
         it "should set label to resource title if resource link" do
-          @menu_link = FactoryGirl.build(:menu_link, label: nil, refinery_resource_id: 1, refinery_resource_type: "refinery_resource")
+          @menu_link = FactoryGirl.build(:menu_link, label: nil, resource_id: 1, resource_type: "refinery_resource")
           @resource = double(:send => "Some Resource", :title => "Some Resource")
           @menu_link.stub(:resource).and_return(@resource)
           @menu_link.stub(:resource_config).and_return({:title_attr => "title"})
@@ -173,7 +173,7 @@ module Refinery
       describe "#resource_klass" do
         it "should call class method resource_klass" do
           Refinery::Menus::MenuLink.should_receive(:resource_klass).with("refinery_resource")
-          @menu_link = FactoryGirl.build(:menu_link, refinery_resource_type: "refinery_resource")
+          @menu_link = FactoryGirl.build(:menu_link, resource_type: "refinery_resource")
 
           @menu_link.resource_klass
         end
@@ -182,15 +182,15 @@ module Refinery
       describe "#resource_config" do
         it "should call class method resource_config" do
           Refinery::Menus::MenuLink.should_receive(:resource_config).with("refinery_resource")
-          @menu_link = FactoryGirl.build(:menu_link, refinery_resource_type: "refinery_resource")
+          @menu_link = FactoryGirl.build(:menu_link, resource_type: "refinery_resource")
 
           @menu_link.resource_config
         end
       end
 
       describe "#resource_type" do
-        it "should return refinery_resource_type if exists" do
-          @menu_link = FactoryGirl.build(:menu_link, refinery_resource_type: "refinery_resource")
+        it "should return resource_type if exists" do
+          @menu_link = FactoryGirl.build(:menu_link, resource_type: "refinery_resource")
           @menu_link.resource_type.should == "refinery_resource"
         end
 
@@ -210,35 +210,35 @@ module Refinery
       end
 
       describe "#custom_link?" do
-        it "should return true if refinery_resource_id is nil" do
-          @menu_link = FactoryGirl.build(:menu_link, refinery_resource_id: nil)
+        it "should return true if resource_id is nil" do
+          @menu_link = FactoryGirl.build(:menu_link, resource_id: nil)
           @menu_link.custom_link?.should be_true
         end
 
-        it "should return true if refinery_resource_type is nil" do
-          @menu_link = FactoryGirl.build(:menu_link, refinery_resource_type: nil)
+        it "should return true if resource_type is nil" do
+          @menu_link = FactoryGirl.build(:menu_link, resource_type: nil)
           @menu_link.custom_link?.should be_true
         end
 
-        it "should return false if refinery_resource_id and refinery_resource_type is present" do
-          @menu_link = FactoryGirl.build(:menu_link, refinery_resource_type: "refinery_resource", refinery_resource_id: 1)
+        it "should return false if resource_id and resource_type is present" do
+          @menu_link = FactoryGirl.build(:menu_link, resource_type: "refinery_resource", resource_id: 1)
           @menu_link.custom_link?.should be_false
         end
       end
 
       describe "#resource_link?" do
-        it "should return false if refinery_resource_id is nil" do
-          @menu_link = FactoryGirl.build(:menu_link, refinery_resource_id: nil)
+        it "should return false if resource_id is nil" do
+          @menu_link = FactoryGirl.build(:menu_link, resource_id: nil)
           @menu_link.resource_link?.should be_false
         end
 
-        it "should return false if refinery_resource_type is nil" do
-          @menu_link = FactoryGirl.build(:menu_link, refinery_resource_type: nil)
+        it "should return false if resource_type is nil" do
+          @menu_link = FactoryGirl.build(:menu_link, resource_type: nil)
           @menu_link.resource_link?.should be_false
         end
 
-        it "should return true if refinery_resource_id and refinery_resource_type is present" do
-          @menu_link = FactoryGirl.build(:menu_link, refinery_resource_type: "refinery_resource", refinery_resource_id: 1)
+        it "should return true if resource_id and resource_type is present" do
+          @menu_link = FactoryGirl.build(:menu_link, resource_type: "refinery_resource", resource_id: 1)
           @menu_link.resource_link?.should be_true
         end
       end

@@ -3,11 +3,11 @@ module Refinery
     class MenuLink < Refinery::Core::BaseModel
       self.table_name = "refinery_menus_links"
       
-      attr_accessible :parent_id, :refinery_page_id, :refinery_menu_id, :refinery_resource_id, :refinery_resource_type,
+      attr_accessible :parent_id, :refinery_page_id, :refinery_menu_id, :resource, :resource_id, :resource_type,
                       :title_attribute, :custom_url, :label, :menu, :id_attribute, :class_attribute
 
       belongs_to :menu, :class_name => '::Refinery::Menus::Menu', :foreign_key => :refinery_menu_id
-      belongs_to :resource, :foreign_key => :refinery_resource_id, :polymorphic => true
+      belongs_to :resource, :polymorphic => true
 
       # Docs for acts_as_nested_set https://github.com/collectiveidea/awesome_nested_set
       # rather than :delete_all we want :destroy
@@ -59,7 +59,7 @@ module Refinery
       end
 
       def resource_type
-        refinery_resource_type || "Custom link"
+        super || "Custom link"
       end
 
       def type_name
@@ -67,16 +67,16 @@ module Refinery
       end
 
       def custom_link?
-        refinery_resource_id.nil? || refinery_resource_type.nil?
+        resource_id.nil? || resource_type.nil?
       end
 
       def resource_link?
-        refinery_resource_id.present? && refinery_resource_type.present?
+        resource_id.present? && resource_type.present?
       end
 
       def resource
         return nil if custom_link?
-        resource_klass.find(refinery_resource_id)
+        resource_klass.find(resource_id)
       end
 
       def resource_title
