@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version           = version
   s.summary           = %q{Menus extension for Refinery CMS}
   s.description       = %q{Ruby on Rails Menus extension for Refinery CMS}
-  s.date              = Date.today.strftime("%Y-%m-%d")
+  s.date              = Time.now.strftime("%Y-%m-%d")
   s.email             = %q{johan@pylonweb.dk}
   s.homepage          = %q{http://github.com/pylonweb/refinerycms-menus}
   s.authors           = ['Johan Frølich']
