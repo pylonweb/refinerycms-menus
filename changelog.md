@@ -15,6 +15,7 @@
 * Critical bug fix [#32](https://github.com/pylonweb/refinerycms-menus/issues/32) ([@jokklan](https://github.com/jokklan))
 * Updated readme file with the correct names [#28](https://github.com/pylonweb/refinerycms-menus/pull/28) ([@drockwell](https://github.com/drockwell))
 * Fixed bug in initializer template
+* [See full list](https://github.com/pylonweb/refinerycms-menus/compare/v2.0.6...v2.0.7)
 
 ## [2.0.6](https://github.com/pylonweb/refinerycms-menus/tree/v2.0.6) [26 Marts 2013]
 * Namespace whole engine with menus namespace [#26](https://github.com/pylonweb/refinerycms-menus/pull/26) ([@jokklan](https://github.com/jokklan))
