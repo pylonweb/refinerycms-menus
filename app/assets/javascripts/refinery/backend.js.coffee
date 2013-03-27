@@ -1,14 +1,17 @@
+menu_list = null
+
 jQuery =>
   $('#form-container').css('min-height', $('#left_actions').height() + "px")
 
-  sortable_list = create_sortable_list(
+  menu_list = create_sortable_list(
     update_url: null
     sortable_list: $('#sortable_list')
     tree: true
     replaceContentsAfterUpdate: false
   )
 
-  sortable_list.enable_reordering()
+  menu_list.sortable_list.addClass("reordering")
+  menu_list.sortable_list.nestedSortable("enable")
 
   $('#sortable_list').on 'click', '.header', ->
     $(this).siblings('.body').slideToggle()
@@ -30,7 +33,8 @@ reset_resource_link_forms = () ->
   $('.resource-pp-add-box').find('input[type="checkbox"]').attr('checked', false)
 
 save_structure = (form) ->
-  sortable_list.disable_reordering()
+  menu_list.sortable_list.nestedSortable("disable")
+  menu_list.sortable_list.removeClass("reordering")
 
   serialized_lists = sortable_list.serializelist()
   for elem in serialized_lists.split('&')
