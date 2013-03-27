@@ -66,9 +66,7 @@ rake refinery:override view=refinery/_header
 
 Then add this code to the header, to generate the custom menu:
 ```erb
-<%= render :partial => "/refinery/menu", :locals => {
-      :roots => refinery_menu("custom_menu")
-    } %>
+<%= Refinery::Pages::MenuPresenter.new(refinery_menu("custom_menu"), self).to_html %>
 ```
 "custom_menu" must be replaced by the permatitle of your menu.
 ### Rake commands
