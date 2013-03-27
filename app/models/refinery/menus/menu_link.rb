@@ -91,6 +91,17 @@ module Refinery
         resource.present? ? resource.url : '/'
       end
 
+      def resource=(record)
+        klass = record.class.base_class.name
+        key = klass.underscore.tr!("-", "_")
+        if Refinery::Menus.menu_resources.has_key?(key)
+          super
+          resource_type = key
+        elsif type = Refinery::Menus.menu_resources.detect{|k,v| v.has_key?(:klass) && v[:klass] = klass}.first
+          resource_type = type
+        end
+      end
+
       def url
         if custom_link?
           custom_url
