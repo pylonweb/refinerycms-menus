@@ -36,7 +36,7 @@ save_structure = (form) ->
   menu_list.sortable_list.nestedSortable("disable")
   menu_list.sortable_list.removeClass("reordering")
 
-  serialized_lists = sortable_list.serializelist()
+  serialized_lists = menu_list.sortable_list.serializelist()
   for elem in serialized_lists.split('&')
     if elem.length
       input = $("<input>").attr("type", "hidden").attr("name", elem.split('=')[0]).val(elem.split('=')[1])
