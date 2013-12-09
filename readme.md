@@ -114,3 +114,5 @@ Refinery Menus uses RSpec to test. See the documentation on [RSpec GitHub page](
 ## Screenshot
 
 ![image](https://raw.github.com/pylonweb/refinerycms-menus/master/doc/refinery_menu_edit.png)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/pylonweb/refinerycms-menus/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
